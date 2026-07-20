@@ -3,7 +3,7 @@ import { faqItems } from "@/data/faq";
 import { hasConfiguredValue } from "@/lib/contact";
 
 export const siteDescription =
-  "Toroslar, Mersin'deki Akdeniz Kasabı'nın dana, kuzu, tavuk, kasap köfte, sucuk ve ızgaralık ürünlerini inceleyin; WhatsApp üzerinden bilgi alın.";
+  "Toroslar, Mersin'de 7/24 açık Akdeniz Kasabı'nın dana, kuzu, tavuk, kasap köfte, sucuk ve ızgaralık ürünlerini inceleyin; WhatsApp üzerinden bilgi alın.";
 
 export const siteKeywords = [
   "Akdeniz Kasabı",
@@ -42,15 +42,29 @@ export function getSiteUrl(): URL {
 }
 
 export function getLocalBusinessSchema(baseUrl: URL): Record<string, unknown> {
+  const logoUrl = new URL("/logo-720.png", baseUrl).toString();
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": ["Butcher", "FoodEstablishment", "LocalBusiness"],
+    "@type": ["Store", "LocalBusiness"],
     "@id": new URL("/#business", baseUrl).toString(),
     name: businessInfo.name,
     description: siteDescription,
     url: baseUrl.toString(),
     image: new URL("/images/hero-butcher.jpg", baseUrl).toString(),
-    logo: new URL("/favicon.svg", baseUrl).toString(),
+    logo: {
+      "@type": "ImageObject",
+      "@id": new URL("/#logo", baseUrl).toString(),
+      url: logoUrl,
+      contentUrl: logoUrl,
+      width: 720,
+      height: 720,
+      caption: businessInfo.name,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: businessInfo.coordinates.latitude,
+      longitude: businessInfo.coordinates.longitude,
+    },
     openingHoursSpecification: Object.entries(businessInfo.openingHours).map(
       ([day, hours]) => ({
         "@type": "OpeningHoursSpecification",
@@ -69,6 +83,19 @@ export function getLocalBusinessSchema(baseUrl: URL): Record<string, unknown> {
   if (hasConfiguredValue(businessInfo.instagramUrl)) schema.sameAs = [businessInfo.instagramUrl];
 
   return schema;
+}
+
+export function getWebsiteSchema(baseUrl: URL): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": new URL("/#website", baseUrl).toString(),
+    url: baseUrl.toString(),
+    name: businessInfo.name,
+    alternateName: "Akdeniz Kasabı Mersin",
+    inLanguage: "tr-TR",
+    publisher: { "@id": new URL("/#business", baseUrl).toString() },
+  };
 }
 
 export function getFaqSchema(): Record<string, unknown> {

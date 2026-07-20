@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "İletişim",
-  description: "Akdeniz Kasabı'nın Mithat Toroğlu, Kuvayi Milliye Cd., Toroslar/Mersin adresi, +90 553 776 61 62 telefonu, çalışma saatleri ve yol tarifi.",
+  description: "7/24 açık Akdeniz Kasabı'nın Mithat Toroğlu, Kuvayi Milliye Cd., Toroslar/Mersin adresi, +90 553 776 61 62 telefonu ve Google yol tarifi.",
   alternates: { canonical: "/iletisim" },
 };
 

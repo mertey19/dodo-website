@@ -68,8 +68,7 @@ export function Footer() {
           <div className="mt-5 flex gap-3 text-sm text-cream/65">
             <Clock3 className="mt-0.5 shrink-0 text-gold" size={17} aria-hidden="true" />
             <div className="space-y-3">
-              <p><span className="block text-cream">Pazartesi – Cumartesi</span>{businessInfo.workingHours.weekdays}</p>
-              <p><span className="block text-cream">Pazar</span>{businessInfo.workingHours.sunday}</p>
+              <p><span className="block text-cream">Her gün</span>{businessInfo.workingHours.display}</p>
             </div>
           </div>
         </div>

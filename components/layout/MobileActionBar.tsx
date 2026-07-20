@@ -29,7 +29,7 @@ export function MobileActionBar() {
         <MessageCircle size={20} aria-hidden="true" /> WhatsApp
       </a>
       <a
-        href={businessInfo.mapUrl}
+        href={businessInfo.directionsUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl text-[11px] font-extrabold text-burgundy"

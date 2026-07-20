@@ -12,7 +12,7 @@ const detailItems = [
   { icon: Phone, label: "Telefon", value: businessInfo.phone, href: `tel:${businessInfo.phone.replace(/\s/g, "")}` },
   { icon: MessageCircle, label: "WhatsApp", value: businessInfo.phone, href: buildWhatsappUrl() },
   { icon: MapPin, label: "Adres", value: businessInfo.address, href: businessInfo.mapUrl },
-  { icon: Clock3, label: "Çalışma Saatleri", value: `Pzt–Cmt ${businessInfo.workingHours.weekdays} · Pazar ${businessInfo.workingHours.sunday}` },
+  { icon: Clock3, label: "Çalışma Saatleri", value: businessInfo.workingHours.display },
 ];
 
 export function MapPanel() {
@@ -30,7 +30,7 @@ export function MapPanel() {
           allowFullScreen
         />
         <a
-          href={businessInfo.mapUrl}
+          href={businessInfo.directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="button-primary absolute bottom-5 right-5 z-10 shadow-xl"
@@ -86,7 +86,7 @@ export function ContactDetails({ compact = false }: ContactDetailsProps) {
     <section id="iletisim" className={`scroll-mt-24 bg-paper ${compact ? "py-16 sm:py-20" : "section-space"}`}>
       <div className="container-shell">
         {!compact && (
-          <SectionHeading eyebrow="Bize Ulaşın" title="Siparişiniz ve sorularınız için buradayız" description="Ürün, miktar ve hazırlama tercihinizi WhatsApp üzerinden iletebilir; çalışma saatleri içinde bize ulaşabilirsiniz." />
+          <SectionHeading eyebrow="Bize Ulaşın" title="Siparişiniz ve sorularınız için buradayız" description="Ürün, miktar ve hazırlama tercihinizi WhatsApp üzerinden iletebilir; bize haftanın her günü, 24 saat ulaşabilirsiniz." />
         )}
         <div className={`${compact ? "" : "mt-12"} grid overflow-hidden rounded-[2rem] border border-burgundy/10 bg-white shadow-soft lg:grid-cols-[.9fr_1.1fr]`}>
           <Reveal className="p-6 sm:p-9 lg:p-10">
@@ -110,8 +110,8 @@ export function ContactDetails({ compact = false }: ContactDetailsProps) {
             <div className="mt-5"><BusinessStatus /></div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a href={buildWhatsappUrl()} target="_blank" rel="noopener noreferrer" className="button-primary flex-1 justify-center" data-analytics="contact_whatsapp_click"><MessageCircle size={18} aria-hidden="true" /> WhatsApp’tan Yaz</a>
-              {hasConfiguredValue(businessInfo.mapUrl) ? (
-                <a href={businessInfo.mapUrl} target="_blank" rel="noopener noreferrer" className="button-secondary flex-1 justify-center" data-analytics="contact_directions_click">Yol Tarifi <ExternalLink size={17} aria-hidden="true" /></a>
+              {hasConfiguredValue(businessInfo.directionsUrl) ? (
+                <a href={businessInfo.directionsUrl} target="_blank" rel="noopener noreferrer" className="button-secondary flex-1 justify-center" data-analytics="contact_directions_click">Yol Tarifi <ExternalLink size={17} aria-hidden="true" /></a>
               ) : (
                 <span className="button-disabled flex-1 justify-center" aria-disabled="true">Yol Tarifi <ExternalLink size={17} aria-hidden="true" /></span>
               )}

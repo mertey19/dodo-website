@@ -59,6 +59,10 @@ export type BusinessStatusValue = {
 };
 
 export function getBusinessStatus(now = new Date()): BusinessStatusValue {
+  if (businessInfo.alwaysOpen) {
+    return { isOpen: true, label: "7/24 açık · Tatil yok" };
+  }
+
   const { day, minutes } = getZonedParts(now);
   const schedule = businessInfo.openingHours[day];
   const opensAt = timeToMinutes(schedule.opens);

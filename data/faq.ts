@@ -22,6 +22,6 @@ export const faqItems = [
   },
   {
     question: "Adres ve çalışma saatleri nedir?",
-    answer: `${businessInfo.address}. Pazartesi–Cumartesi ${businessInfo.workingHours.weekdays}, Pazar ${businessInfo.workingHours.sunday}.`,
+    answer: `${businessInfo.address}. ${businessInfo.workingHours.display}.`,
   },
 ] as const;

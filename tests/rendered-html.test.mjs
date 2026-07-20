@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(pathname = "/") {
@@ -21,9 +22,25 @@ test("ana sayfayı marka içeriğiyle sunar", async () => {
   assert.match(html, /WhatsApp/);
   assert.match(html, /Toroslar/);
   assert.match(html, /Sık Sorulan Sorular/);
+  assert.match(html, /7\/24 açık/);
+  assert.match(html, /Tatil yok/);
+  assert.match(html, /share\.google\/y7D1PuFTSDbaFpeOZ/);
+  assert.match(html, /36\.8269527/);
+  assert.match(html, /34\.6054432/);
+  assert.match(html, /www\.google\.com\/maps\/dir\/\?api=1/);
+  assert.match(html, /dir_action=navigate/);
   assert.match(html, /FAQPage/);
+  assert.match(html, /\"@type\":\"WebSite\"/);
+  assert.match(html, /logo-720\.png/);
+  assert.match(html, /favicon-48\.png/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Lorem ipsum/i);
   assert.doesNotMatch(html, /Örnek müşteri yorumu|örnek marka metni/i);
+});
+
+test("gömülü haritayı tam işletme pinine bağlar", async () => {
+  const businessSource = await readFile(new URL("../data/business.ts", import.meta.url), "utf8");
+  assert.match(businessSource, /cid=15433133215550243945/);
+  assert.match(businessSource, /z=18/);
 });
 
 test("temel sayfalar sunucu tarafında yanıt verir", async () => {
