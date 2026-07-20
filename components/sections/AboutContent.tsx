@@ -18,12 +18,12 @@ export function AboutContent() {
     <>
       <section className="section-space bg-paper">
         <div className="container-shell grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <Reveal className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone"><Image src="/images/butcher-craft.png" alt="Akdeniz Kasabı'nda usta kasap hazırlığı" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></Reveal>
+          <Reveal className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone"><Image src="/images/butcher-craft.jpg" alt="Akdeniz Kasabı'nda usta kasap hazırlığı" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /></Reveal>
           <Reveal>
             <SectionHeading eyebrow="Marka Hikâyemiz" title="Mahalle kasabı samimiyetini modern hizmetle buluşturuyoruz" />
             <div className="mt-6 space-y-5 text-base leading-8 text-muted">
-              <p>Akdeniz Kasabı, sofraya gelen ürünün nasıl seçildiği ve nasıl hazırlandığının önemli olduğu düşüncesiyle çalışır. Bu örnek marka metni, işletmenin gerçek hikâyesi ve değerleriyle kolayca güncellenebilir.</p>
-              <p>Müşterinin ne pişireceğini dinlemek, doğru ürünü önermek ve ürünü istenen biçimde hazırlamak hizmet anlayışımızın merkezindedir. Abartılı vaatler yerine, günlük işimize gösterdiğimiz özenle güven kazanmayı hedefleriz.</p>
+              <p>Akdeniz Kasabı, Mithat Toroğlu Mahallesi’nde günlük et ve şarküteri ihtiyacı için yüz yüze hizmet verir. Ürün seçimi, kesim ve hazırlama tercihi müşterinin kullanım amacına göre görüşülür.</p>
+              <p>Ne pişireceğinizi ve nasıl bir hazırlık istediğinizi dinleyen açık iletişimi önemsiyoruz. Sipariş taleplerinizi mağazada, telefonla veya WhatsApp üzerinden paylaşabilirsiniz.</p>
             </div>
           </Reveal>
         </div>

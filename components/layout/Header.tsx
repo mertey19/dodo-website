@@ -5,11 +5,12 @@ import { navigation } from "@/data/business";
 import { buildWhatsappUrl } from "@/lib/contact";
 import { Menu, MessageCircle, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -19,9 +20,20 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [open]);
 
@@ -46,13 +58,15 @@ export function Header() {
           <a
             href={buildWhatsappUrl()}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="button-primary hidden xl:inline-flex"
+            data-analytics="header_whatsapp_click"
           >
             <MessageCircle aria-hidden="true" size={18} />
             WhatsApp Sipariş
           </a>
           <button
+            ref={menuButtonRef}
             type="button"
             className="grid size-12 place-items-center rounded-full border border-burgundy/15 text-burgundy transition-colors hover:bg-burgundy hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red lg:hidden"
             aria-expanded={open}
@@ -67,6 +81,7 @@ export function Header() {
 
       <div
         id="mobile-navigation"
+        hidden={!open}
         className={`absolute inset-x-0 top-full overflow-hidden border-b border-burgundy/10 bg-cream shadow-xl transition-[max-height,opacity] duration-300 lg:hidden ${
           open ? "max-h-[34rem] opacity-100" : "pointer-events-none max-h-0 opacity-0"
         }`}
@@ -85,8 +100,9 @@ export function Header() {
           <a
             href={buildWhatsappUrl()}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="button-primary mt-5 justify-center"
+            data-analytics="mobile_menu_whatsapp_click"
           >
             <MessageCircle aria-hidden="true" size={19} />
             WhatsApp’tan Sipariş Ver

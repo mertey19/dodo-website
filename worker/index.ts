@@ -3,8 +3,8 @@ import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } fr
 import handler from "vinext/server/app-router-entry";
 
 interface Env {
-  ASSETS: Fetcher;
-  IMAGES: {
+  ASSETS?: Fetcher;
+  IMAGES?: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
         output(options: { format: string; quality: number }): Promise<{ response(): Response }>;
@@ -30,12 +30,20 @@ const worker = {
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
+      const imageBinding = env.IMAGES;
       return handleImageOptimization(request, {
-        fetchAsset: (path) => env.ASSETS.fetch(new Request(new URL(path, request.url))),
-        transformImage: async (body, { width, format, quality }) => {
-          const result = await env.IMAGES.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
-          return result.response();
+        fetchAsset: (path) => {
+          const assetRequest = new Request(new URL(path, request.url));
+          return env.ASSETS ? env.ASSETS.fetch(assetRequest) : fetch(assetRequest);
         },
+        ...(imageBinding
+          ? {
+              transformImage: async (body: ReadableStream, { width, format, quality }: { width: number; format: string; quality: number }) => {
+                const result = await imageBinding.input(body).transform(width > 0 ? { width } : {}).output({ format, quality });
+                return result.response();
+              },
+            }
+          : {}),
       }, allowedWidths);
     }
 

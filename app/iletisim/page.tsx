@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "İletişim",
-  description: "Akdeniz Kasabı telefon, WhatsApp, adres, çalışma saatleri ve yol tarifi bilgilerine ulaşın.",
+  description: "Akdeniz Kasabı'nın Mithat Toroğlu, Kuvayi Milliye Cd., Toroslar/Mersin adresi, +90 553 776 61 62 telefonu, çalışma saatleri ve yol tarifi.",
   alternates: { canonical: "/iletisim" },
 };
 
@@ -20,8 +20,8 @@ export default function ContactPage() {
           <div className="lg:sticky lg:top-32">
             <p className="eyebrow text-red">Mesaj Bırakın</p>
             <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">Size nasıl yardımcı olabiliriz?</h2>
-            <p className="mt-5 leading-7 text-muted">Form altyapısı henüz bağlı değildir. Acil ve siparişle ilgili konularda WhatsApp üzerinden doğrudan iletişim kurabilirsiniz.</p>
-            <a href={buildWhatsappUrl()} target="_blank" rel="noreferrer" className="button-secondary mt-7">WhatsApp’ı Aç</a>
+            <p className="mt-5 leading-7 text-muted">Adınızı, telefonunuzu ve sorunuzu yazdığınızda form mesajınızı hazırlayıp WhatsApp’a aktarır. Site, form alanlarına yazdığınız bilgileri sunucuda saklamaz.</p>
+            <a href={buildWhatsappUrl()} target="_blank" rel="noopener noreferrer" className="button-secondary mt-7" data-analytics="contact_page_whatsapp_click">WhatsApp’ı Aç</a>
           </div>
           <ContactForm />
         </div>

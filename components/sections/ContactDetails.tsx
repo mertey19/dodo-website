@@ -2,28 +2,65 @@
 
 import { Reveal } from "@/components/common/Reveal";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { BusinessStatus } from "@/components/common/BusinessStatus";
 import { businessInfo } from "@/data/business";
 import { buildWhatsappUrl, hasConfiguredValue } from "@/lib/contact";
 import { Clock3, ExternalLink, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
+import { useState } from "react";
 
 const detailItems = [
-  { icon: Phone, label: "Telefon", value: businessInfo.phone },
-  { icon: MessageCircle, label: "WhatsApp", value: businessInfo.whatsapp },
-  { icon: MapPin, label: "Adres", value: businessInfo.address },
+  { icon: Phone, label: "Telefon", value: businessInfo.phone, href: `tel:${businessInfo.phone.replace(/\s/g, "")}` },
+  { icon: MessageCircle, label: "WhatsApp", value: businessInfo.phone, href: buildWhatsappUrl() },
+  { icon: MapPin, label: "Adres", value: businessInfo.address, href: businessInfo.mapUrl },
   { icon: Clock3, label: "Çalışma Saatleri", value: `Pzt–Cmt ${businessInfo.workingHours.weekdays} · Pazar ${businessInfo.workingHours.sunday}` },
 ];
 
 export function MapPanel() {
+  const [mapVisible, setMapVisible] = useState(false);
+
+  if (hasConfiguredValue(businessInfo.mapEmbedUrl) && mapVisible) {
+    return (
+      <div className="relative h-full min-h-[380px]">
+        <iframe
+          src={businessInfo.mapEmbedUrl}
+          title="Akdeniz Kasabı konumu"
+          className="absolute inset-0 h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+        <a
+          href={businessInfo.mapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button-primary absolute bottom-5 right-5 z-10 shadow-xl"
+          data-analytics="map_directions_click"
+        >
+          Yol Tarifi <ExternalLink size={16} aria-hidden="true" />
+        </a>
+      </div>
+    );
+  }
+
   if (hasConfiguredValue(businessInfo.mapEmbedUrl)) {
     return (
-      <iframe
-        src={businessInfo.mapEmbedUrl}
-        title="Akdeniz Kasabı konumu"
-        className="h-full min-h-[380px] w-full border-0"
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        allowFullScreen
-      />
+      <div className="relative flex min-h-[380px] items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_65%_35%,rgba(197,154,69,.22),transparent_25%),linear-gradient(135deg,#2a1b1e,#3f111a)] p-8 text-center text-cream">
+        <div className="absolute left-8 top-8 size-28 rounded-full border border-cream/10" />
+        <div className="absolute bottom-8 right-8 size-48 rounded-full border border-cream/10" />
+        <div className="relative max-w-sm">
+          <span className="mx-auto grid size-16 place-items-center rounded-full border border-gold/35 bg-gold/10 text-gold"><Navigation size={28} aria-hidden="true" /></span>
+          <h3 className="mt-5 font-display text-3xl font-semibold">Mağazayı haritada görün</h3>
+          <p className="mt-3 text-sm leading-6 text-cream/65">Harita yalnızca siz istediğinizde yüklenir ve Google Maps ile bağlantı kurar.</p>
+          <button
+            type="button"
+            onClick={() => setMapVisible(true)}
+            className="button-gold mt-6"
+            data-analytics="map_preview_load"
+          >
+            Haritayı Göster
+          </button>
+        </div>
+      </div>
     );
   }
 
@@ -59,15 +96,22 @@ export function ContactDetails({ compact = false }: ContactDetailsProps) {
                   <span className="grid size-11 shrink-0 place-items-center rounded-full bg-burgundy text-gold"><item.icon size={19} aria-hidden="true" /></span>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.14em] text-red">{item.label}</p>
-                    <p className="mt-1 text-sm font-semibold leading-6 text-ink">{item.value}</p>
+                    {item.href ? (
+                      <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noreferrer" : undefined} className="mt-1 inline-block text-sm font-semibold leading-6 text-ink transition-colors hover:text-red">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="mt-1 text-sm font-semibold leading-6 text-ink">{item.value}</p>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
+            <div className="mt-5"><BusinessStatus /></div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a href={buildWhatsappUrl()} target="_blank" rel="noreferrer" className="button-primary flex-1 justify-center"><MessageCircle size={18} aria-hidden="true" /> WhatsApp’tan Yaz</a>
+              <a href={buildWhatsappUrl()} target="_blank" rel="noopener noreferrer" className="button-primary flex-1 justify-center" data-analytics="contact_whatsapp_click"><MessageCircle size={18} aria-hidden="true" /> WhatsApp’tan Yaz</a>
               {hasConfiguredValue(businessInfo.mapUrl) ? (
-                <a href={businessInfo.mapUrl} target="_blank" rel="noreferrer" className="button-secondary flex-1 justify-center">Yol Tarifi <ExternalLink size={17} aria-hidden="true" /></a>
+                <a href={businessInfo.mapUrl} target="_blank" rel="noopener noreferrer" className="button-secondary flex-1 justify-center" data-analytics="contact_directions_click">Yol Tarifi <ExternalLink size={17} aria-hidden="true" /></a>
               ) : (
                 <span className="button-disabled flex-1 justify-center" aria-disabled="true">Yol Tarifi <ExternalLink size={17} aria-hidden="true" /></span>
               )}

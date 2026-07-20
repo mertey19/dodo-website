@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Ürünlerimiz",
-  description: "Akdeniz Kasabı'nın dana eti, kuzu eti, tavuk, köfte, şarküteri ve ızgaralık ürünlerini arayın ve kategoriye göre filtreleyin.",
+  description: "Toroslar, Mersin Akdeniz Kasabı'nın dana, kuzu, tavuk, köfte, şarküteri ve ızgaralık ürünlerini inceleyin; WhatsApp sipariş listesi oluşturun.",
   alternates: { canonical: "/urunler" },
 };
 

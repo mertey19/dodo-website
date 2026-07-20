@@ -19,13 +19,25 @@ test("ana sayfayı marka içeriğiyle sunar", async () => {
   assert.match(html, /Akdeniz Kasabı/);
   assert.match(html, /Günlük taze/);
   assert.match(html, /WhatsApp/);
+  assert.match(html, /Toroslar/);
+  assert.match(html, /Sık Sorulan Sorular/);
+  assert.match(html, /FAQPage/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Lorem ipsum/i);
+  assert.doesNotMatch(html, /Örnek müşteri yorumu|örnek marka metni/i);
 });
 
 test("temel sayfalar sunucu tarafında yanıt verir", async () => {
-  for (const pathname of ["/urunler", "/hakkimizda", "/iletisim"]) {
+  for (const pathname of ["/urunler", "/hakkimizda", "/iletisim", "/gizlilik"]) {
     const response = await render(pathname);
     assert.equal(response.status, 200, pathname);
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   }
+});
+
+test("sipariş ve iletişim akışları görünür", async () => {
+  const productsResponse = await render("/urunler");
+  assert.match(await productsResponse.text(), /Sipariş Listem/);
+
+  const contactResponse = await render("/iletisim");
+  assert.match(await contactResponse.text(), /WhatsApp’ta Gönder/);
 });

@@ -3,20 +3,25 @@ import {
   CampaignsSection,
   CategoriesSection,
   FeaturedProductsSection,
+  FAQSection,
   HeroSection,
   OrderProcessSection,
+  ServiceInfoSection,
+  StoreGallerySection,
   TestimonialsSection,
   TrustSection,
   WhyUsSection,
 } from "@/components/sections/HomeSections";
+import { getFaqSchema } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Günlük Taze Et ve Şarküteri",
-  description: "Dana eti, kuzu eti, kasap köfte, sucuk ve ızgaralık ürünleri inceleyin; Akdeniz Kasabı'na WhatsApp üzerinden hızlıca ulaşın.",
+  title: "Toroslar Mersin Kasap",
+  description: "Mithat Toroğlu, Kuvayi Milliye Caddesi'ndeki Akdeniz Kasabı'nın et ve şarküteri ürünlerini inceleyin; WhatsApp sipariş listesi oluşturun.",
 };
 
 export default function HomePage() {
+  const faqSchema = getFaqSchema();
   return (
     <>
       <HeroSection />
@@ -25,9 +30,16 @@ export default function HomePage() {
       <FeaturedProductsSection />
       <CampaignsSection />
       <WhyUsSection />
+      <StoreGallerySection />
       <OrderProcessSection />
+      <ServiceInfoSection />
       <TestimonialsSection />
+      <FAQSection />
       <ContactDetails />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
+      />
     </>
   );
 }

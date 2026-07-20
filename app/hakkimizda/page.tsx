@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Hakkımızda",
-  description: "Akdeniz Kasabı'nın kalite, hijyen, usta kasap deneyimi ve müşteri memnuniyeti yaklaşımını tanıyın.",
+  description: "Toroslar, Mersin'deki Akdeniz Kasabı'nın ürün hazırlama, hijyen, usta kasap deneyimi ve müşteri iletişimi yaklaşımını tanıyın.",
   alternates: { canonical: "/hakkimizda" },
 };
 

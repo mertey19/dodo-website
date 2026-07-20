@@ -1,8 +1,9 @@
 import { businessInfo } from "@/data/business";
+import { faqItems } from "@/data/faq";
 import { hasConfiguredValue } from "@/lib/contact";
 
 export const siteDescription =
-  "Akdeniz Kasabı'nın günlük taze et, dana eti, kuzu eti, kasap köfte, sucuk ve ızgaralık ürünlerini inceleyin; WhatsApp üzerinden hızlıca bilgi alın.";
+  "Toroslar, Mersin'deki Akdeniz Kasabı'nın dana, kuzu, tavuk, kasap köfte, sucuk ve ızgaralık ürünlerini inceleyin; WhatsApp üzerinden bilgi alın.";
 
 export const siteKeywords = [
   "Akdeniz Kasabı",
@@ -14,7 +15,22 @@ export const siteKeywords = [
   "sucuk",
   "ızgaralık et",
   "mahalle kasabı",
+  "Toroslar kasap",
+  "Mersin kasap",
+  "Kuvayi Milliye kasap",
+  "Toroslar taze et",
+  "Mersin kasap köfte",
 ];
+
+const schemaDayNames: Record<keyof typeof businessInfo.openingHours, string> = {
+  monday: "Monday",
+  tuesday: "Tuesday",
+  wednesday: "Wednesday",
+  thursday: "Thursday",
+  friday: "Friday",
+  saturday: "Saturday",
+  sunday: "Sunday",
+};
 
 export function getSiteUrl(): URL {
   const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -29,32 +45,40 @@ export function getLocalBusinessSchema(baseUrl: URL): Record<string, unknown> {
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": ["Butcher", "FoodEstablishment", "LocalBusiness"],
+    "@id": new URL("/#business", baseUrl).toString(),
     name: businessInfo.name,
     description: siteDescription,
     url: baseUrl.toString(),
-    image: new URL("/images/hero-butcher.png", baseUrl).toString(),
-    priceRange: "₺₺",
-    openingHoursSpecification: [
-      {
+    image: new URL("/images/hero-butcher.jpg", baseUrl).toString(),
+    logo: new URL("/favicon.svg", baseUrl).toString(),
+    openingHoursSpecification: Object.entries(businessInfo.openingHours).map(
+      ([day, hours]) => ({
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "08:00",
-        closes: "20:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Sunday",
-        opens: "09:00",
-        closes: "18:00",
-      },
-    ],
+        dayOfWeek: schemaDayNames[day as keyof typeof businessInfo.openingHours],
+        opens: hours.opens,
+        closes: hours.closes,
+      }),
+    ),
   };
 
   if (hasConfiguredValue(businessInfo.phone)) schema.telephone = businessInfo.phone;
   if (hasConfiguredValue(businessInfo.address)) {
-    schema.address = { "@type": "PostalAddress", streetAddress: businessInfo.address };
+    schema.address = { "@type": "PostalAddress", ...businessInfo.structuredAddress };
   }
   if (hasConfiguredValue(businessInfo.mapUrl)) schema.hasMap = businessInfo.mapUrl;
+  if (hasConfiguredValue(businessInfo.instagramUrl)) schema.sameAs = [businessInfo.instagramUrl];
 
   return schema;
+}
+
+export function getFaqSchema(): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
 }

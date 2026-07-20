@@ -5,37 +5,37 @@ export const categories: Category[] = [
     id: "dana",
     title: "Dana Eti",
     description: "Yemeklikten ızgaralığa, ihtiyacınıza göre özenle hazırlanan dana eti çeşitleri.",
-    image: "/images/beef-cuts.png",
+    image: "/images/beef-cuts.jpg",
   },
   {
     id: "kuzu",
     title: "Kuzu Eti",
     description: "Pirzola, kuşbaşı ve özel kesim seçenekleriyle taze kuzu eti ürünleri.",
-    image: "/images/lamb-cuts.png",
+    image: "/images/lamb-cuts.jpg",
   },
   {
     id: "tavuk",
     title: "Tavuk Ürünleri",
     description: "Günlük ihtiyaçlara ve ızgaraya uygun, temizlenmiş tavuk ürünleri.",
-    image: "/images/chicken-cuts.png",
+    image: "/images/chicken-cuts.jpg",
   },
   {
     id: "hazir",
     title: "Köfte ve Hazır Ürünler",
     description: "Pratik sofralar için günlük hazırlanan kasap köfte ve marineli seçenekler.",
-    image: "/images/deli-products.png",
+    image: "/images/deli-products.jpg",
   },
   {
     id: "sarkuteri",
     title: "Sucuk ve Şarküteri",
     description: "Kahvaltıdan mangala, özenle seçilmiş şarküteri lezzetleri.",
-    image: "/images/deli-products.png",
+    image: "/images/deli-products.jpg",
   },
   {
     id: "izgaralik",
     title: "Izgaralık Ürünler",
     description: "Mangal ve ızgara için porsiyonlanmış, pişirmeye hazır özel ürünler.",
-    image: "/images/beef-cuts.png",
+    image: "/images/beef-cuts.jpg",
   },
 ];
 
@@ -46,7 +46,7 @@ export const products: Product[] = [
     category: "dana",
     categoryLabel: "Dana Eti",
     description: "Tencere yemekleri ve sote için isteğinize göre doğranır.",
-    image: "/images/beef-cuts.png",
+    image: "/images/beef-cuts.jpg",
     featured: true,
   },
   {
@@ -55,7 +55,7 @@ export const products: Product[] = [
     category: "dana",
     categoryLabel: "Dana Eti",
     description: "Tercih ettiğiniz yağ oranına göre taze olarak çekilir.",
-    image: "/images/beef-cuts.png",
+    image: "/images/beef-cuts.jpg",
     featured: true,
   },
   {
@@ -64,7 +64,7 @@ export const products: Product[] = [
     category: "izgaralik",
     categoryLabel: "Izgaralık",
     description: "Dengeli mermer dokusuyla ızgara ve tava için hazırlanır.",
-    image: "/images/beef-cuts.png",
+    image: "/images/beef-cuts.jpg",
     featured: true,
   },
   {
@@ -73,7 +73,7 @@ export const products: Product[] = [
     category: "dana",
     categoryLabel: "Dana Eti",
     description: "Yumuşak dokulu, porsiyonlanmaya uygun seçkin dana eti.",
-    image: "/images/beef-cuts.png",
+    image: "/images/beef-cuts.jpg",
     featured: true,
   },
   {
@@ -82,7 +82,7 @@ export const products: Product[] = [
     category: "kuzu",
     categoryLabel: "Kuzu Eti",
     description: "Izgara için eşit kalınlıkta ve özenle kalemlenerek hazırlanır.",
-    image: "/images/lamb-cuts.png",
+    image: "/images/lamb-cuts.jpg",
     featured: true,
   },
   {
@@ -91,7 +91,7 @@ export const products: Product[] = [
     category: "kuzu",
     categoryLabel: "Kuzu Eti",
     description: "Yemeklik veya şişlik kullanımınıza uygun doğranır.",
-    image: "/images/lamb-cuts.png",
+    image: "/images/lamb-cuts.jpg",
     featured: true,
   },
   {
@@ -100,7 +100,7 @@ export const products: Product[] = [
     category: "hazir",
     categoryLabel: "Hazır Ürünler",
     description: "Dengeli baharatıyla günlük olarak hazırlanan kasap köfte.",
-    image: "/images/deli-products.png",
+    image: "/images/deli-products.jpg",
     featured: true,
   },
   {
@@ -109,7 +109,7 @@ export const products: Product[] = [
     category: "sarkuteri",
     categoryLabel: "Şarküteri",
     description: "Geleneksel lezzet çizgisinde, özenli içerikle hazırlanan sucuk.",
-    image: "/images/deli-products.png",
+    image: "/images/deli-products.jpg",
     featured: true,
   },
   {
@@ -118,7 +118,7 @@ export const products: Product[] = [
     category: "tavuk",
     categoryLabel: "Tavuk Ürünleri",
     description: "Izgara ve fırın için temizlenmiş, porsiyonlanmış tavuk eti.",
-    image: "/images/chicken-cuts.png",
+    image: "/images/chicken-cuts.jpg",
   },
   {
     id: "tavuk-sis",
@@ -126,7 +126,7 @@ export const products: Product[] = [
     category: "tavuk",
     categoryLabel: "Tavuk Ürünleri",
     description: "Pişirmeye hazır, dengeli marinasyonla hazırlanmış tavuk şiş.",
-    image: "/images/chicken-cuts.png",
+    image: "/images/chicken-cuts.jpg",
   },
   {
     id: "karisik-izgara",
@@ -134,6 +134,6 @@ export const products: Product[] = [
     category: "izgaralik",
     categoryLabel: "Izgaralık",
     description: "Kişi sayınıza göre planlanabilen karışık ızgara seçkisi.",
-    image: "/images/deli-products.png",
+    image: "/images/deli-products.jpg",
   },
 ];

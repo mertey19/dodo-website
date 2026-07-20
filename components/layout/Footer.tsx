@@ -2,7 +2,7 @@
 
 import { Logo } from "@/components/common/Logo";
 import { businessInfo, navigation } from "@/data/business";
-import { buildWhatsappUrl } from "@/lib/contact";
+import { buildWhatsappUrl, hasConfiguredValue } from "@/lib/contact";
 import { Camera, Clock3, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 
@@ -18,8 +18,9 @@ export function Footer() {
           <a
             href={buildWhatsappUrl()}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="button-gold mt-7"
+            data-analytics="footer_whatsapp_click"
           >
             <MessageCircle aria-hidden="true" size={18} />
             WhatsApp’tan Yazın
@@ -42,21 +43,24 @@ export function Footer() {
           <ul className="mt-5 space-y-4 text-sm text-cream/65">
             <li className="flex gap-3">
               <Phone className="mt-0.5 shrink-0 text-gold" size={17} aria-hidden="true" />
-              <span>{businessInfo.phone}</span>
+              <a href={`tel:${businessInfo.phone.replace(/\s/g, "")}`} className="transition-colors hover:text-gold" data-analytics="footer_phone_click">{businessInfo.phone}</a>
             </li>
             <li className="flex gap-3">
               <MapPin className="mt-0.5 shrink-0 text-gold" size={17} aria-hidden="true" />
-              <span>{businessInfo.address}</span>
+              <a href={businessInfo.mapUrl} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold" data-analytics="footer_directions_click">{businessInfo.address}</a>
             </li>
-            <li>
-              <a
-                href={businessInfo.instagramUrl}
-                className="inline-flex items-center gap-3 transition-colors hover:text-gold"
-                aria-label="Instagram bağlantısı (henüz eklenmedi)"
-              >
-                <Camera size={17} aria-hidden="true" /> Instagram
-              </a>
-            </li>
+            {hasConfiguredValue(businessInfo.instagramUrl) && (
+              <li>
+                <a
+                  href={businessInfo.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 transition-colors hover:text-gold"
+                >
+                  <Camera size={17} aria-hidden="true" /> Instagram
+                </a>
+              </li>
+            )}
           </ul>
         </div>
         <div>
@@ -73,7 +77,10 @@ export function Footer() {
       <div className="border-t border-cream/10">
         <div className="container-shell flex flex-col gap-2 py-6 text-xs text-cream/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Akdeniz Kasabı. Tüm hakları saklıdır.</p>
-          <p>Yerel güven, günlük özen.</p>
+          <div className="flex items-center gap-4">
+            <Link href="/gizlilik" className="transition-colors hover:text-gold">Gizlilik</Link>
+            <p>Yerel güven, günlük özen.</p>
+          </div>
         </div>
       </div>
     </footer>

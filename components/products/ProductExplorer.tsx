@@ -1,10 +1,12 @@
 "use client";
 
 import { ProductCard } from "@/components/products/ProductCard";
+import { OrderBuilder } from "@/components/products/OrderBuilder";
 import { categories, products } from "@/data/products";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 import type { ProductCategory } from "@/types";
-import { Search, SlidersHorizontal } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Search, ShoppingBasket, SlidersHorizontal } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type FilterValue = "all" | ProductCategory;
 
@@ -12,15 +14,50 @@ type ProductExplorerProps = {
   initialCategory?: string;
 };
 
+const storageKey = "akdeniz-order-list-v1";
+
 function isCategory(value?: string): value is ProductCategory {
   return categories.some((category) => category.id === value);
 }
 
 export function ProductExplorer({ initialCategory }: ProductExplorerProps) {
   const [query, setQuery] = useState("");
+  const [selections, setSelections] = useState<Record<string, string>>({});
+  const [storageReady, setStorageReady] = useState(false);
+  const [orderBuilderOpen, setOrderBuilderOpen] = useState(false);
+  const orderButtonRef = useRef<HTMLButtonElement>(null);
   const [selectedCategory, setSelectedCategory] = useState<FilterValue>(
     isCategory(initialCategory) ? initialCategory : "all",
   );
+
+  useEffect(() => {
+    const restoreSelections = () => {
+      try {
+        const storedValue = window.localStorage.getItem(storageKey);
+        const parsedValue = storedValue ? (JSON.parse(storedValue) as unknown) : null;
+        if (parsedValue && typeof parsedValue === "object" && !Array.isArray(parsedValue)) {
+          const validProductIds = new Set(products.map((product) => product.id));
+          const validSelections = Object.fromEntries(
+            Object.entries(parsedValue)
+              .filter(([productId, quantity]) => validProductIds.has(productId) && typeof quantity === "string"),
+          );
+          setSelections(validSelections as Record<string, string>);
+        }
+      } catch {
+        window.localStorage.removeItem(storageKey);
+      } finally {
+        setStorageReady(true);
+      }
+    };
+
+    const timeout = window.setTimeout(restoreSelections, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    if (!storageReady) return;
+    window.localStorage.setItem(storageKey, JSON.stringify(selections));
+  }, [selections, storageReady]);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase("tr-TR");
@@ -43,6 +80,20 @@ export function ProductExplorer({ initialCategory }: ProductExplorerProps) {
     window.history.replaceState({}, "", `${url.pathname}${url.search}`);
   };
 
+  const toggleProduct = (productId: string) => {
+    setSelections((current) => {
+      if (Object.hasOwn(current, productId)) {
+        const nextSelections = { ...current };
+        delete nextSelections[productId];
+        return nextSelections;
+      }
+      trackAnalyticsEvent("order_list_start");
+      return { ...current, [productId]: "" };
+    });
+  };
+
+  const selectedCount = Object.keys(selections).length;
+
   return (
     <section className="section-space bg-paper">
       <div className="container-shell">
@@ -59,9 +110,25 @@ export function ProductExplorer({ initialCategory }: ProductExplorerProps) {
                 className="form-control pl-12"
               />
             </label>
-            <div className="flex items-center gap-2 text-sm font-semibold text-muted">
-              <SlidersHorizontal size={18} aria-hidden="true" />
-              {filteredProducts.length} ürün gösteriliyor
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2 text-sm font-semibold text-muted">
+                <SlidersHorizontal size={18} aria-hidden="true" />
+                {filteredProducts.length} ürün gösteriliyor
+              </div>
+              <button
+                ref={orderButtonRef}
+                type="button"
+                onClick={() => setOrderBuilderOpen(true)}
+                className="button-primary justify-center"
+                aria-haspopup="dialog"
+              >
+                <ShoppingBasket size={18} aria-hidden="true" />
+                Sipariş Listem
+                <span className="grid min-w-6 place-items-center rounded-full bg-gold px-1.5 py-1 text-[11px] leading-none text-ink" aria-hidden="true">
+                  {selectedCount}
+                </span>
+              </button>
+              <span className="sr-only" aria-live="polite">Sipariş listenizde {selectedCount} ürün var.</span>
             </div>
           </div>
           <div className="mt-5 flex gap-2 overflow-x-auto pb-2" aria-label="Ürün kategorileri">
@@ -90,7 +157,12 @@ export function ProductExplorer({ initialCategory }: ProductExplorerProps) {
         {filteredProducts.length > 0 ? (
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                selected={Object.hasOwn(selections, product.id)}
+                onToggleOrder={() => toggleProduct(product.id)}
+              />
             ))}
           </div>
         ) : (
@@ -112,6 +184,25 @@ export function ProductExplorer({ initialCategory }: ProductExplorerProps) {
           </div>
         )}
       </div>
+      <OrderBuilder
+        open={orderBuilderOpen}
+        selections={selections}
+        onClose={() => {
+          setOrderBuilderOpen(false);
+          window.requestAnimationFrame(() => orderButtonRef.current?.focus());
+        }}
+        onQuantityChange={(productId, quantity) => {
+          setSelections((current) => ({ ...current, [productId]: quantity }));
+        }}
+        onRemove={(productId) => {
+          setSelections((current) => {
+            const nextSelections = { ...current };
+            delete nextSelections[productId];
+            return nextSelections;
+          });
+        }}
+        onClear={() => setSelections({})}
+      />
     </section>
   );
 }

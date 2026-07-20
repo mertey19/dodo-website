@@ -10,11 +10,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host?.includes("localhost") ? "http" : "https");
   const metadataBase = host ? new URL(`${protocol}://${host}`) : getSiteUrl();
-  const socialImage = new URL("/og.png", metadataBase).toString();
+  const socialImage = new URL("/og.jpg", metadataBase).toString();
 
   return {
     metadataBase,
-    title: { default: "Akdeniz Kasabı | Günlük Taze Et ve Şarküteri", template: "%s | Akdeniz Kasabı" },
+    title: { default: "Akdeniz Kasabı | Toroslar, Mersin", template: "%s | Akdeniz Kasabı" },
     description: siteDescription,
     keywords: siteKeywords,
     applicationName: "Akdeniz Kasabı",
@@ -24,10 +24,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "tr_TR",
       siteName: "Akdeniz Kasabı",
-      title: "Akdeniz Kasabı | Günlük Taze Et ve Şarküteri",
+      title: "Akdeniz Kasabı | Toroslar, Mersin",
       description: siteDescription,
       url: "/",
-      images: [{ url: socialImage, width: 1536, height: 1024, alt: "Akdeniz Kasabı günlük taze et ve şarküteri" }],
+      images: [{ url: socialImage, width: 1536, height: 1024, alt: "Toroslar Mersin Akdeniz Kasabı" }],
     },
     twitter: { card: "summary_large_image", title: "Akdeniz Kasabı", description: siteDescription, images: [socialImage] },
     formatDetection: { telephone: true, address: true, email: false },
@@ -51,7 +51,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
         />
+        <SiteAnalytics />
       </body>
     </html>
   );
 }
+import { SiteAnalytics } from "@/components/common/SiteAnalytics";

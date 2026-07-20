@@ -1,18 +1,25 @@
 "use client";
 
+import { BusinessStatus } from "@/components/common/BusinessStatus";
 import { Reveal } from "@/components/common/Reveal";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { ProductCard } from "@/components/products/ProductCard";
 import { campaigns } from "@/data/campaigns";
+import { businessInfo } from "@/data/business";
+import { faqItems } from "@/data/faq";
+import { storeGallery } from "@/data/gallery";
 import { categories, products } from "@/data/products";
 import { testimonials } from "@/data/testimonials";
+import { formatCampaignEndDate, isCampaignVisible } from "@/lib/campaigns";
 import { buildCampaignWhatsappUrl, buildWhatsappUrl } from "@/lib/contact";
 import {
   ArrowRight,
   BadgeCheck,
   Check,
   ChefHat,
+  ChevronDown,
   Clock3,
+  CreditCard,
   HandPlatter,
   HeartHandshake,
   MessageCircle,
@@ -21,6 +28,8 @@ import {
   ShoppingBasket,
   Sparkles,
   Star,
+  Store,
+  Truck,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,15 +53,22 @@ const reasons = [
 const orderSteps = [
   { icon: ShoppingBasket, number: "01", title: "Ürününü seç", text: "Ürünlerimizi incele, sofrana uygun seçimi belirle." },
   { icon: MessageCircle, number: "02", title: "Miktarı bildir", text: "WhatsApp'tan ürün, miktar ve hazırlama tercihini yaz." },
-  { icon: PackageCheck, number: "03", title: "Hazır teslim al", text: "Siparişini konuştuğumuz şekilde hazırlanmış olarak al." },
+  { icon: PackageCheck, number: "03", title: "Mağazadan teslim al", text: "Siparişini konuştuğumuz şekilde hazırlanmış olarak mağazadan al." },
+];
+
+const serviceItems = [
+  { icon: Store, title: "Mağazadan teslim", text: businessInfo.serviceInfo.pickup },
+  { icon: Truck, title: "Teslimat bilgisi", text: businessInfo.serviceInfo.delivery },
+  { icon: CreditCard, title: "Ödeme seçenekleri", text: businessInfo.serviceInfo.payment },
+  { icon: ShoppingBasket, title: "Minimum sipariş", text: businessInfo.serviceInfo.minimumOrder },
 ];
 
 export function HeroSection() {
   return (
     <section className="relative min-h-[760px] overflow-hidden bg-ink pt-28 text-cream sm:min-h-[780px] lg:min-h-[820px]">
       <Image
-        src="/images/hero-butcher.png"
-        alt="Akdeniz Kasabı'nın özenle hazırlanmış dana ve kuzu ürünleri bulunan tezgâhı"
+        src="/images/hero-butcher.jpg"
+        alt="Dana ve kuzu ürünlerinden temsili kasap tezgâhı sunumu"
         fill
         priority
         sizes="100vw"
@@ -62,8 +78,11 @@ export function HeroSection() {
       <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-ink/85 to-transparent" />
       <div className="container-shell relative flex min-h-[630px] items-center py-16 sm:min-h-[650px] lg:min-h-[690px]">
         <Reveal className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-ink/35 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-gold backdrop-blur-sm">
-            <BadgeCheck size={16} aria-hidden="true" /> Yerel ustalık, günlük özen
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-ink/35 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-gold backdrop-blur-sm">
+              <BadgeCheck size={16} aria-hidden="true" /> Yerel ustalık, günlük özen
+            </div>
+            <BusinessStatus dark />
           </div>
           <h1 className="mt-7 max-w-3xl font-display text-[clamp(3.1rem,7vw,6.7rem)] font-semibold leading-[.92] tracking-[-0.035em]">
             Günlük taze,
@@ -74,7 +93,7 @@ export function HeroSection() {
             Akdeniz Kasabı olarak sofralarınıza günlük, güvenilir ve isteğinize göre hazırlanmış et ürünleri sunuyoruz.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href={buildWhatsappUrl()} target="_blank" rel="noreferrer" className="button-gold justify-center">
+            <a href={buildWhatsappUrl()} target="_blank" rel="noopener noreferrer" className="button-gold justify-center" data-analytics="hero_whatsapp_click">
               <MessageCircle size={19} aria-hidden="true" /> WhatsApp’tan Sipariş Ver
             </a>
             <Link href="/urunler" className="button-light-outline justify-center">
@@ -155,12 +174,17 @@ export function FeaturedProductsSection() {
 }
 
 export function CampaignsSection() {
+  const visibleCampaigns = campaigns.filter((campaign) => isCampaignVisible(campaign));
+  if (visibleCampaigns.length === 0) return null;
+
   return (
     <section id="kampanyalar" className="section-space scroll-mt-24 bg-burgundy text-cream">
       <div className="container-shell">
         <SectionHeading light eyebrow="Sofrana Uygun Paketler" title="Güncel kampanya seçkileri" description="Paket içeriği ve uygun miktar için WhatsApp üzerinden bilgi alabilirsiniz. Fiyatlar güncel koşullara göre paylaşılır." />
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {campaigns.map((campaign, index) => (
+          {visibleCampaigns.map((campaign, index) => {
+            const validityLabel = formatCampaignEndDate(campaign.endsAt);
+            return (
             <Reveal key={campaign.id} delay={index * 0.06}>
               <article className="overflow-hidden rounded-3xl border border-cream/12 bg-cream/5">
                 <div className="relative aspect-[16/9] overflow-hidden">
@@ -169,15 +193,42 @@ export function CampaignsSection() {
                 </div>
                 <div className="p-6 sm:p-7">
                   <h3 className="font-display text-3xl font-semibold">{campaign.title}</h3>
+                  {validityLabel && <p className="mt-2 text-xs font-bold uppercase tracking-[.12em] text-gold">{validityLabel}</p>}
                   <p className="mt-3 text-sm leading-6 text-cream/65">{campaign.description}</p>
                   <ul className="mt-5 space-y-3 text-sm text-cream/80">
                     {campaign.contents.map((content) => <li key={content} className="flex items-center gap-3"><Check className="text-gold" size={17} aria-hidden="true" />{content}</li>)}
                   </ul>
-                  <a href={buildCampaignWhatsappUrl(campaign.title)} target="_blank" rel="noreferrer" className="button-gold mt-7 w-full justify-center">
+                  <a href={buildCampaignWhatsappUrl(campaign.title)} target="_blank" rel="noopener noreferrer" className="button-gold mt-7 w-full justify-center" data-analytics="campaign_whatsapp_click">
                     WhatsApp’tan Bilgi Al <ArrowRight size={18} aria-hidden="true" />
                   </a>
                 </div>
               </article>
+            </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function StoreGallerySection() {
+  const publishedImages = storeGallery.filter((item) => item.published);
+  if (publishedImages.length === 0) return null;
+
+  return (
+    <section className="section-space bg-cream">
+      <div className="container-shell">
+        <SectionHeading eyebrow="Mağazamızdan" title="Gerçek ürünler, gerçek tezgâh" description="Mağaza ve ürün hazırlıklarından güncel kareler." />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {publishedImages.map((item, index) => (
+            <Reveal key={item.id} delay={(index % 3) * 0.05}>
+              <figure className="overflow-hidden rounded-3xl border border-burgundy/10 bg-white shadow-soft">
+                <div className="relative aspect-[4/3] bg-stone">
+                  <Image src={item.src} alt={item.alt} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
+                </div>
+                {item.caption && <figcaption className="p-5 text-sm leading-6 text-muted">{item.caption}</figcaption>}
+              </figure>
             </Reveal>
           ))}
         </div>
@@ -192,7 +243,7 @@ export function WhyUsSection() {
       <div className="container-shell grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone">
-            <Image src="/images/butcher-craft.png" alt="Usta kasabın hijyenik biçimde et hazırlaması" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+            <Image src="/images/butcher-craft.jpg" alt="Usta kasap hazırlığını temsil eden görsel" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
           </div>
           <div className="absolute -bottom-5 -right-2 max-w-[15rem] rounded-2xl border border-gold/25 bg-ink p-5 text-cream shadow-xl sm:right-7">
             <HandPlatter className="text-gold" size={24} aria-hidden="true" />
@@ -232,20 +283,72 @@ export function OrderProcessSection() {
   );
 }
 
-export function TestimonialsSection() {
+export function ServiceInfoSection() {
   return (
     <section className="section-space bg-paper">
       <div className="container-shell">
-        <SectionHeading eyebrow="Deneyim Notları" title="Müşterilerimizin anlatabileceği deneyim" description="Aşağıdaki metinler tasarım amaçlı örnek içeriklerdir; gerçek müşteri yorumu olarak sunulmamaktadır." />
+        <SectionHeading align="center" eyebrow="Sipariş Bilgileri" title="Sipariş vermeden önce bilmeniz gerekenler" description="Fiyat, stok ve teslimat uygunluğu sipariş görüşmesi sırasında netleştirilir." />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {serviceItems.map((item, index) => (
+            <Reveal key={item.title} delay={(index % 4) * 0.05} className="rounded-3xl border border-burgundy/10 bg-white p-6 shadow-soft">
+              <span className="grid size-12 place-items-center rounded-full bg-burgundy text-gold"><item.icon size={22} aria-hidden="true" /></span>
+              <h3 className="mt-5 font-display text-2xl font-semibold text-ink">{item.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted">{item.text}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function TestimonialsSection() {
+  const publishedTestimonials = testimonials.filter(
+    (testimonial) => testimonial.published && testimonial.verified && testimonial.consentConfirmed,
+  );
+  if (publishedTestimonials.length === 0) return null;
+
+  return (
+    <section className="section-space bg-paper">
+      <div className="container-shell">
+        <SectionHeading eyebrow="Müşteri Yorumları" title="Doğrulanmış müşteri deneyimleri" description="Yayın izni alınmış gerçek müşteri yorumları." />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
+          {publishedTestimonials.map((testimonial, index) => (
             <Reveal key={testimonial.id} delay={index * 0.06}>
               <blockquote className="h-full rounded-3xl border border-burgundy/10 bg-white p-7 shadow-soft">
-                <div className="flex gap-1 text-gold" aria-hidden="true">{Array.from({ length: 5 }).map((_, star) => <Star key={star} size={16} fill="currentColor" />)}</div>
+                {testimonial.rating && (
+                  <div className="flex gap-1 text-gold" aria-label={`${testimonial.rating} üzerinden ${testimonial.rating} yıldız`}>
+                    {Array.from({ length: testimonial.rating }).map((_, star) => <Star key={star} size={16} fill="currentColor" aria-hidden="true" />)}
+                  </div>
+                )}
                 <p className="mt-6 font-display text-2xl leading-9 text-ink">“{testimonial.quote}”</p>
-                <footer className="mt-6 flex items-center gap-3 border-t border-burgundy/10 pt-5 text-xs font-bold uppercase tracking-[0.14em] text-muted"><HeartHandshake className="text-red" size={18} aria-hidden="true" />{testimonial.label}</footer>
+                <footer className="mt-6 flex items-center gap-3 border-t border-burgundy/10 pt-5 text-xs font-bold uppercase tracking-[0.14em] text-muted">
+                  <HeartHandshake className="text-red" size={18} aria-hidden="true" />
+                  <span>{testimonial.customerName} · {testimonial.source}</span>
+                </footer>
               </blockquote>
             </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function FAQSection() {
+  return (
+    <section className="section-space bg-cream">
+      <div className="container-shell grid gap-10 lg:grid-cols-[.75fr_1.25fr] lg:gap-16">
+        <SectionHeading eyebrow="Sık Sorulan Sorular" title="Sipariş öncesi kısa cevaplar" description="Fiyat, hazırlama ve teslim konularında en çok sorulanları tek yerde topladık." />
+        <div className="divide-y divide-burgundy/10 overflow-hidden rounded-3xl border border-burgundy/10 bg-white shadow-soft">
+          {faqItems.map((item) => (
+            <details key={item.question} className="group px-5 py-1 sm:px-7">
+              <summary className="flex min-h-20 cursor-pointer list-none items-center justify-between gap-5 py-5 font-display text-xl font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-red [&::-webkit-details-marker]:hidden">
+                {item.question}
+                <ChevronDown className="shrink-0 text-red transition-transform group-open:rotate-180" size={21} aria-hidden="true" />
+              </summary>
+              <p className="max-w-2xl pb-6 text-sm leading-7 text-muted">{item.answer}</p>
+            </details>
           ))}
         </div>
       </div>

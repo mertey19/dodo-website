@@ -29,10 +29,28 @@ export type Campaign = {
   description: string;
   contents: string[];
   image: string;
+  active: boolean;
+  startsAt?: string | null;
+  endsAt?: string | null;
 };
 
 export type Testimonial = {
   id: string;
   quote: string;
-  label: string;
+  customerName: string;
+  source: string;
+  sourceUrl?: string;
+  rating?: number;
+  verified: boolean;
+  published: boolean;
+  consentConfirmed: boolean;
+};
+
+export type GalleryImage = {
+  id: string;
+  src: string;
+  alt: string;
+  caption?: string;
+  kind: "store" | "product";
+  published: boolean;
 };
