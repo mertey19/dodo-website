@@ -1,8 +1,8 @@
-import { getSiteUrl } from "@/lib/seo";
+import { productionSiteUrl } from "@/lib/seo";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = getSiteUrl();
+  const baseUrl = new URL(productionSiteUrl);
   return [
     { url: new URL("/", baseUrl).toString(), changeFrequency: "weekly", priority: 1 },
     { url: new URL("/urunler", baseUrl).toString(), changeFrequency: "weekly", priority: 0.9 },

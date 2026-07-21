@@ -2,6 +2,8 @@ import { businessInfo } from "@/data/business";
 import { faqItems } from "@/data/faq";
 import { hasConfiguredValue } from "@/lib/contact";
 
+export const productionSiteUrl = "https://www.akdenizkasabi.com.tr";
+
 export const siteDescription =
   "Toroslar, Mersin'de 7/24 açık Akdeniz Kasabı'nın dana, kuzu, tavuk, kasap köfte, sucuk ve ızgaralık ürünlerini inceleyin; WhatsApp üzerinden bilgi alın.";
 
@@ -33,12 +35,7 @@ const schemaDayNames: Record<keyof typeof businessInfo.openingHours, string> = {
 };
 
 export function getSiteUrl(): URL {
-  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  try {
-    return new URL(configuredUrl ?? "http://localhost:3000");
-  } catch {
-    return new URL("http://localhost:3000");
-  }
+  return new URL(productionSiteUrl);
 }
 
 export function getLocalBusinessSchema(baseUrl: URL): Record<string, unknown> {

@@ -1,16 +1,12 @@
 import { SiteShell } from "@/components/layout/SiteShell";
 import { SiteAnalytics } from "@/components/common/SiteAnalytics";
-import { getLocalBusinessSchema, getSiteUrl, getWebsiteSchema, siteDescription, siteKeywords } from "@/lib/seo";
+import { getLocalBusinessSchema, getSiteUrl, getWebsiteSchema, productionSiteUrl, siteDescription, siteKeywords } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
-import { headers } from "next/headers";
 import type { ReactNode } from "react";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host?.includes("localhost") ? "http" : "https");
-  const metadataBase = host ? new URL(`${protocol}://${host}`) : getSiteUrl();
+  const metadataBase = new URL(productionSiteUrl);
   const socialImage = new URL("/og.jpg", metadataBase).toString();
   const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
