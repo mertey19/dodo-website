@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import test from "node:test";
-import { blogPosts } from "../data/blog.ts";
+import { blogPosts, districtPosts, guidePosts } from "../data/blog.ts";
 
 const origin = "https://www.akdenizkasabi.com.tr";
 const baseUrl = process.env.TEST_BASE_URL;
@@ -17,15 +17,25 @@ async function page(path) {
   return { response, html: await response.text() };
 }
 
-test("13 ilçenin yazıları benzersizdir ve içerik bağlantıları geçerlidir", async () => {
-  assert.equal(blogPosts.length, 13);
-  assert.deepEqual(new Set(blogPosts.map((post) => post.district)), new Set(districts));
+test("13 ilçe yazısı ve 8 alışveriş rehberi benzersizdir; içerik bağlantıları geçerlidir", async () => {
+  assert.equal(districtPosts.length, 13);
+  assert.equal(guidePosts.length, 8);
+  assert.equal(blogPosts.length, districtPosts.length + guidePosts.length);
+  assert.deepEqual(new Set(districtPosts.map((post) => post.district)), new Set(districts));
+  assert.ok(guidePosts.every((post) => !post.district));
   for (const key of ["slug", "title", "description"]) {
-    assert.equal(new Set(blogPosts.map((post) => post[key])).size, 13, key);
+    assert.equal(new Set(blogPosts.map((post) => post[key])).size, blogPosts.length, key);
   }
   for (const post of blogPosts) {
     assert.match(post.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.equal(new Set(post.sections.map((section) => section.id)).size, post.sections.length);
+    for (const section of post.sections) {
+      if (section.table) {
+        assert.ok(section.table.caption);
+        assert.ok(section.table.rows.length > 0);
+        assert.ok(section.table.rows.every((row) => row.length === section.table.columns.length));
+      }
+    }
     await access(new URL(`../public${post.image}`, import.meta.url));
     for (const slug of post.relatedSlugs) {
       assert.ok(blogPosts.some((item) => item.slug === slug), slug);
@@ -39,6 +49,13 @@ test("blog listesi ve ana sayfa yazılara taranabilir bağlantılar verir", { sk
   assert.equal(response.status, 200);
   assert.ok(html.includes(`rel="canonical" href="${origin}/blog"`));
   for (const post of blogPosts) assert.ok(html.includes(`href="/blog/${post.slug}"`), post.slug);
+  const collection = structuredData(html).find((item) => item["@type"] === "CollectionPage");
+  assert.equal(collection.mainEntity.numberOfItems, blogPosts.length);
+  assert.deepEqual(collection.mainEntity.itemListElement.map((item) => item.url), blogPosts.map((post) => `${origin}/blog/${post.slug}`));
+  const districtNavigation = html.match(/<nav[^>]*aria-label="İlçeye göre yazılar"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+  assert.ok(districtNavigation);
+  assert.equal([...districtNavigation.matchAll(/<a\b/g)].length, 13);
+  for (const post of districtPosts) assert.ok(districtNavigation.includes(`href="#${post.slug}"`));
   const home = await page("/");
   assert.equal(home.response.status, 200);
   assert.ok(home.html.includes('href="/blog"'));
@@ -61,6 +78,17 @@ test("tüm yazılar HTTP 200, doğru canonical ve makale verisiyle sunulur", { s
     assert.equal(article.headline, post.title);
     assert.equal(article.datePublished, post.publishedAt);
     assert.equal(article.image[0], `${origin}${post.image}`);
+    assert.equal(article.about.name, post.district ? `${post.district}, Mersin` : "Mersin");
+    assert.ok(!html.includes("undefined, Mersin"));
+    assert.ok(html.includes('href="tel:+905537766162"'));
+    assert.ok(html.includes("destination=36.8269527%2C34.6054432"));
+    for (const section of post.sections) {
+      if (section.table) {
+        assert.ok(html.includes("<table"));
+        assert.ok(html.includes(section.table.caption));
+        for (const cell of section.table.rows.flat()) assert.ok(html.includes(cell));
+      }
+    }
     const breadcrumbs = schema.find((item) => item["@type"] === "BreadcrumbList");
     assert.equal(breadcrumbs.itemListElement.at(-1).item, url);
     const store = schema.find((item) => Array.isArray(item["@type"]) && item["@type"].includes("LocalBusiness"));
@@ -73,7 +101,7 @@ test("sitemap yeni yazıları yalnızca production domain ile içerir", { skip: 
   assert.equal(response.status, 200);
   const urls = [...html.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
   assert.equal(new Set(urls).size, urls.length);
-  assert.equal(urls.length, 19);
+  assert.equal(urls.length, blogPosts.length + 6);
   for (const url of urls) assert.equal(new URL(url).origin, origin);
   for (const path of ["/blog", ...blogPosts.map((post) => `/blog/${post.slug}`)]) {
     assert.ok(urls.includes(`${origin}${path}`), path);

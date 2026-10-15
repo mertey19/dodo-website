@@ -3,7 +3,7 @@ import { blogPosts, formatBlogDate, getBlogPost, getReadingMinutes } from "@/dat
 import { businessInfo } from "@/data/business";
 import { buildWhatsappUrl } from "@/lib/contact";
 import { productionSiteUrl } from "@/lib/seo";
-import { ArrowRight, Clock3, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, Clock3, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default async function BlogPostPage({ params }: Props) {
         publisher: { "@id": `${productionSiteUrl}/#business` },
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
         isPartOf: { "@type": "Blog", "@id": `${productionSiteUrl}/blog`, name: "Mersin et ve mutfak rehberi" },
-        about: { "@type": "Place", name: `${post.district}, Mersin` },
+        about: { "@type": "Place", name: post.district ? `${post.district}, Mersin` : "Mersin" },
       },
       {
         "@type": "BreadcrumbList",
@@ -74,7 +74,7 @@ export default async function BlogPostPage({ params }: Props) {
         </nav>
         <article className="blog-article mx-auto mt-8 max-w-3xl">
           <header>
-            <p className="text-sm font-bold text-red">{post.district} <span aria-hidden="true">·</span> {post.category}</p>
+            <p className="text-sm font-bold text-red">{post.district ?? "Mersin"} <span aria-hidden="true">·</span> {post.category}</p>
             <h1 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
               <Link href="/hakkimizda" className="underline underline-offset-4">{businessInfo.name}</Link>
@@ -99,6 +99,25 @@ export default async function BlogPostPage({ params }: Props) {
             <section id={section.id} key={section.id} className="scroll-mt-28 pt-9">
               <h2 className="font-display text-2xl font-semibold leading-snug sm:text-3xl">{section.title}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-5 text-base leading-8 text-muted">{paragraph}</p>)}
+              {section.table && (
+                <div className="mt-6 overflow-x-auto rounded-lg border border-burgundy/15">
+                  <table className="w-full table-fixed border-collapse text-left text-sm leading-6">
+                    <caption className="bg-paper px-4 py-4 text-left font-semibold">{section.table.caption}</caption>
+                    <thead className="bg-burgundy/5">
+                      <tr>{section.table.columns.map((column) => <th key={column} scope="col" className="break-words border-t border-burgundy/10 px-3 py-3 sm:px-4">{column}</th>)}</tr>
+                    </thead>
+                    <tbody>
+                      {section.table.rows.map((row) => (
+                        <tr key={row[0]} className="border-t border-burgundy/10">
+                          {row.map((cell, index) => index === 0
+                            ? <th key={index} scope="row" className="break-words px-3 py-3 align-top font-medium sm:px-4">{cell}</th>
+                            : <td key={index} className="break-words px-3 py-3 align-top text-muted sm:px-4">{cell}</td>)}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
               {section.tips && <ul className="mt-5 list-disc space-y-2 pl-5 leading-7 text-ink">{section.tips.map((tip) => <li key={tip}>{tip}</li>)}</ul>}
             </section>
           ))}
@@ -115,17 +134,21 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="mt-4 leading-7 text-muted">{businessInfo.name}, Toroslar’daki mağazasında {businessInfo.workingHours.weekdays.toLocaleLowerCase("tr-TR")}. Ürün, güncel fiyat ve teslim seçenekleri için bize ulaşabilirsiniz.</p>
             <p className="mt-3 flex items-start gap-2 text-sm leading-6 text-muted"><MapPin size={18} className="mt-0.5 shrink-0" aria-hidden="true" />{businessInfo.address}</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <a href={buildWhatsappUrl(`Merhaba Akdeniz Kasabı, ${post.district} için hazırladığınız “${post.title}” yazısını okudum. Ürün ve hazırlama seçenekleri hakkında bilgi alabilir miyim?`)} target="_blank" rel="noopener noreferrer" className="button-primary" data-analytics="blog_whatsapp_click"><MessageCircle size={18} aria-hidden="true" />WhatsApp’tan sor</a>
+              <a href={buildWhatsappUrl(`Merhaba Akdeniz Kasabı, “${post.title}” yazınızı okudum. Ürün ve hazırlama seçenekleri hakkında bilgi alabilir miyim?`)} target="_blank" rel="noopener noreferrer" className="button-primary" data-analytics="blog_whatsapp_click"><MessageCircle size={18} aria-hidden="true" />WhatsApp’tan sor</a>
               <Link href={`/urunler?kategori=${post.productCategory}`} className="button-secondary">İlgili ürünler <ArrowRight size={18} aria-hidden="true" /></Link>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+              <a href={`tel:${businessInfo.phone.replace(/\s/g, "")}`} className="text-link"><Phone size={16} aria-hidden="true" />{businessInfo.phone}</a>
+              <a href={businessInfo.directionsUrl} target="_blank" rel="noopener noreferrer" className="text-link"><Navigation size={16} aria-hidden="true" />Mağazaya yol tarifi</a>
             </div>
           </aside>
         </article>
         <section className="mt-14" aria-labelledby="related-heading">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <h2 id="related-heading" className="font-display text-3xl font-semibold">İlgili yazılar</h2>
-            <Link href="/blog" className="text-link">Tüm ilçeler ve yazılar <ArrowRight size={18} aria-hidden="true" /></Link>
+            <Link href="/blog" className="text-link">Tüm rehberler ve yazılar <ArrowRight size={18} aria-hidden="true" /></Link>
           </div>
-          <div className="mt-7 grid gap-6 sm:grid-cols-2">{related.map((item) => <BlogCard key={item.slug} post={item} />)}</div>
+          <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{related.map((item) => <BlogCard key={item.slug} post={item} headingLevel={3} />)}</div>
         </section>
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
