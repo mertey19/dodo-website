@@ -55,16 +55,18 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <div className="hidden xl:block">
           <a
             href={buildWhatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="button-primary hidden xl:inline-flex"
+            className="button-primary"
             data-analytics="header_whatsapp_click"
           >
             <MessageCircle aria-hidden="true" size={18} />
             WhatsApp Sipariş
           </a>
+          </div>
           <button
             ref={menuButtonRef}
             type="button"

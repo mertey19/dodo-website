@@ -1,4 +1,5 @@
 import { ContactDetails } from "@/components/sections/ContactDetails";
+import { BlogPreview } from "@/components/blog/BlogPreview";
 import {
   CampaignsSection,
   CategoriesSection,
@@ -34,6 +35,7 @@ export default function HomePage() {
       <OrderProcessSection />
       <ServiceInfoSection />
       <TestimonialsSection />
+      <BlogPreview />
       <FAQSection />
       <ContactDetails />
       <script

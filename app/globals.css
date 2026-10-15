@@ -346,6 +346,78 @@ a {
   }
 }
 
+.blog-surface {
+  background: #fffdfa;
+  letter-spacing: 0;
+}
+
+.blog-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #716366;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.blog-breadcrumb a:hover {
+  color: #8e182b;
+  text-decoration: underline;
+}
+
+.blog-district-link {
+  display: inline-block;
+  padding-block: 0.25rem;
+  color: #8e182b;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(142, 24, 43, 0.3);
+  text-underline-offset: 0.3rem;
+}
+
+.blog-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(77, 14, 25, 0.12);
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.blog-card-link {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  border-color: #8e182b;
+}
+
+.blog-surface :is(a, button):focus-visible {
+  outline: 2px solid #8e182b;
+  outline-offset: 3px;
+}
+
+.blog-card:focus-within {
+  outline: 2px solid #8e182b;
+  outline-offset: 3px;
+}
+
+.blog-article,
+.blog-card,
+.blog-breadcrumb {
+  overflow-wrap: anywhere;
+}
+
+.blog-article :is(.button-primary, .button-secondary) {
+  line-height: 1.4;
+  text-align: center;
+}
+
+.blog-article :is(.button-primary, .button-secondary) svg {
+  flex-shrink: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

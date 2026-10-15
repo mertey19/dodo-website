@@ -44,6 +44,7 @@ export const navigation = [
   { label: "Ana Sayfa", href: "/" },
   { label: "Ürünlerimiz", href: "/urunler" },
   { label: "Kampanyalar", href: "/#kampanyalar" },
+  { label: "Blog", href: "/blog" },
   { label: "Hakkımızda", href: "/hakkimizda" },
   { label: "İletişim", href: "/iletisim" },
 ] as const;
