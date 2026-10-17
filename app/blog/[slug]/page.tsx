@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "article", title: post.title, description: post.description,
       url: `/blog/${post.slug}`, locale: "tr_TR", siteName: businessInfo.name,
-      publishedTime: post.publishedAt, modifiedTime: post.publishedAt,
+      publishedTime: post.publishedAt, modifiedTime: post.updatedAt ?? post.publishedAt,
       authors: [`${productionSiteUrl}/hakkimizda`], section: post.category,
       images: [{ url: post.image, alt: post.imageAlt }],
     },
@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: Props) {
         "@type": "BlogPosting", "@id": `${url}#article`, url,
         headline: post.title, description: post.description,
         image: [new URL(post.image, productionSiteUrl).toString()],
-        datePublished: post.publishedAt, dateModified: post.publishedAt,
+        datePublished: post.publishedAt, dateModified: post.updatedAt ?? post.publishedAt,
         inLanguage: "tr-TR", articleSection: post.category,
         author: { "@type": "Organization", name: businessInfo.name, url: `${productionSiteUrl}/hakkimizda` },
         publisher: { "@id": `${productionSiteUrl}/#business` },
@@ -79,6 +79,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
               <Link href="/hakkimizda" className="underline underline-offset-4">{businessInfo.name}</Link>
               <time dateTime={post.publishedAt}>{formatBlogDate(post.publishedAt)}</time>
+              {post.updatedAt && <span>Güncellendi: <time dateTime={post.updatedAt}>{formatBlogDate(post.updatedAt)}</time></span>}
               <span className="inline-flex items-center gap-2"><Clock3 size={15} aria-hidden="true" />{getReadingMinutes(post)} dk okuma</span>
             </div>
             <p className="mt-6 text-lg leading-8 text-muted">{post.intro}</p>
@@ -119,6 +120,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               )}
               {section.tips && <ul className="mt-5 list-disc space-y-2 pl-5 leading-7 text-ink">{section.tips.map((tip) => <li key={tip}>{tip}</li>)}</ul>}
+              {section.links && <ul className="mt-5 space-y-3 text-sm leading-7">{section.links.map((link) => <li key={link.href}><a href={link.href} className="text-red underline decoration-red/30 underline-offset-4 hover:decoration-red">{link.label}</a></li>)}</ul>}
             </section>
           ))}
           {post.sources && (

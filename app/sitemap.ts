@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: new URL("/blog", baseUrl).toString(), changeFrequency: "weekly", priority: 0.8 },
     ...blogPosts.map((post) => ({
       url: new URL(`/blog/${post.slug}`, baseUrl).toString(),
-      lastModified: post.publishedAt,
+      lastModified: post.updatedAt ?? post.publishedAt,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),

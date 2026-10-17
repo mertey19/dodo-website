@@ -1,8 +1,23 @@
 import { businessInfo } from "@/data/business";
 import { faqItems } from "@/data/faq";
 import { hasConfiguredValue } from "@/lib/contact";
+import type { Metadata } from "next";
 
 export const productionSiteUrl = "https://www.akdenizkasabi.com.tr";
+
+export function getPageMetadata(path: string, title: string, description: string): Metadata {
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: "website", title, description, url: path,
+      locale: "tr_TR", siteName: businessInfo.name,
+      images: [{ url: "/og.jpg", width: 1536, height: 1024, alt: "Akdeniz Kasabı, Toroslar Mersin" }],
+    },
+    twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
+  };
+}
 
 export const siteDescription =
   "Toroslar, Mersin'de 7/24 açık Akdeniz Kasabı'nın dana, kuzu, tavuk, kasap köfte, sucuk ve ızgaralık ürünlerini inceleyin; WhatsApp üzerinden bilgi alın.";

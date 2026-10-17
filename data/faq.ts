@@ -21,7 +21,15 @@ export const faqItems = [
     answer: businessInfo.serviceInfo.delivery,
   },
   {
-    question: "Adres ve çalışma saatleri nedir?",
-    answer: `${businessInfo.address}. ${businessInfo.workingHours.display}.`,
+    question: "Mersin’de Akdeniz Kasabı hangi ilçede?",
+    answer: `Mağazamız Toroslar ilçesindedir. Adres: ${businessInfo.address}. Akdeniz işletme adımızdır; mağazamızın bulunduğu ilçe Toroslar’dır. İletişim sayfasından mağazamıza yol tarifi alabilirsiniz.`,
+  },
+  {
+    question: "Akdeniz Kasabı gece ve tatil günlerinde açık mı?",
+    answer: `${businessInfo.workingHours.display}. Gece, hafta sonu ve tatil günlerinde gelebilirsiniz. Belirli bir ürün veya özel kesim için stok ve hazırlanma zamanını gelmeden önce ${businessInfo.phone} üzerinden teyit edin.`,
+  },
+  {
+    question: "Hangi et ve şarküteri ürünlerini inceleyebilirim?",
+    answer: "Dana kıyma, kuşbaşı, antrikot ve bonfile; kuzu pirzola ve kuşbaşı; tavuk pirzola ve şiş; kasap köfte, sucuk ve karışık ızgara seçenekleri ürünler sayfamızda yer alır. Güncel stok, fiyat ve hazırlama seçeneklerini görüşme sırasında öğrenebilirsiniz.",
   },
 ] as const;

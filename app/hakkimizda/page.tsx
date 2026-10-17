@@ -1,12 +1,13 @@
 import { PageHero } from "@/components/common/PageHero";
 import { AboutContent } from "@/components/sections/AboutContent";
+import { getPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Hakkımızda",
-  description: "Toroslar, Mersin'deki Akdeniz Kasabı'nın ürün hazırlama, hijyen, usta kasap deneyimi ve müşteri iletişimi yaklaşımını tanıyın.",
-  alternates: { canonical: "/hakkimizda" },
-};
+export const metadata: Metadata = getPageMetadata(
+  "/hakkimizda",
+  "Akdeniz Kasabı Hakkında | Toroslar, Mersin",
+  "Mersin Toroslar’daki Akdeniz Kasabı’nı tanıyın. Et hazırlama yaklaşımımız, ürün seçenekleri ve 7/24 açık mağazamızla iletişim bilgileri.",
+);
 
 export default function AboutPage() {
   return (

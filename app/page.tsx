@@ -13,13 +13,14 @@ import {
   TrustSection,
   WhyUsSection,
 } from "@/components/sections/HomeSections";
-import { getFaqSchema } from "@/lib/seo";
+import { getFaqSchema, getPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Toroslar Mersin Kasap",
-  description: "Mithat Toroğlu, Kuvayi Milliye Caddesi'nde 7/24 açık Akdeniz Kasabı'nın et ve şarküteri ürünlerini inceleyin; WhatsApp sipariş listesi oluşturun.",
-};
+export const metadata: Metadata = getPageMetadata(
+  "/",
+  "Mersin Kasap | 7/24 Açık Akdeniz Kasabı",
+  "Mersin Toroslar’daki Akdeniz Kasabı 7/24 açık. Dana, kuzu, tavuk, kıyma ve kasap köfte ürünlerini inceleyin; güncel fiyatı WhatsApp’tan öğrenin.",
+);
 
 export default function HomePage() {
   const faqSchema = getFaqSchema();

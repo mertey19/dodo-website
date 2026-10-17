@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import test from "node:test";
-import { blogPosts, districtPosts, guidePosts } from "../data/blog.ts";
+import { blogPosts, districtPosts, featuredGuideSlugs, guidePosts, productGuidePosts } from "../data/blog.ts";
+import { categories } from "../data/products.ts";
 
 const origin = "https://www.akdenizkasabi.com.tr";
 const baseUrl = process.env.TEST_BASE_URL;
@@ -17,9 +18,10 @@ async function page(path) {
   return { response, html: await response.text() };
 }
 
-test("13 ilçe yazısı ve 8 alışveriş rehberi benzersizdir; içerik bağlantıları geçerlidir", async () => {
+test("13 ilçe yazısı ve 12 alışveriş rehberi benzersizdir; içerik bağlantıları geçerlidir", async () => {
   assert.equal(districtPosts.length, 13);
-  assert.equal(guidePosts.length, 8);
+  assert.equal(guidePosts.length, 12);
+  assert.equal(productGuidePosts.length, 4);
   assert.equal(blogPosts.length, districtPosts.length + guidePosts.length);
   assert.deepEqual(new Set(districtPosts.map((post) => post.district)), new Set(districts));
   assert.ok(guidePosts.every((post) => !post.district));
@@ -28,8 +30,17 @@ test("13 ilçe yazısı ve 8 alışveriş rehberi benzersizdir; içerik bağlant
   }
   for (const post of blogPosts) {
     assert.match(post.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+    assert.ok(categories.some((category) => category.id === post.productCategory));
+    if (post.updatedAt) assert.ok(new Date(post.updatedAt) >= new Date(post.publishedAt));
     assert.equal(new Set(post.sections.map((section) => section.id)).size, post.sections.length);
     for (const section of post.sections) {
+      for (const link of section.links ?? []) {
+        assert.ok(link.label.length > 8);
+        const target = new URL(link.href, origin);
+        assert.equal(target.origin, origin);
+        assert.ok(["/", "/urunler", "/iletisim", "/blog", ...blogPosts.map((item) => `/blog/${item.slug}`)].includes(target.pathname), link.href);
+        if (target.searchParams.has("kategori")) assert.ok(categories.some((category) => category.id === target.searchParams.get("kategori")));
+      }
       if (section.table) {
         assert.ok(section.table.caption);
         assert.ok(section.table.rows.length > 0);
@@ -59,7 +70,7 @@ test("blog listesi ve ana sayfa yazılara taranabilir bağlantılar verir", { sk
   const home = await page("/");
   assert.equal(home.response.status, 200);
   assert.ok(home.html.includes('href="/blog"'));
-  assert.ok(home.html.includes(`href="/blog/${blogPosts[0].slug}"`));
+  for (const slug of featuredGuideSlugs) assert.ok(home.html.includes(`href="/blog/${slug}"`));
 });
 
 test("tüm yazılar HTTP 200, doğru canonical ve makale verisiyle sunulur", { skip: !baseUrl }, async () => {
@@ -77,12 +88,15 @@ test("tüm yazılar HTTP 200, doğru canonical ve makale verisiyle sunulur", { s
     assert.equal(article.url, url);
     assert.equal(article.headline, post.title);
     assert.equal(article.datePublished, post.publishedAt);
+    assert.equal(article.dateModified, post.updatedAt ?? post.publishedAt);
+    assert.ok(html.includes(`property="article:modified_time" content="${post.updatedAt ?? post.publishedAt}"`));
     assert.equal(article.image[0], `${origin}${post.image}`);
     assert.equal(article.about.name, post.district ? `${post.district}, Mersin` : "Mersin");
     assert.ok(!html.includes("undefined, Mersin"));
     assert.ok(html.includes('href="tel:+905537766162"'));
     assert.ok(html.includes("destination=36.8269527%2C34.6054432"));
     for (const section of post.sections) {
+      for (const link of section.links ?? []) assert.ok(html.includes(`href="${link.href}"`), link.href);
       if (section.table) {
         assert.ok(html.includes("<table"));
         assert.ok(html.includes(section.table.caption));
@@ -96,6 +110,42 @@ test("tüm yazılar HTTP 200, doğru canonical ve makale verisiyle sunulur", { s
   }
 });
 
+test("ticari sayfalar kendi başlık, canonical ve sosyal paylaşım URL’lerini kullanır", { skip: !baseUrl }, async () => {
+  const expected = [
+    ["/", "Mersin Kasap | 7/24 Açık Akdeniz Kasabı"],
+    ["/urunler", "Mersin Et Çeşitleri ve Kasap Ürünleri | Akdeniz Kasabı"],
+    ["/hakkimizda", "Akdeniz Kasabı Hakkında | Toroslar, Mersin"],
+    ["/iletisim", "Akdeniz Kasabı İletişim ve Yol Tarifi | Mersin"],
+  ];
+  for (const [path, title] of expected) {
+    const { response, html } = await page(path);
+    assert.equal(response.status, 200, path);
+    assert.ok(html.includes(`<title>${title}</title>`), `title: ${path}`);
+    const canonical = html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/)?.[1];
+    const openGraphUrl = html.match(/<meta[^>]*property="og:url"[^>]*content="([^"]+)"/)?.[1];
+    assert.ok(canonical, `canonical: ${path}`);
+    assert.ok(openGraphUrl, `og:url: ${path}`);
+    assert.equal(new URL(canonical).href, new URL(path, origin).href, `canonical: ${path}`);
+    assert.equal(new URL(openGraphUrl).href, new URL(path, origin).href, `og:url: ${path}`);
+    assert.ok(html.includes(`property="og:title" content="${title}"`), `og:title: ${path}`);
+    assert.ok(html.includes(`name="twitter:title" content="${title}"`), `twitter:title: ${path}`);
+    assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+    if (path === "/") {
+      const faq = structuredData(html).find((item) => item["@type"] === "FAQPage");
+      assert.equal(faq.mainEntity.length, 7);
+      for (const item of faq.mainEntity) {
+        assert.ok(html.includes(item.name));
+        assert.ok(html.includes(item.acceptedAnswer.text));
+      }
+    }
+    if (path === "/urunler") for (const post of productGuidePosts) assert.ok(html.includes(`href="/blog/${post.slug}"`));
+  }
+  const filtered = await page("/urunler?kategori=tavuk");
+  assert.equal(filtered.response.status, 200);
+  assert.ok(filtered.html.includes(`rel="canonical" href="${origin}/urunler"`));
+  assert.ok(filtered.html.includes(`property="og:url" content="${origin}/urunler"`));
+});
+
 test("sitemap yeni yazıları yalnızca production domain ile içerir", { skip: !baseUrl }, async () => {
   const { response, html } = await page("/sitemap.xml");
   assert.equal(response.status, 200);
@@ -105,6 +155,12 @@ test("sitemap yeni yazıları yalnızca production domain ile içerir", { skip: 
   for (const url of urls) assert.equal(new URL(url).origin, origin);
   for (const path of ["/blog", ...blogPosts.map((post) => `/blog/${post.slug}`)]) {
     assert.ok(urls.includes(`${origin}${path}`), path);
+  }
+  for (const post of blogPosts) {
+    const entry = [...html.matchAll(/<url>([\s\S]*?)<\/url>/g)].find((match) => match[1].includes(`${origin}/blog/${post.slug}</loc>`));
+    assert.ok(entry, post.slug);
+    const modified = entry[1].match(/<lastmod>(.*?)<\/lastmod>/)?.[1];
+    assert.equal(new Date(modified).getTime(), new Date(post.updatedAt ?? post.publishedAt).getTime(), post.slug);
   }
   const robots = await page("/robots.txt");
   assert.ok(robots.html.includes(`Sitemap: ${origin}/sitemap.xml`));

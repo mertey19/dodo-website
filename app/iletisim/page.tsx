@@ -2,18 +2,19 @@ import { PageHero } from "@/components/common/PageHero";
 import { ContactDetails } from "@/components/sections/ContactDetails";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { buildWhatsappUrl } from "@/lib/contact";
+import { getPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "İletişim",
-  description: "7/24 açık Akdeniz Kasabı'nın Mithat Toroğlu, Kuvayi Milliye Cd., Toroslar/Mersin adresi, +90 553 776 61 62 telefonu ve Google yol tarifi.",
-  alternates: { canonical: "/iletisim" },
-};
+export const metadata: Metadata = getPageMetadata(
+  "/iletisim",
+  "Akdeniz Kasabı İletişim ve Yol Tarifi | Mersin",
+  "Mersin Toroslar, Mithat Toroğlu, Kuvayi Milliye Cd. üzerindeki Akdeniz Kasabı’nın telefon ve yol tarifi: 0553 776 61 62. Her gün 24 saat açık.",
+);
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero eyebrow="İletişim" title="Ürün ve sipariş sorularınız için bize ulaşın" description="En hızlı iletişim için WhatsApp üzerinden ürün, miktar ve hazırlama tercihinizi paylaşabilirsiniz." />
+      <PageHero eyebrow="Mersin · Toroslar" title="Akdeniz Kasabı adresi ve iletişim" description="Mithat Toroğlu Mahallesi, Kuvayi Milliye Caddesi’ndeki mağazamız 7/24 açık. Telefon, WhatsApp veya mevcut konumunuzdan yol tarifi için aşağıdaki bağlantıları kullanın." />
       <ContactDetails compact />
       <section className="section-space bg-cream pt-0">
         <div className="container-shell grid items-start gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-14">

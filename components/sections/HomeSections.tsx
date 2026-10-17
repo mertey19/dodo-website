@@ -85,12 +85,12 @@ export function HeroSection() {
             <BusinessStatus dark />
           </div>
           <h1 className="mt-7 max-w-3xl font-display text-[clamp(3.1rem,7vw,6.7rem)] font-semibold leading-[.92] tracking-[-0.035em]">
-            Günlük taze,
-            <span className="block text-gold">özenle hazırlanmış</span>
-            et ürünleri.
+            Mersin’de{" "}
+            <span className="block text-gold">7/24 açık</span>{" "}
+            kasabınız.
           </h1>
           <p className="mt-7 max-w-xl text-base leading-7 text-cream/75 sm:text-lg sm:leading-8">
-            Akdeniz Kasabı olarak sofralarınıza günlük, güvenilir ve isteğinize göre hazırlanmış et ürünleri sunuyoruz.
+            Akdeniz Kasabı, Toroslar Mithat Toroğlu Mahallesi’nde. Günlük taze dana, kuzu, tavuk ve köfte seçeneklerini inceleyin; kesim, miktar ve güncel fiyatı birlikte netleştirelim.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a href={buildWhatsappUrl()} target="_blank" rel="noopener noreferrer" className="button-gold justify-center" data-analytics="hero_whatsapp_click">
@@ -100,6 +100,7 @@ export function HeroSection() {
               Ürünleri İncele <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
+          <Link href="/blog/mersin-kasap-secimi-rehberi" className="mt-6 inline-block text-sm text-cream/80 underline decoration-gold/50 underline-offset-4 hover:text-gold">Kasap alışverişinden önce sorulacak sorular</Link>
         </Reveal>
       </div>
       <div className="container-shell relative -mt-5 pb-7 sm:pb-9">
@@ -132,7 +133,7 @@ export function CategoriesSection() {
     <section id="urunlerimiz" className="section-space bg-paper scroll-mt-24">
       <div className="container-shell">
         <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading eyebrow="Ürün Gruplarımız" title="Her sofraya uygun, özenli seçimler" description="Günlük yemeğinizden kalabalık mangal sofralarına kadar ihtiyacınızı birlikte planlayalım." />
+          <SectionHeading eyebrow="Ürün Gruplarımız" title="Mersin’de dana, kuzu ve tavuk ürünleri" description="Günlük yemeğinizden kalabalık mangal sofralarına kadar ihtiyacınızı birlikte planlayalım. Güncel stok ve fiyat için ürün ve miktarınızı paylaşın." />
           <Link href="/urunler" className="text-link shrink-0">Tüm ürünleri görüntüle <ArrowRight size={18} aria-hidden="true" /></Link>
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -297,6 +298,7 @@ export function ServiceInfoSection() {
             </Reveal>
           ))}
         </div>
+        <p className="mt-7 text-center text-sm leading-7 text-muted">İlk kez sipariş verecekseniz <Link href="/blog/mersin-whatsapp-et-siparisi" className="text-red underline underline-offset-4">WhatsApp ürün listesi rehberini</Link> inceleyebilirsiniz. Teklif alırken karşılaştırılacak ayrıntılar için <Link href="/blog/mersin-kasap-fiyatlari-ucretleri" className="text-red underline underline-offset-4">et fiyatları rehberine</Link> göz atın.</p>
       </div>
     </section>
   );
