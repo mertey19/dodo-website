@@ -2,6 +2,7 @@
 
 import { Logo } from "@/components/common/Logo";
 import { businessInfo, navigation } from "@/data/business";
+import { categories, getCategoryHref } from "@/data/products";
 import { buildWhatsappUrl, hasConfiguredValue } from "@/lib/contact";
 import { Camera, Clock3, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
@@ -73,6 +74,9 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <nav aria-label="Alt menü ürün grupları" className="container-shell flex flex-wrap gap-x-6 gap-y-2 border-t border-cream/10 py-6 text-sm text-cream/75">
+        {categories.map((category) => <Link key={category.id} href={getCategoryHref(category.id)} className="inline-flex min-h-11 items-center transition-colors hover:text-gold" data-analytics="footer_category_click">{category.title}</Link>)}
+      </nav>
       <div className="border-t border-cream/10">
         <div className="container-shell flex flex-col gap-2 py-6 text-xs text-cream/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Akdeniz Kasabı. Tüm hakları saklıdır.</p>

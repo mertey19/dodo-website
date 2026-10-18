@@ -151,7 +151,7 @@ test("sitemap yeni yazıları yalnızca production domain ile içerir", { skip: 
   assert.equal(response.status, 200);
   const urls = [...html.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
   assert.equal(new Set(urls).size, urls.length);
-  assert.equal(urls.length, blogPosts.length + 6);
+  assert.equal(urls.length, blogPosts.length + categories.length + 6);
   for (const url of urls) assert.equal(new URL(url).origin, origin);
   for (const path of ["/blog", ...blogPosts.map((post) => `/blog/${post.slug}`)]) {
     assert.ok(urls.includes(`${origin}${path}`), path);

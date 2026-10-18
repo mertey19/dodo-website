@@ -1,6 +1,7 @@
 import { BlogCard } from "@/components/blog/BlogCard";
 import { blogPosts, formatBlogDate, getBlogPost, getReadingMinutes } from "@/data/blog";
 import { businessInfo } from "@/data/business";
+import { getCategoryHref } from "@/data/products";
 import { buildWhatsappUrl } from "@/lib/contact";
 import { productionSiteUrl } from "@/lib/seo";
 import { ArrowRight, Clock3, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
@@ -83,6 +84,7 @@ export default async function BlogPostPage({ params }: Props) {
               <span className="inline-flex items-center gap-2"><Clock3 size={15} aria-hidden="true" />{getReadingMinutes(post)} dk okuma</span>
             </div>
             <p className="mt-6 text-lg leading-8 text-muted">{post.intro}</p>
+            <Link href={getCategoryHref(post.productCategory)} className="mt-5 inline-flex min-h-11 items-center gap-2 font-semibold text-red underline underline-offset-4" data-analytics="blog_category_click">Bu rehberle ilgili ürünleri inceleyin <ArrowRight size={17} aria-hidden="true" /></Link>
           </header>
           <figure className="my-8">
             <div className="relative aspect-[3/2] overflow-hidden rounded-lg bg-paper">
@@ -137,7 +139,7 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="mt-3 flex items-start gap-2 text-sm leading-6 text-muted"><MapPin size={18} className="mt-0.5 shrink-0" aria-hidden="true" />{businessInfo.address}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a href={buildWhatsappUrl(`Merhaba Akdeniz Kasabı, “${post.title}” yazınızı okudum. Ürün ve hazırlama seçenekleri hakkında bilgi alabilir miyim?`)} target="_blank" rel="noopener noreferrer" className="button-primary" data-analytics="blog_whatsapp_click"><MessageCircle size={18} aria-hidden="true" />WhatsApp’tan sor</a>
-              <Link href={`/urunler?kategori=${post.productCategory}`} className="button-secondary">İlgili ürünler <ArrowRight size={18} aria-hidden="true" /></Link>
+              <Link href={getCategoryHref(post.productCategory)} className="button-secondary" data-analytics="blog_category_click">İlgili ürünler <ArrowRight size={18} aria-hidden="true" /></Link>
             </div>
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm">
               <a href={`tel:${businessInfo.phone.replace(/\s/g, "")}`} className="text-link"><Phone size={16} aria-hidden="true" />{businessInfo.phone}</a>

@@ -1,6 +1,7 @@
 "use client";
 
 import { getBusinessStatus, type BusinessStatusValue } from "@/lib/business-status";
+import { businessInfo } from "@/data/business";
 import { Clock3 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -9,9 +10,10 @@ type BusinessStatusProps = {
 };
 
 export function BusinessStatus({ dark = false }: BusinessStatusProps) {
-  const [status, setStatus] = useState<BusinessStatusValue | null>(null);
+  const [status, setStatus] = useState<BusinessStatusValue | null>(() => businessInfo.alwaysOpen ? getBusinessStatus() : null);
 
   useEffect(() => {
+    if (businessInfo.alwaysOpen) return;
     const updateStatus = () => setStatus(getBusinessStatus());
     updateStatus();
     const interval = window.setInterval(updateStatus, 60_000);

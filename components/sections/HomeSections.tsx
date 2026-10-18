@@ -8,7 +8,7 @@ import { campaigns } from "@/data/campaigns";
 import { businessInfo } from "@/data/business";
 import { faqItems } from "@/data/faq";
 import { storeGallery } from "@/data/gallery";
-import { categories, products } from "@/data/products";
+import { categories, getCategoryHref, products } from "@/data/products";
 import { testimonials } from "@/data/testimonials";
 import { formatCampaignEndDate, isCampaignVisible } from "@/lib/campaigns";
 import { buildCampaignWhatsappUrl, buildWhatsappUrl } from "@/lib/contact";
@@ -145,8 +145,8 @@ export function CategoriesSection() {
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
                   <h3 className="font-display text-3xl font-semibold text-cream">{category.title}</h3>
                   <p className="mt-2 line-clamp-2 text-sm leading-6 text-cream/65">{category.description}</p>
-                  <Link href={`/urunler?kategori=${category.id}`} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-gold">
-                    Ürünleri Gör <ArrowRight size={17} aria-hidden="true" />
+                  <Link href={getCategoryHref(category.id)} data-analytics="home_category_click" className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-gold">
+                    {category.title} seçenekleri <ArrowRight size={17} aria-hidden="true" />
                   </Link>
                 </div>
               </article>

@@ -13,7 +13,7 @@ type ProductCardProps = {
 
 export function ProductCard({ product, selected = false, onToggleOrder }: ProductCardProps) {
   return (
-    <article className="product-card group">
+    <article id={product.id} className="product-card group scroll-mt-28">
       <div className="relative aspect-[4/3] overflow-hidden bg-stone">
         <Image
           src={product.image}

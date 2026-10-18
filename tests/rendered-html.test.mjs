@@ -35,6 +35,8 @@ test("ana sayfayı marka içeriğiyle sunar", async () => {
   assert.match(html, /favicon-48\.png/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Lorem ipsum/i);
   assert.doesNotMatch(html, /Örnek müşteri yorumu|örnek marka metni/i);
+  assert.doesNotMatch(html, /Çalışma saatleri yükleniyor/);
+  assert.doesNotMatch(html, /style="[^"]*opacity:\s*0(?:;|")/);
 });
 
 test("gömülü haritayı tam işletme pinine bağlar", async () => {
@@ -44,7 +46,7 @@ test("gömülü haritayı tam işletme pinine bağlar", async () => {
 });
 
 test("temel sayfalar sunucu tarafında yanıt verir", async () => {
-  for (const pathname of ["/urunler", "/hakkimizda", "/iletisim", "/gizlilik"]) {
+  for (const pathname of ["/urunler", "/urunler/tavuk-urunleri", "/urunler/mangallik-et", "/hakkimizda", "/iletisim", "/gizlilik"]) {
     const response = await render(pathname);
     assert.equal(response.status, 200, pathname);
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);

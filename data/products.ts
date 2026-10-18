@@ -1,43 +1,54 @@
-import type { Category, Product } from "@/types";
+import type { Category, Product, ProductCategory } from "@/types";
 
 export const categories: Category[] = [
   {
     id: "dana",
+    slug: "dana-eti",
     title: "Dana Eti",
     description: "Yemeklikten ızgaralığa, ihtiyacınıza göre özenle hazırlanan dana eti çeşitleri.",
     image: "/images/custom/category-dana.jpg",
   },
   {
     id: "kuzu",
+    slug: "kuzu-eti",
     title: "Kuzu Eti",
     description: "Pirzola, kuşbaşı ve özel kesim seçenekleriyle taze kuzu eti ürünleri.",
     image: "/images/custom/category-kuzu.jpg",
   },
   {
     id: "tavuk",
+    slug: "tavuk-urunleri",
     title: "Tavuk Ürünleri",
     description: "Günlük ihtiyaçlara ve ızgaraya uygun, temizlenmiş tavuk ürünleri.",
     image: "/images/custom/category-tavuk.jpg",
   },
   {
     id: "hazir",
+    slug: "kasap-kofte",
     title: "Köfte ve Hazır Ürünler",
     description: "Pratik sofralar için günlük hazırlanan kasap köfte ve marineli seçenekler.",
     image: "/images/custom/category-hazir.jpg",
   },
   {
     id: "sarkuteri",
+    slug: "sucuk",
     title: "Sucuk ve Şarküteri",
     description: "Kahvaltıdan mangala, özenle seçilmiş şarküteri lezzetleri.",
     image: "/images/custom/category-sarkuteri.jpg",
   },
   {
     id: "izgaralik",
+    slug: "mangallik-et",
     title: "Izgaralık Ürünler",
     description: "Mangal ve ızgara için porsiyonlanmış, pişirmeye hazır özel ürünler.",
     image: "/images/custom/category-izgara.jpg",
   },
 ];
+
+export function getCategoryHref(id: ProductCategory): string {
+  const category = categories.find((item) => item.id === id);
+  return category ? `/urunler/${category.slug}` : "/urunler";
+}
 
 export const products: Product[] = [
   {

@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -10,17 +9,38 @@ type RevealProps = {
 };
 
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
-  const reduceMotion = useReducedMotion();
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = elementRef.current;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!element || motionPreference.matches || !window.IntersectionObserver || !element.animate) return;
+    // Above-the-fold content stays still and visible, including before hydration.
+    if (element.getBoundingClientRect().top < window.innerHeight) return;
+    let animation: Animation | undefined;
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      if (!motionPreference.matches) {
+        animation = element.animate(
+          [{ transform: "translateY(16px)" }, { transform: "translateY(0)" }],
+          { duration: 450, delay: delay * 1000, easing: "cubic-bezier(.22,1,.36,1)" },
+        );
+      }
+    }, { threshold: 0.1 });
+    const handleMotionChange = () => { if (motionPreference.matches) animation?.cancel(); };
+    motionPreference.addEventListener("change", handleMotionChange);
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+      animation?.cancel();
+      motionPreference.removeEventListener("change", handleMotionChange);
+    };
+  }, [delay]);
 
   return (
-    <motion.div
-      className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div ref={elementRef} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

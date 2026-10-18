@@ -1,3 +1,5 @@
+import type { ProductCategory } from "@/types";
+
 export type BlogSection = {
   id: string;
   title: string;
@@ -19,7 +21,7 @@ export type BlogPost = {
   updatedAt?: string;
   intro: string;
   sections: BlogSection[];
-  productCategory: string;
+  productCategory: ProductCategory;
   relatedSlugs: string[];
   sources?: { label: string; url: string }[];
 };

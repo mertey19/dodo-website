@@ -18,6 +18,7 @@ export type Product = {
 
 export type Category = {
   id: ProductCategory;
+  slug: string;
   title: string;
   description: string;
   image: string;
