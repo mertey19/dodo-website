@@ -999,16 +999,1179 @@ export const localGuidePosts: BlogPost[] = [
   }
 ];
 
+export const kitchenGuidePosts: BlogPost[] = [
+  {
+    "slug": "mersin-hamburger-koftesi-icin-kiyma",
+    "title": "Mersin’de ev yapımı hamburger için kıyma nasıl seçilir?",
+    "description": "Evde hamburger hazırlarken kıyma, yağ tercihi, köfte gramajı ve ekmek boyutunu birlikte planlayın. Mersin’de kasaba iletilecek örnek hazırlık listesi.",
+    "category": "Hamburger hazırlığı",
+    "image": "/images/custom/dana-kiyma.jpg",
+    "imageAlt": "Hamburger hazırlığında kullanılabilecek dana kıymanın temsili sunumu",
+    "productCategory": "dana",
+    "intro": "Evde hamburger yaparken ilk karar yalnızca kaç kilogram kıyma alınacağı değildir. Ekmek çapı, tek veya çift köfte tercihi ve pişirme ekipmanı alışverişi değiştirir. Mersin’de hamburger için kıyma arayanlar, hazır bir burger ürünü varsaymak yerine kasaba kendi hazırlık planını anlatabilir.",
+    "sections": [
+      {
+        "id": "hamburger-ve-kasap-kofte",
+        "title": "Hamburger köftesi ile hazır kasap köftesi aynı şey mi?",
+        "paragraphs": [
+          "Her hazır köftenin içeriği ve baharatı farklı olabilir. Sade et tadı istediğiniz bir hamburgerde önceden baharatlanmış kasap köfte beklentinizi karşılamayabilir. Önce kıymayı kendiniz mi şekillendireceğinize, yoksa hazır ürün mü kullanacağınıza karar verin.",
+          "Dana eti tercihinizi, yağ beklentinizi ve çekim dokusunu birlikte görüşün. Bütün hamburgerler için geçerli tek bir yağ oranı yoktur; ince bastırılan köfte ile daha kalın bir köftede aradığınız doku farklı olabilir. Tarifiniz belirli bir oran istiyorsa aynen iletin ve uygulanabilirliğini sorun."
+        ]
+      },
+      {
+        "id": "gramaj-hesabi",
+        "title": "Miktarı köfte adedi üzerinden hesaplayın",
+        "paragraphs": [
+          "Alışveriş hesabını kişi sayısından önce hazırlanacak köfte sayısıyla kurun: köfte adedi × çiğ köfte gramajı = toplam kıyma. Örneğin dört adet 150 g köfte planı 600 g kıyma eder. Bu yalnızca hesap örneğidir; beslenme veya kişi başı tüketim önerisi değildir.",
+          "Çift köfteli servis, farklı ekmek boyları ve başka ana yemekler toplamı değiştirir. Çiğ gramajın pişmiş ağırlıkla aynı kalmasını beklemeyin. Köfteleri tartarak eşitlemek, birinin çok ince diğerinin çok kalın olmasını önler."
+        ],
+        "tips": [
+          "Ekmek sayısı ve yaklaşık çapı",
+          "Her ekmekte tek veya çift köfte",
+          "Her köftenin çiğ gramajı",
+          "Baharatlı hazır ürün mü, sade kıyma mı?"
+        ]
+      },
+      {
+        "id": "sekillendirme",
+        "title": "Ekmek, tava ve köfteyi aynı servis planına alın",
+        "paragraphs": [
+          "Köfteleri ekmeğe uygun çapta, birbirine yakın kalınlıkta hazırlayın. Tavaya aynı anda kaç adet sığdığını önceden kontrol edin; sığmayan bir listeyi tek seferde yetiştirmeye çalışmak servis sırasını bozar. Ekmek ve garnitür hazırlığını et pişmeye başlamadan tamamlayın.",
+          "USDA, dana kıyma ürünlerinde en az 71,1 °C iç sıcaklık önerir. Yalnızca dış rengin değişmesine güvenmeyin; uygun gıda termometresiyle ölçün. İnce köftede ölçüm için cihazın kullanım talimatını izleyin."
+        ]
+      },
+      {
+        "id": "mersin-siparis-notu",
+        "title": "Toroslar’daki kasaba nasıl anlatabilirsiniz?",
+        "paragraphs": [
+          "Örnek talep: Evde dört hamburger hazırlayacağım; toplam 600 g dana kıymayı kendim şekillendireceğim. Yağ ve çekim seçenekleriyle güncel toplam fiyatı öğrenebilir miyim? Ekmek veya gramaj planınız farklıysa örneği değiştirin.",
+          "Akdeniz Kasabı’nın kataloğunda dana kıyma ve kasap köfte ayrı ürünlerdir. Bu rehber özel hamburger köftesinin hazır stokta bulunduğu anlamına gelmez; şekillendirme talebinin uygunluğunu ayrıca sorun. Toroslar mağazasına almayı düşündüğünüz saati de bildirin."
+        ],
+        "links": [
+          {
+            "href": "/urunler/dana-eti",
+            "label": "Dana kıyma ve diğer dana eti seçenekleri"
+          },
+          {
+            "href": "/blog/evde-kofte-neden-dagilir",
+            "label": "Evde köfte dağılmasını değerlendirme rehberi"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-dana-kiyma-secimi",
+      "mersin-kasap-kofte-siparisi",
+      "kiyma-buzdolabi-dondurucu-saklama"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Güvenli asgari iç sıcaklıklar",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "lahmacun-ici-icin-kiyma-secimi",
+    "title": "Lahmacun içi için kıyma seçimi ve harç miktarı hesabı",
+    "description": "Evde lahmacun hazırlığı için kıyma seçimi, sebze nemi, harç miktarı ve sipariş notları. Adet hesabını et miktarıyla karıştırmadan alışveriş planlayın.",
+    "category": "Lahmacun hazırlığı",
+    "image": "/images/custom/dana-kiyma.jpg",
+    "imageAlt": "Lahmacun içi hazırlığı için temsili dana kıyma görseli",
+    "productCategory": "dana",
+    "intro": "Lahmacun içi hazırlarken toplam harç miktarı ile alınacak kıyma miktarını birbirinden ayırmak gerekir. Sebze, baharat ve et oranı kullandığınız tarife göre değişir. Bu rehber, evde hazırlık veya bir fırınla görüşme öncesinde alışveriş hesabını ve kıyma talebini netleştirmek içindir.",
+    "sections": [
+      {
+        "id": "kiyma-tercihi",
+        "title": "Kıymayı tarifinizdeki et ve yağ tercihine göre isteyin",
+        "paragraphs": [
+          "Dana, kuzu veya karışım kullanımı tariften tarife değişir; tek bir seçeneği bütün lahmacunlar için zorunlu kabul etmeyin. Kasaba lahmacun içi hazırlayacağınızı, kullanacağınız et türünü ve tarifteki yağ tercihini söyleyin. Karışım istiyorsanız oranı, uygunluğu ve fiyatı ayrıca görüşün.",
+          "Harç hamurun üzerine ince yayılacağı için çekim dokusu önemlidir. Kıymayı çok iri veya çok ince istemeden önce tarifinize ve fırınınızın beklentisine bakın. Sebzelerin doğrama biçimiyle etin dokusu birbirini tamamlamalı; iri parçalar ince bir yüzeyde eşit yayılmayı zorlaştırabilir."
+        ]
+      },
+      {
+        "id": "harc-hesabi",
+        "title": "Lahmacun adedini doğrudan kıyma gramajı saymayın",
+        "paragraphs": [
+          "Hesabı iki aşamada yapın: adet × her lahmacunda kullanacağınız toplam harç miktarı; ardından bu karışımdaki kıyma payı. Örneğin 20 adet için 40’ar g harç planı 800 g toplam karışım eder. Kendi tarifinizde bu karışımın yarısı kıymaysa et miktarı 400 g olur.",
+          "Bu sayılar tarif veya porsiyon standardı değil, hesap yöntemini gösteren örnektir. Hamur çapı, yayma kalınlığı ve tarif oranlarını değiştirince hesabı yeniden yapın. İlk lahmacunda harcı tartmak, kalan malzemeyi eşit bölüştürmek için daha kullanışlıdır."
+        ],
+        "table": {
+          "caption": "Lahmacun alışveriş hesabında üç ayrı bilgi",
+          "columns": [
+            "Bilgi",
+            "Neyi belirler?"
+          ],
+          "rows": [
+            [
+              "Adet ve hamur çapı",
+              "Hazırlanacak toplam yüzey"
+            ],
+            [
+              "Bir adet için harç miktarı",
+              "Toplam karışım ihtiyacı"
+            ],
+            [
+              "Tarifteki et payı",
+              "Alınacak kıyma miktarı"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "sebze-ve-is-sirasi",
+        "title": "Sebze nemi ve hazırlık sırası neden önemli?",
+        "paragraphs": [
+          "Yıkanmış sebzelerde kalan su ile tarifte istenen nem aynı şey değildir. Sebzeleri tarifin öngördüğü biçimde süzüp doğrayın; fazla sıvı oluşursa gelişigüzel un veya başka malzeme ekleyerek oranları değiştirmeyin. Et ve sebzeyi tartmak bir sonraki hazırlıkta aynı sonucu hedeflemeyi kolaylaştırır.",
+          "Önce hamur ve fırın planını, sonra sebze hazırlığını düzenleyin. Çiğ harcı hazır yiyeceklerden ayrı tutun ve hazırlık aralarında buzdolabında saklayın. Bir fırına götürecekseniz kabul koşullarını ve harç miktarını önceden sorun; mağazamızın fırın veya pişirme hizmeti verdiğini varsaymayın."
+        ]
+      },
+      {
+        "id": "alisveris-notu",
+        "title": "Mersin’de lahmacunluk kıyma için örnek talep",
+        "paragraphs": [
+          "Mesajınızda lahmacun adedi yerine hesapladığınız kıyma miktarını, et türünü ve çekim tercihini belirtin. Sebzeleri evde ekleyeceğinizi söylemek, sadece kıyma mı yoksa hazırlanmış harç mı istediğinizin karışmasını önler.",
+          "Akdeniz Kasabı’ndan kıyma için güncel fiyat ve uygunluk öğrenebilirsiniz. Hazır lahmacun içi veya sebzeli harç özel bir taleptir; katalogda listelendiği varsayılmamalıdır. Benzer biçimde içli köfte hazırlayacaksanız çiğ lahmacun harcıyla pişmiş iç harcı aynı çalışma planına koymayın."
+        ],
+        "links": [
+          {
+            "href": "/urunler/dana-eti",
+            "label": "Dana kıyma için ürün ve iletişim bilgileri"
+          },
+          {
+            "href": "/blog/icli-kofte-ic-harci-kiyma",
+            "label": "İçli köfte iç harcı için kıyma ve hazırlık planı"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-dana-kiyma-secimi",
+      "mersin-hamburger-koftesi-icin-kiyma",
+      "kiyma-buzdolabi-dondurucu-saklama"
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "icli-kofte-ic-harci-kiyma",
+    "title": "İçli köfte iç harcı için kıyma ve hazırlık planı",
+    "description": "İçli köfte harcında kıyma miktarı, soğan, yağ ve soğutma sırasını planlayın. Ev hazırlığı için gramaj hesabı ve kasaba iletilecek sipariş ayrıntıları.",
+    "category": "İçli köfte hazırlığı",
+    "image": "/images/custom/dana-kiyma.jpg",
+    "imageAlt": "İçli köfte iç harcı için kullanılabilecek kıymanın temsili sunumu",
+    "productCategory": "dana",
+    "intro": "İçli köfte hazırlığı, dış hamur ile iç harcın aynı anda hazır olmasını gerektirir. Kıyma alışverişini yalnızca köfte adedine göre yapmak yerine iç harçtaki et payını, soğanı ve ekleyeceğiniz diğer malzemeleri ayrı hesaplayın. Böylece harcın artması veya hamura yetmemesi gibi sorunları baştan azaltabilirsiniz.",
+    "sections": [
+      {
+        "id": "ic-ve-dis-ayrimi",
+        "title": "İç harç için alınan kıymayı ayrı tarif edin",
+        "paragraphs": [
+          "Bazı tariflerde yalnızca içte, bazılarında dış karışımda da et kullanılır. İki farklı kullanım varsa kıyma miktarlarını tek kalemde söylemeyin. Et türü, yağ ve çekim tercihlerini her karışımın tarifine göre ayrı belirtin; aynı hazırlığın ikisine de uygun olacağını varsaymayın.",
+          "İç harçta kıyma, soğan ve ek yağ birlikte sonucu belirler. Tarifinizi değiştirmeden önce kıymaya ne kadar yağ istendiğini netleştirin. Ceviz veya farklı baharat kullanımı da evden eve değişir; bunlar hazır kıymanın içinde bulunduğu varsayılan malzemeler değildir."
+        ]
+      },
+      {
+        "id": "adet-ve-harc",
+        "title": "Bir deneme köftesiyle toplam harcı hesaplayın",
+        "paragraphs": [
+          "İlk köftenin içine koyduğunuz pişmiş harcı tartıp kaç adet hazırlayacağınızla çarpabilirsiniz. Bu sonuç pişmiş karışım ihtiyacıdır, çiğ kıyma miktarı değil. Soğanın, yağın ve diğer malzemelerin katkısı ile pişirme sırasındaki ağırlık değişimini ayrıca düşünün.",
+          "Daha önce kullandığınız tarif varsa başlangıç kıyması ve çıkan köfte adedini not edin. Bir sonraki alışverişi bu kayıt üzerinden ölçeklemek, gelişigüzel kişi başı miktar seçmekten daha tutarlıdır. Köfte boyutunu değiştirdiğinizde eski adet hesabının geçerli olmayacağını unutmayın."
+        ]
+      },
+      {
+        "id": "harci-hazirlama",
+        "title": "İç harcı dış hamurdan önce planlayın",
+        "paragraphs": [
+          "Soğanı ve kıymayı tarifinizin sırasıyla hazırlayın; istenmeyen fazla sıvıyı yönetmeden harcı hamura doldurmayın. Sulu harç, kapatma aşamasını zorlaştırabilir. Buna karşılık bütün tariflerde harcı tamamen kurutmak gerektiği de söylenemez; hedef, kullandığınız tarifteki kıvamdır.",
+          "Sıcak harcı bekletirken bütün tencereyi uzun süre tezgâhta bırakmayın. Hızlı soğutma ve buzdolabına kaldırma adımlarını pişmiş et saklama rehberindeki kaynaklı bilgilerle planlayın. İçin pişmiş olması, doldurulmuş köftenin sonraki hazırlık aşamalarının önemsiz olduğu anlamına gelmez."
+        ],
+        "links": [
+          {
+            "href": "/blog/pismis-et-yemekleri-saklama-isitma",
+            "label": "Pişmiş harcı ve et yemeklerini soğutma rehberi"
+          }
+        ]
+      },
+      {
+        "id": "siparis-ve-kontrol",
+        "title": "Toroslar’dan alışverişte kullanabileceğiniz kontrol listesi",
+        "paragraphs": [
+          "Kasaba içli köfte iç harcı hazırladığınızı, kıymayı evde pişireceğinizi ve istediğiniz net miktarı söyleyin. Dış karışım için de kıyma gerekiyorsa ayrı paket isteyin. Alışveriş listesinde kıyma ile diğer harç malzemelerini ayrı tutmak, teklifin kapsamını netleştirir.",
+          "Akdeniz Kasabı’nda hazır içli köfte veya hazır iç harcı bulunduğu bu yazıdan çıkarılmamalıdır. Ürün kataloğu ve özel hazırlık uygunluğu farklı konulardır. Kıyma seçimi ve paketleme için 0553 776 61 62 üzerinden bilgi alabilirsiniz."
+        ],
+        "tips": [
+          "İç ve dış karışım için ayrı miktarlar",
+          "Tarife uygun et türü ve yağ tercihi",
+          "Hazırlanacak adet ve köfte boyutu",
+          "Ayrı paket ve mağazadan alma saati"
+        ],
+        "links": [
+          {
+            "href": "/blog/mersin-istege-gore-et-dograma-kiyma-cekimi",
+            "label": "Kıyma çekimi ve ayrı paket talebi hazırlama"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "lahmacun-ici-icin-kiyma-secimi",
+      "mersin-dana-kiyma-secimi",
+      "pismis-et-yemekleri-saklama-isitma"
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "patlican-kebabi-icin-et-ve-kofte-secimi",
+    "title": "Patlıcan kebabı için et seçimi ve tepsi hazırlığı",
+    "description": "Patlıcan kebabı için kıyma mı kuşbaşı mı seçmeli? Tepsi ölçüsü, parça boyutu, malzeme dengesi ve Mersin’de alışveriş için hazırlık notları.",
+    "category": "Tepsi yemekleri",
+    "image": "/images/custom/kasap-kofte.jpg",
+    "imageAlt": "Patlıcanlı tepsi yemeği hazırlığı için temsili köfte görseli",
+    "productCategory": "hazir",
+    "intro": "Patlıcan kebabı adıyla hem kıymalı hem parça etli farklı ev tarifleri hazırlanır. Doğru alışveriş için önce hangi versiyonu yapacağınızı belirleyin. Tepsi boyutu, patlıcan dilimleri ve et hazırlığı aynı plana girdiğinde hem miktarı hem de mutfaktaki iş sırasını daha kolay yönetebilirsiniz.",
+    "sections": [
+      {
+        "id": "tarifi-belirleyin",
+        "title": "Kıymalı mı, kuşbaşı etli mi hazırlayacaksınız?",
+        "paragraphs": [
+          "Kıymalı bir tarifte köftenin et karışımı, yağ ve baharat tercihi önem kazanır. Parça etli bir tarifte ise kuşbaşının geldiği bölüm ve pişirme yöntemine uygunluğu öne çıkar. İki hazırlığı aynı kilogram ve aynı pişirme süresiyle birbirinin yerine koymayın.",
+          "Hazır kasap köfte kullanmak isterseniz içeriğini öğrenin; tarifinizin baharatını ayrıca eklemek tadı beklediğinizden farklılaştırabilir. Kıymayı kendiniz hazırlamakla hazır ürün almak arasında seçim yaparken mutfakta ayırabileceğiniz zamanı da düşünün."
+        ]
+      },
+      {
+        "id": "tepsi-olcusu",
+        "title": "Tepsi ölçüsü alışveriş miktarını nasıl etkiler?",
+        "paragraphs": [
+          "Dizme usulü hazırlıkta bir patlıcan dilimi ile bir köftenin birlikte ne kadar yer kapladığını düşünün. Elinizdeki tepsiye birkaç örnek parça yerleştirerek yaklaşık sıra ve adet planı yapabilirsiniz. Sadece tepsinin çapına bakıp her tarif için aynı miktarı almak yanıltıcıdır.",
+          "Patlıcanların çapı ve dilim kalınlığı farklıysa eşleşen köftelerin boyutu da değişir. Benzer boyutlu malzemeler hazırlamak, son sırada büyük boşluklar veya aşırı sıkışıklık oluşmasını azaltır. Sebze ve et miktarlarını ayrı not edin; toplam tepsi ağırlığını yalnızca et saymayın."
+        ],
+        "table": {
+          "caption": "Patlıcanlı tepsi yemeğinde alışveriş öncesi kararlar",
+          "columns": [
+            "Karar",
+            "Listeye etkisi"
+          ],
+          "rows": [
+            [
+              "Kıymalı veya parça etli tarif",
+              "Kıyma ya da kuşbaşı seçimi"
+            ],
+            [
+              "Tepsinin kullanılabilir alanı",
+              "Yaklaşık dizim ve parça sayısı"
+            ],
+            [
+              "Sebze ve köfte boyutu",
+              "Birbirine uygun porsiyonlar"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "pisirme-plani",
+        "title": "Sos ve etin pişmesini ayrı değerlendirin",
+        "paragraphs": [
+          "Fırında sebzelerin yumuşaması veya sosun kaynaması tek başına etin piştiğini göstermez. Kıymalı versiyonda USDA’nın asgari iç sıcaklık önerisi 71,1 °C’dir; uygun gıda termometresiyle köftenin içini kontrol edin. Bu değer fırın ayarı değildir.",
+          "Sos miktarını kullandığınız tarife ve kap ölçüsüne göre belirleyin. Çok derin kap ile yayvan tepsi aynı davranmaz. İlk denemede tepsi ölçüsünü ve kullandığınız malzeme miktarlarını not etmek, başarılı bulduğunuz düzeni daha sonra tekrar etmenizi sağlar."
+        ]
+      },
+      {
+        "id": "mersin-alisveris",
+        "title": "Mersin’de patlıcan kebabı için et isterken",
+        "paragraphs": [
+          "Talebinizi patlıcan kebabı yapacağım cümlesiyle sınırlamayın; kıymalı mı parça etli mi olduğunu da ekleyin. Kıyma ise kendiniz şekillendireceğinizi, hazır köfte ise mevcut baharat ve gramajı öğrenmek istediğinizi belirtin.",
+          "Akdeniz Kasabı’ndan güncel fiyatı seçtiğiniz hazırlık üzerinden isteyin. Özel şekillendirme veya tepsi hazırlığı ayrı taleplerdir; bu rehber bunların sunulduğu anlamına gelmez. Katalogdaki kıyma ve köfte seçeneklerini kendi tarifinizle eşleştirebilirsiniz."
+        ],
+        "links": [
+          {
+            "href": "/urunler/kasap-kofte",
+            "label": "Kasap köfte içeriği ve hazırlama seçenekleri"
+          },
+          {
+            "href": "/blog/mersin-dana-kusbasi-kuzu-kusbasi-secimi",
+            "label": "Parça etli yemekler için kuşbaşı karşılaştırması"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-kasap-kofte-siparisi",
+      "evde-kofte-neden-dagilir",
+      "firinda-kuzu-pirzola-hazirligi"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Güvenli asgari iç sıcaklıklar",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "kuru-fasulye-nohut-icin-et-secimi",
+    "title": "Etli kuru fasulye ve nohut için hangi et seçilir?",
+    "description": "Etli bakliyat yemeklerinde dana veya kuzu, kemikli veya kemiksiz parça ve doğrama boyutunu karşılaştırın. Günlük yemek için alışveriş planı hazırlayın.",
+    "category": "Tencere yemekleri",
+    "image": "/images/custom/dana-kusbasi.jpg",
+    "imageAlt": "Bakliyat yemeklerinde kullanılabilecek dana kuşbaşının temsili sunumu",
+    "productCategory": "dana",
+    "intro": "Etli kuru fasulye veya nohut için alışverişte bakliyatın hazır durumu kadar etin hazırlığı da önemlidir. Önceden haşlanmış nohutla kuru bakliyat aynı iş sırasını istemez. Kasaba kullandığınız tarifi ve tencereyi anlatmanız, et seçimindeki seçenekleri anlamlı biçimde daraltır.",
+    "sections": [
+      {
+        "id": "dana-kuzu-kemik",
+        "title": "Dana, kuzu ve kemikli seçenekleri nasıl karşılaştırmalı?",
+        "paragraphs": [
+          "Dana veya kuzu tercihini sevdiğiniz lezzet ve tarif üzerinden yapabilirsiniz. Etin hayvan türü tek başına pişirme süresini belirlemez; hangi bölümden alındığı, büyüklüğü ve pişirme yöntemi de önemlidir. Tencerelik kullanım için önerilen parçayı sorun.",
+          "Kemikli et tercih ederseniz tartıdaki ağırlığın tamamını yenebilir et gibi hesaplamayın. Kemiksiz kuşbaşı daha kolay paylaştırılabilir; kemikli hazırlık ise servis sırasında farklı işlem gerektirir. Seçimi yalnızca kilogram fiyatına değil, sofradaki kullanımına göre değerlendirin."
+        ]
+      },
+      {
+        "id": "bakliyat-hazirligi",
+        "title": "Bakliyatın hazırlığı ile etin sırasını eşleştirin",
+        "paragraphs": [
+          "Kuru, önceden ıslatılmış veya önceden pişmiş bakliyat kullanmanız iş planını değiştirir. Etle bakliyatın aynı anda tencereye girmesi her tarifte uygun değildir. Seçtiğiniz tarifte ayrı ön hazırlık varsa alışveriş ve zaman hesabına bunu dahil edin.",
+          "Düdüklü tencerede bakliyatla çalışıyorsanız cihazın bakliyata özel dolum ve sıvı sınırlarını izleyin. Genel bir et pişirme kuralını bakliyata doğrudan taşımayın. Bu rehber belirli bir cihaz için basınç veya dakika ayarı vermez."
+        ],
+        "links": [
+          {
+            "href": "/blog/duduklude-dana-eti-hazirligi",
+            "label": "Düdüklü tencerede dana eti için hazırlık soruları"
+          }
+        ]
+      },
+      {
+        "id": "miktar-ve-ogun",
+        "title": "Tenceredeki etin rolünü ve öğün sayısını belirleyin",
+        "paragraphs": [
+          "Yemeğin ana unsurunun bakliyat mı, bol etli bir tabak mı olacağını düşünün. Et miktarını yalnızca kişi sayısına göre değil yanında sunulacak yemekler ve planlanan öğün sayısıyla birlikte belirleyin. Küçük doğranmış parçalar ile iri parçaların tabaklara dağılımı da farklıdır.",
+          "İki ayrı gün pişirecekseniz çiğ eti iki paket halinde almak işinizi kolaylaştırabilir. Tek seferde çok yemek yapacaksanız pişmiş yemeğin soğutma ve saklama planı ayrıca gerekir. Büyük tencere kullanmak, bütün yemeğin kısa sürede tüketileceği anlamına gelmez."
+        ],
+        "tips": [
+          "Bakliyat kuru mu, önceden pişmiş mi?",
+          "Tencere mi, düdüklü mü kullanılacak?",
+          "Et kemikli mi, kemiksiz mi olacak?",
+          "Tek öğün mü, birkaç öğün mü planlanıyor?"
+        ]
+      },
+      {
+        "id": "siparis-ornek",
+        "title": "Kasaba iletilebilecek örnek açıklama",
+        "paragraphs": [
+          "Etli nohut yapacağım; nohut önceden haşlanmış olacak. Tencerede kullanmaya uygun dana eti ve eşit kuşbaşı doğrama istiyorum. Hangi parçayı önerirsiniz, istediğim miktarın toplam fiyatı nedir? Bu açıklama, yalnızca kuşbaşı istemekten daha fazla bilgi verir.",
+          "Toroslar’daki Akdeniz Kasabı’na dana veya kuzu tercihinizi ve paket sayısını bildirebilirsiniz. Kemikli ya da katalog dışı bir kesim istiyorsanız mevcut stok ve özel hazırlık uygunluğunu önceden sorun."
+        ],
+        "links": [
+          {
+            "href": "/urunler/dana-eti",
+            "label": "Dana kuşbaşı ve yemeklik et seçenekleri"
+          },
+          {
+            "href": "/blog/pismis-et-yemekleri-saklama-isitma",
+            "label": "Pişmiş etli yemekleri saklama ve yeniden ısıtma"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-dana-kusbasi-kuzu-kusbasi-secimi",
+      "duduklude-dana-eti-hazirligi",
+      "pismis-et-yemekleri-saklama-isitma"
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "julyen-et-nasil-hazirlatilir",
+    "title": "Jülyen et nasıl hazırlatılır? Tava ve fajita için seçim",
+    "description": "Jülyen dana eti için kesim, şerit kalınlığı ve tava kapasitesini planlayın. Mersin’de kasaba iletilecek hazırlık notu ve pişirme öncesi kontrol listesi.",
+    "category": "Tava ve kesim",
+    "image": "/images/custom/dana-bonfile.jpg",
+    "imageAlt": "Jülyen doğrama talebi için değerlendirilebilecek dana bonfilenin temsili sunumu",
+    "productCategory": "dana",
+    "intro": "Jülyen et, tek bir hayvan bölümü değil uzun şeritler halinde bir doğrama biçimidir. Fajita veya sebzeli tava hazırlarken yalnızca jülyen demek, seçilecek parçayı açıklamaz. Etin bölümü, şerit kalınlığı ve tavada kullanılacak miktar birlikte konuşulmalıdır.",
+    "sections": [
+      {
+        "id": "kesim-adi",
+        "title": "Jülyen doğrama ile etin parçasını ayırın",
+        "paragraphs": [
+          "Bonfile, antrikot veya önerilen başka bir parça farklı özellik ve fiyatlarla sunulabilir. Kısa sürede tava yemeği düşündüğünüzü söyleyerek uygun seçenekleri öğrenin. Her kuşbaşı ürününü şerit kesmek, aynı sonucu vereceği anlamına gelmez.",
+          "Kasabınızdan etin lif yönünü dikkate alarak hazırlama önerisi isteyin. Şeritlerin yaklaşık uzunluğu ve kalınlığında anlaşın; çok ince ve kalın parçaları aynı pakette karıştırmak pişirme takibini zorlaştırır. Yağ ve temizleme tercihini de bu aşamada belirtin."
+        ],
+        "links": [
+          {
+            "href": "/blog/mersin-antrikot-bonfile-farki",
+            "label": "Antrikot ve bonfile seçimini karşılaştırın"
+          }
+        ]
+      },
+      {
+        "id": "tava-kapasitesi",
+        "title": "Tavayı doldurmak yerine partileri planlayın",
+        "paragraphs": [
+          "Et ve sebzelerin tamamını küçük bir tavaya birden koymak, yüzeyin sıkışmasına ve malzemelerin suyunda pişmesine yol açabilir. Daha belirgin yüzey rengi istiyorsanız tavanızın kapasitesine göre partiler planlayın. Miktarı sırf tavaya sığsın diye düzensiz inceltmeyin.",
+          "Soğan, biber veya mantarı nasıl pişireceğinizi ayrıca belirleyin. Bütün sebzelerin aynı sürede hazırlanmasını beklemeyin; etle ne zaman birleşecekleri seçtiğiniz tarife bağlıdır. Malzemeleri önceden doğrayıp ayrı kaplarda düzenlemek, et ocaktayken hazırlıkla uğraşmanızı önler."
+        ]
+      },
+      {
+        "id": "sos-ve-paket",
+        "title": "Sade veya soslu hazırlık tercihini baştan söyleyin",
+        "paragraphs": [
+          "Fajita, soya soslu tava veya sade et için aynı marinasyonu istemeyebilirsiniz. Evde sos kullanacaksanız ürünü sade istediğinizi belirtin. Hazır marineli seçenek soruyorsanız içeriği ve bunun özel hazırlık kapsamında mümkün olup olmadığını öğrenin.",
+          "Çiğ etle temas edecek kap ve ekipmanı servis için kullanacaklarınızdan ayırın. İki farklı öğün için alışverişte şerit eti ayrı paketletmek, yalnızca gerekli miktarı hazırlamayı kolaylaştırır. Hazırlama notunu et miktarıyla aynı mesajda iletin."
+        ],
+        "table": {
+          "caption": "Jülyen et hazırlık notunda bulunacak bilgiler",
+          "columns": [
+            "Başlık",
+            "Örnek açıklama"
+          ],
+          "rows": [
+            [
+              "Kullanım",
+              "Sebzeli tava veya fajita"
+            ],
+            [
+              "Parça",
+              "Uygun dana kesimini görüşmek istiyorum"
+            ],
+            [
+              "Doğrama",
+              "Birbirine yakın kalınlıkta şeritler"
+            ],
+            [
+              "Paket",
+              "İki ayrı öğün için iki paket"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "mersin-julyen-talebi",
+        "title": "Mersin’de jülyen et için fiyatı nasıl istemeli?",
+        "paragraphs": [
+          "Teklifte kullanılan parça, temizlenmiş ağırlık ve özel doğrama koşullarını birlikte öğrenin. Sadece jülyen et fiyatı sormak farklı kesimlerden gelen teklifleri eşdeğer gibi gösterebilir. Hazırlama için ek ücret varsa toplam tutarın içinde görünsün.",
+          "Akdeniz Kasabı’nın dana eti ürünlerinden hangisinin bu kullanıma uygun olduğunu görüşebilirsiniz. Jülyen doğrama talebi için stok ve hazırlık teyidi gerekir; ayrı bir hazır paket ürününün sürekli bulunduğunu varsaymayın."
+        ],
+        "links": [
+          {
+            "href": "/urunler/dana-eti",
+            "label": "Dana eti kesimleri ve güncel bilgi alma"
+          },
+          {
+            "href": "/blog/mersin-istege-gore-et-dograma-kiyma-cekimi",
+            "label": "Özel et doğrama talebini netleştirme rehberi"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-antrikot-bonfile-farki",
+      "mersin-istege-gore-et-dograma-kiyma-cekimi",
+      "kuru-fasulye-nohut-icin-et-secimi"
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "firinda-kuzu-pirzola-hazirligi",
+    "title": "Fırında kuzu pirzola: kesim, tepsi ve pişirme kontrolü",
+    "description": "Fırında kuzu pirzola için dilim kalınlığı, kemik, tepsi yerleşimi ve iç sıcaklık kontrolünü planlayın. Toroslar’da sipariş öncesi sorulacak ayrıntılar.",
+    "category": "Fırın hazırlığı",
+    "image": "/images/custom/kuzu-pirzola.jpg",
+    "imageAlt": "Fırın yemeği için kuzu pirzolanın temsili ürün sunumu",
+    "productCategory": "kuzu",
+    "intro": "Kuzu pirzolayı fırında hazırlarken yalnızca fırın derecesine odaklanmak yeterli değildir. Dilimlerin kalınlığı, kemik yapısı ve tepsideki yerleşim pişirme takibini değiştirir. Alışverişte benzer boyutlu parçalar istemek ve servis planını önceden kurmak işi kolaylaştırır.",
+    "sections": [
+      {
+        "id": "dilim-ve-kemik",
+        "title": "Benzer kalınlıkta parçalar isteyin",
+        "paragraphs": [
+          "Pirzolayı fırında pişireceğinizi ve kaç parça düşündüğünüzü belirtin. Bir pakette çok ince ve kalın dilimler bulunursa aynı anda hazır olmalarını beklemeyin. Kesim ve yağ temizliği tercihini mağazaya gelmeden önce görüşmek, hazırlık için zaman bırakır.",
+          "Kemik tartıya dahildir; toplam kilogramı doğrudan tabaktaki et miktarı gibi değerlendirmeyin. Parça sayısı ve yaklaşık ağırlık ayrı bilgilerdir. Tek başına ana yemek mi yoksa başka etlerin yanında mı sunacağınızı söyleyerek miktarı planlayın."
+        ]
+      },
+      {
+        "id": "tepsi-duzeni",
+        "title": "Et ve sebzelerin yerleşimini ayrı düşünün",
+        "paragraphs": [
+          "Pirzolaları üst üste yığmak yerine kullandığınız tarife uygun düzende yerleştirin. Çok sıkışık veya çok derin bir kap, açık ve yayvan tepsiyle aynı sonucu vermez. Yanına patates veya başka sebze koyacaksanız bunların boyutu ve ön hazırlığı da iş sırasına dahil olsun.",
+          "Sebzelerin yumuşaması etin içinin hazır olduğunun kanıtı değildir. Bir malzeme daha erken hazır olursa onu gereksiz yere bekletmemek için servis kaplarını önceden planlayın. Bu rehber bütün fırınlar için tek bir derece ve dakika sözü vermez; cihaz ve tarif farklılıkları önemlidir."
+        ],
+        "tips": [
+          "Dilimlerin birbirine yakın kalınlıkta olması",
+          "Tepside üst üste gelmeyen yerleşim",
+          "Sebzeler için ayrı boyut ve hazırlık planı",
+          "Servis öncesi ölçüm ve dinlendirme"
+        ]
+      },
+      {
+        "id": "ic-sicaklik",
+        "title": "Fırın ayarı ile etin iç sıcaklığı farklıdır",
+        "paragraphs": [
+          "USDA, bütün kas yapısındaki kuzu pirzola için en az 63 °C iç sıcaklık ve ardından en az 3 dakika dinlendirme önerir. Ölçümü uygun gıda termometresiyle, kemiğe değdirmeden yapın. Bu öneri kıymalı ürünler için kullanılan sıcaklıkla karıştırılmamalıdır.",
+          "Yüzeyin kızarması yalnızca dış görünüm hakkında bilgi verir. Termometrenizin kullanım ve temizleme talimatını izleyin; çok farklı kalınlıkta parçalar varsa tek parçayı ölçüp bütün tepsinin aynı durumda olduğunu varsaymayın. Damak tercihinize göre daha ileri pişirme isteyebilirsiniz."
+        ]
+      },
+      {
+        "id": "toroslar-pirzola-notu",
+        "title": "Pirzola alışverişi için kısa sipariş notu",
+        "paragraphs": [
+          "Fırında hazırlayacağım kuzu pirzolalar için yakın kalınlıkta dilimler istiyorum. Düşündüğüm parça sayısı şu kadar; yaklaşık ağırlık, kilogram fiyatı ve toplam tutar hakkında bilgi verebilir misiniz? Böyle bir not, yalnızca pirzola istemekten daha açıklayıcıdır.",
+          "Akdeniz Kasabı’nın kuzu ürünleri sayfasından seçenekleri inceleyebilir, Toroslar mağazasına özel kesim uygunluğunu sorabilirsiniz. Ürün görseli kesin dilim, parça sayısı veya paket ağırlığı taahhüdü değildir."
+        ],
+        "links": [
+          {
+            "href": "/urunler/kuzu-eti",
+            "label": "Kuzu pirzola ve kuşbaşı ürünlerini inceleyin"
+          },
+          {
+            "href": "/blog/patlican-kebabi-icin-et-ve-kofte-secimi",
+            "label": "Kıymalı tepsi yemeği için farklı bir hazırlık planı"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-kuzu-eti-pirzola-secimi",
+      "mersin-mangal-paketi-hazirlama",
+      "pismis-et-yemekleri-saklama-isitma"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Güvenli asgari iç sıcaklıklar",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "evde-kofte-neden-dagilir",
+    "title": "Evde köfte neden dağılır? Harç ve pişirme kontrol listesi",
+    "description": "Köftenin dağılmasına yol açabilen harç nemi, malzeme oranı, şekillendirme ve çevirme sorunlarını ayırın. Kıymayı değiştirmeden önce kontrol edilecekler.",
+    "category": "Mutfakta sorun çözme",
+    "image": "/images/custom/kasap-kofte.jpg",
+    "imageAlt": "Şekillendirilmiş kasap köftelerinin temsili sunumu",
+    "productCategory": "hazir",
+    "intro": "Köftenin tavada dağılması her zaman kıymanın kötü olduğu anlamına gelmez. Harca eklenen sıvı, soğan hazırlığı, malzeme oranı ve çevirme biçimi de sonucu etkileyebilir. Aynı anda bütün malzemeleri değiştirmek yerine sorunun hangi aşamada ortaya çıktığını gözlemleyin.",
+    "sections": [
+      {
+        "id": "sorunu-ayirin",
+        "title": "Şekil verirken mi, tavada mı dağılıyor?",
+        "paragraphs": [
+          "Harç elinizde şekil almıyorsa önce nemini ve tarifteki malzeme oranlarını kontrol edin. Soğanın hazırlığı veya eklenen sıvı miktarı tarifte beklenenden farklı olabilir. Gelişigüzel daha çok ekmek, un veya yumurta eklemek tadı ve dokuyu değiştirir; ayrıca tarifin içeriğine yeni bileşenler sokar.",
+          "Şekil verilebilen köfte yalnızca tavada kırılıyorsa kullanılan spatula, yüzey ve çevirme aşamasına bakın. Birbirinden farklı kalınlıkta köfteleri aynı anda çevirmeye çalışmak da takibi zorlaştırabilir. Tek bir soruna tek bir değişiklikle yaklaşmak hangi adımın işe yaradığını görmenizi sağlar."
+        ]
+      },
+      {
+        "id": "tarifi-kaydedin",
+        "title": "Harç oranını göz kararıyla sürekli değiştirmeyin",
+        "paragraphs": [
+          "Kıyma miktarını ve eklediğiniz malzemeleri ölçerek not alın. Soğanın rendelenmiş, ince doğranmış veya süzülmüş olması aynı tarifte farklı sonuç doğurabilir. Kıymanın yağ ve çekim tercihini de kaydederseniz bir sonraki alışverişte neyi koruyacağınızı bilirsiniz.",
+          "Tarifinizde bağlayıcı varsa verilen miktarla başlayın; yoksa mutlaka eklemek gerektiğini varsaymayın. Baharat, sos veya malzeme değişikliği yaptıysanız bunu not edin. Hazır kasap köfteye tekrar harç malzemesi eklemek, ürünün başlangıç oranlarını değiştirecektir."
+        ],
+        "table": {
+          "caption": "Köfte sorununu aşamasına göre değerlendirin",
+          "columns": [
+            "Gözlem",
+            "Önce kontrol edilecek"
+          ],
+          "rows": [
+            [
+              "Harç şekil almıyor",
+              "Eklenen sıvı ve malzeme oranları"
+            ],
+            [
+              "Tavaya koyarken parçalanıyor",
+              "Kalınlık, şekillendirme ve taşıma"
+            ],
+            [
+              "Çevirirken kırılıyor",
+              "Spatula, tava yüzeyi ve çevirme zamanı"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "deneme-koftesi",
+        "title": "Bütün harcı şekillendirmeden küçük bir deneme yapın",
+        "paragraphs": [
+          "Aynı boyutta bir deneme köftesi hazırlayıp kullandığınız ekipmandaki davranışına bakabilirsiniz. Amaç harcı çiğ tatmak değil, pişmiş örneğin doku ve baharatını değerlendirmektir. Deneme sırasında kalan çiğ harcı buzdolabında tutun.",
+          "Dana veya kuzu kıymalı köftede güvenli pişirme kontrolü için USDA’nın en az 71,1 °C iç sıcaklık önerisini kullanın. Dış yüzeyin renk alması tek başına yeterli değildir. Uygun termometreyle ölçüm, köftenin biçimini korumasından ayrı bir kontroldür."
+        ]
+      },
+      {
+        "id": "kiyma-ve-hazir-kofte",
+        "title": "Sonraki alışverişte kasaba hangi bilgiyi vermeli?",
+        "paragraphs": [
+          "Evde kullandığınız tarifi, yağ ve çekim tercihini anlatın; sorunu yalnızca daha yağsız veya daha ince kıyma istemekle çözmeye çalışmayın. Hamburger köftesi ile baharatlı ev köftesinin hazırlanışı farklı olabilir. Kıymayı hangi amaçla kullanacağınızı belirtin.",
+          "Hazır kasap köfte seçerseniz içerik, şekil ve mevcut hazırlama bilgisini öğrenin. Akdeniz Kasabı’na özel bir içerik talebi iletebilirsiniz; bunun karşılanması görüşmede teyit edilir. Ürün adı alerjen bulunmadığına dair güvence değildir."
+        ],
+        "links": [
+          {
+            "href": "/blog/mersin-dana-kiyma-secimi",
+            "label": "Köftelik kıymada yağ ve çekim tercihi"
+          },
+          {
+            "href": "/blog/mersin-hamburger-koftesi-icin-kiyma",
+            "label": "Hamburger için kıyma ve gramaj planı"
+          },
+          {
+            "href": "/urunler/kasap-kofte",
+            "label": "Hazır kasap köfte seçeneğini inceleyin"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-kasap-kofte-siparisi",
+      "mersin-hamburger-koftesi-icin-kiyma",
+      "patlican-kebabi-icin-et-ve-kofte-secimi"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Güvenli asgari iç sıcaklıklar",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "tavuk-sis-marinasyon-rehberi",
+    "title": "Tavuk şiş marinasyonu: sos, parça ve güvenli hazırlık",
+    "description": "Evde tavuk şiş için sade veya marineli ürün seçimi, sos içeriği, eşit doğrama ve güvenli hazırlama adımları. Mersin’de sipariş öncesi kontrol listesi.",
+    "category": "Tavuk hazırlığı",
+    "image": "/images/custom/tavuk-sis.jpg",
+    "imageAlt": "Marineli tavuk şiş için temsili ürün görseli",
+    "productCategory": "tavuk",
+    "intro": "Tavuk şiş hazırlığında marinasyon yalnızca baharat seçmekten ibaret değildir. Hangi parça kullanılacağı, doğrama boyutu, sosun içeriği ve bekletme koşulları birlikte düşünülmelidir. Sade tavuk alıp evde soslamakla hazır marineli ürün seçmek farklı hazırlık planlarıdır.",
+    "sections": [
+      {
+        "id": "sade-mi-hazir-mi",
+        "title": "Sosu kendiniz hazırlayacaksanız sade ürün isteyin",
+        "paragraphs": [
+          "Kendi yoğurtlu, yağlı veya baharatlı karışımınızı kullanacaksanız bunu alışverişte belirtin. Hazır marineli ürüne ikinci bir sos eklemek tuz, baharat ve toplam sıvı miktarını değiştirir. Kullandığınız tarifin başlangıç ürününün sade mi marineli mi olduğunu kontrol edin.",
+          "Hazır marineli tavukta kullanılan parçayı ve bileşenleri sorun. Süt ürünü, hardal veya başka bir malzemeye ilişkin hassasiyet varsa bunu açıkça bildirin. Marinasyonun rengi bütün içeriği göstermez; sade görünmesi de belirli bir bileşenin bulunmadığını kanıtlamaz."
+        ]
+      },
+      {
+        "id": "parca-ve-sis",
+        "title": "Şişe eşit parçalar ve uygun aralıklarla hazırlık yapın",
+        "paragraphs": [
+          "Göğüs veya but tercihinizi netleştirin; farklı kalınlıkta parçaları rastgele aynı şişe dizmek takibi zorlaştırır. Etin şişe takılı mı yoksa yalnızca doğranmış mı alınacağını belirtin. Evde kullanacağınız şiş ve pişirme ekipmanı, istediğiniz parça boyutunu etkiler.",
+          "Soğan ve biber ekleyecekseniz boyutlarını etle birlikte planlayın. Sebzelerin pişme süresi farklıysa ayrı şişler kullanmak daha kolay yönetilebilir. Önceden hazırlanan şişlerin cihaz veya tavaya gerçekten sığacağını kontrol edin; özellikle küçük airfryer sepetlerinde uzun şişler sorun olabilir."
+        ],
+        "links": [
+          {
+            "href": "/blog/airfryer-tavuk-pirzola-pisirme",
+            "label": "Airfryer’da tavuk hazırlığı ve sepet kapasitesi"
+          }
+        ]
+      },
+      {
+        "id": "guvenli-marinasyon",
+        "title": "Marinasyon güvenli pişirmenin yerine geçmez",
+        "paragraphs": [
+          "USDA’ya göre tavuk buzdolabında marine edilmeli; tezgahta bekletilmemelidir. Çiğ tavukla temas etmiş sosu doğrudan servis sosu olarak kullanmayın. Servis için ayıracağınız sosu çiğ ete değmeden ayrı bir kaba almak karışıklığı önler.",
+          "Limon, sirke veya baharat eklemek tavuğu güvenle yenebilir hale getirmez. Tavuk için hedef en az 74 °C iç sıcaklıktır; uygun termometreyle kontrol edin. Bekletme planında ürünün satın alınma, çözündürülme ve etiket bilgilerini birlikte dikkate alın; soslamak saklama süresini sıfırlamaz."
+        ]
+      },
+      {
+        "id": "siparis-listesi",
+        "title": "Mersin’de tavuk şiş siparişine hangi notlar eklenir?",
+        "paragraphs": [
+          "Ürün adının yanına istediğiniz miktarı, sade veya marineli tercihi ve şişe dizim isteğini yazın. Hazır ürünün içeriğini değiştirmek istiyorsanız uygunluğunu önceden sorun. Aynı isimli iki ürünü fiyat açısından karşılaştırırken bu hazırlık ayrıntılarının eşleştiğinden emin olun.",
+          "Toroslar’daki Akdeniz Kasabı’na mağazadan alma saatinizi bildirerek stok ve hazırlık teyidi alabilirsiniz. Sitedeki tavuk şiş fotoğrafı temsili sunumdur; kesin gramaj, şiş adedi veya marinasyon içeriği yalnızca görselden çıkarılmamalıdır."
+        ],
+        "links": [
+          {
+            "href": "/urunler/tavuk-urunleri",
+            "label": "Tavuk şiş ve pirzola ürünleri"
+          },
+          {
+            "href": "/blog/donmus-et-guvenli-cozundurme",
+            "label": "Donmuş ürünler için güvenli çözündürme planı"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-tavuk-kasabi-urunleri",
+      "airfryer-tavuk-pirzola-pisirme",
+      "mersin-mangal-paketi-hazirlama"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Kanatlı ürünlerinde marinasyon ve hazırlık",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/poultry/poultry-basting-brining-and-marinating"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "airfryer-tavuk-pirzola-pisirme",
+    "title": "Airfryer’da tavuk pirzola: sepet düzeni ve pişirme kontrolü",
+    "description": "Airfryer tavuk pirzolada kemik, deri, parça kalınlığı ve sepet kapasitesini planlayın. Sabit dakikaya güvenmeden güvenli pişirmeyi kontrol edin.",
+    "category": "Airfryer hazırlığı",
+    "image": "/images/custom/tavuk-pirzola.jpg",
+    "imageAlt": "Airfryer hazırlığında tercih edilebilecek tavuk pirzolanın temsili sunumu",
+    "productCategory": "tavuk",
+    "intro": "Airfryer’da tavuk pirzola hazırlarken internette gördüğünüz tek bir süreyi bütün ürünlere uygulamayın. Cihazın kapasitesi, parçanın kalınlığı, kemik durumu ve başlangıç koşulu sonucu değiştirir. Alışverişte ve pişirme öncesinde aynı bilgileri kontrol etmek daha tutarlı bir hazırlık sağlar.",
+    "sections": [
+      {
+        "id": "urun-tanimi",
+        "title": "Tavuk pirzolanın kemik ve deri durumunu öğrenin",
+        "paragraphs": [
+          "Tavuk pirzola adı farklı hazırlıklarla kullanılabilir. Hangi bölümden hazırlandığını, kemikli mi kemiksiz mi olduğunu ve derisinin bırakılıp bırakılmadığını sorun. Kalınlıkları çok farklı parçaları aynı sürede pişireceğinizi varsaymayın.",
+          "Sade veya marineli ürün seçimini kullandığınız tarife göre yapın. Hazır marinasyonun içeriğini öğrenmeden ilave sos ve tuz eklemeyin. Cihazınızda soslu ürünler için özel öneriler varsa bunları okuyun; tarif ve ürün etiketi birlikte değerlendirilmelidir."
+        ]
+      },
+      {
+        "id": "sepet-kapasitesi",
+        "title": "Sepete kaç parça sığdığını önceden planlayın",
+        "paragraphs": [
+          "Cihazın izin verdiği yerleşime uyarak parçaları sıkıştırmadan hazırlayın. Bir kilogram ürünün tek seferde sığacağını yalnızca sepetin litre değerinden çıkarmayın. Parçanın yüzey alanı, şekli ve yerleşim biçimi de kapasiteyi etkiler.",
+          "Birden fazla parti gerekiyorsa servis sırasını buna göre düzenleyin. Pişecek bütün çiğ ürünleri mutfakta bekletmek yerine sıradaki miktarı hazırlayın. Sepet aksesuarlarını ve varsa pişirme kâğıdını üreticinin hava dolaşımı ve kullanım kurallarına uygun seçin."
+        ],
+        "tips": [
+          "Parçaların benzer kalınlıkta olması",
+          "Cihaz kılavuzuna uygun sepet yerleşimi",
+          "Gerekirse birden fazla pişirme partisi",
+          "Çiğ ve pişmiş ürünler için ayrı kaplar"
+        ]
+      },
+      {
+        "id": "sicaklik-kontrolu",
+        "title": "Süreyi başlangıç rehberi, iç sıcaklığı kontrol ölçütü yapın",
+        "paragraphs": [
+          "USDA’nın airfryer rehberi tavuğun en az 74 °C iç sıcaklığa ulaşmasını önerir. Uygun termometreyle en kalın kısımdan, kemiğe değdirmeden ölçün. Cihaz ekranındaki sıcaklık tavuğun iç sıcaklığı değildir.",
+          "Renk, çıtırlık veya akan sıvının görünümü tek başına yeterli kontrol sağlamaz. Çiğ ve pişmiş ürün için aynı tabağı kullanmayın. Termometre ve aksesuarları üretici talimatlarına göre temizleyin; parçalar farklı büyüklükteyse yalnızca birini ölçmekle yetinmeyin."
+        ]
+      },
+      {
+        "id": "alisveris-plani",
+        "title": "Toroslar’dan alışverişte cihazınızı da tarif edin",
+        "paragraphs": [
+          "Küçük sepetli bir airfryer kullanıyorum; tavuk pirzolaların kemik, deri ve yaklaşık parça büyüklüğü hakkında bilgi verebilir misiniz? Böyle bir soru, sadece kilogram miktarı vermekten daha kullanışlıdır. Miktarı hazırlayacağınız öğün sayısına göre belirleyin.",
+          "Akdeniz Kasabı’nda tavuk pirzola veya şiş seçeneklerini inceleyip stok ve hazırlık uygunluğunu öğrenebilirsiniz. Airfryer’a özel paket bulunduğu varsayılmamalıdır. Donmuş ürün kullanacaksanız çözündürme planını ayrıca yapın; bu yazı belirli bir cihaz için hazır program değildir."
+        ],
+        "links": [
+          {
+            "href": "/urunler/tavuk-urunleri",
+            "label": "Tavuk pirzola ve şiş seçenekleri"
+          },
+          {
+            "href": "/blog/donmus-et-guvenli-cozundurme",
+            "label": "Donmuş et ve tavuk için çözündürme rehberi"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "tavuk-sis-marinasyon-rehberi",
+      "mersin-tavuk-kasabi-urunleri",
+      "pismis-et-yemekleri-saklama-isitma"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Airfryer kullanımı ve gıda güvenliği",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/air-fryers-and-food-safety"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "duduklude-dana-eti-hazirligi",
+    "title": "Düdüklüde dana eti için kesim ve hazırlık rehberi",
+    "description": "Düdüklü tencerede dana eti için parça, doğrama ve yemek sırasını planlayın. Cihaz talimatlarına göre dolum, sıvı ve güvenli açma kontrollerini ayırın.",
+    "category": "Düdüklü yemekler",
+    "image": "/images/custom/dana-kusbasi.jpg",
+    "imageAlt": "Düdüklü tencere yemeği için temsili dana kuşbaşı sunumu",
+    "productCategory": "dana",
+    "intro": "Düdüklü tencerede dana eti hazırlamak, farklı et parçalarını tek bir dakika değeriyle pişirmek değildir. Seçilen bölüm, parça büyüklüğü, toplam miktar ve cihazın çalışma biçimi birlikte değerlendirilir. Bu rehber alışveriş ve hazırlık içindir; tencerenizin kullanım kılavuzunun yerine geçmez.",
+    "sections": [
+      {
+        "id": "kesim-ve-dograma",
+        "title": "Tencerelik parça ile doğrama boyutunu birlikte seçin",
+        "paragraphs": [
+          "Kasaba düdüklüde sulu yemek mi, sebzeli et mi hazırlayacağınızı söyleyin. Kısa süreli tava yemeğine göre seçilmiş bir parçayı sırf adı kuşbaşı olduğu için her tencere tarifine eşdeğer saymayın. Yağ, temizleme ve parça tercihlerini tarifinizle birlikte görüşün.",
+          "Yakın boyutta doğranmış parçalar hazırlığı izlemeyi kolaylaştırır. Çok küçük parçalarla büyük parçaları aynı pakette istemek, bazılarını beklerken diğerlerinin fazla pişmesine yol açabilir. Özel doğrama istiyorsanız yaklaşık boyutta anlaşın; tartının hangi hazırlığı kapsadığını da sorun."
+        ]
+      },
+      {
+        "id": "cihaz-farki",
+        "title": "Dakika, basınç ve sıvı için cihazınızın kılavuzunu izleyin",
+        "paragraphs": [
+          "Ocak üstü ve elektrikli düdüklüler aynı ayar mantığıyla çalışmayabilir. Asgari sıvı, azami dolum ve basınç boşaltma yöntemini kendi cihazınızın talimatından öğrenin. Başka bir modelin tarifindeki düğme veya süreyi doğrudan kopyalamayın.",
+          "Kapağı basınç varken zorlamayın; açma işlemini yalnızca kılavuzdaki güvenli yöntemle yapın. Valf, conta ve kilitle ilgili kontrol adımlarını atlamayın. Bu sayfa basınç mekanizmasına müdahale, güvenlik kilidini devre dışı bırakma veya belirli cihaz için teknik talimat içermez."
+        ]
+      },
+      {
+        "id": "yemek-sirasi",
+        "title": "Et, sebze ve bakliyat aynı hazırlık süresine sahip değildir",
+        "paragraphs": [
+          "Patates, havuç, nohut veya kuru fasulyenin yemeğe hangi aşamada katılacağı seçtiğiniz tarife bağlıdır. Önceden pişmiş bakliyatla kuru bakliyatı aynı başlangıç koşulunda düşünmeyin. Her malzemenin hazırlanmış durumunu alışveriş listenizde belirtin.",
+          "Yemeğin sonunda sos kıvamını ayarlamak istiyorsanız bunu da güvenli açma işleminden sonraki tarif adımı olarak planlayın. Daha yoğun sos elde etmek amacıyla cihazın gerekli sıvısını azaltmayın. Bir sonraki deneme için kullandığınız parça, miktar ve cihaz modelini not etmek faydalıdır."
+        ],
+        "links": [
+          {
+            "href": "/blog/kuru-fasulye-nohut-icin-et-secimi",
+            "label": "Etli bakliyat yemekleri için alışveriş ve hazırlık"
+          }
+        ]
+      },
+      {
+        "id": "siparis-notu",
+        "title": "Düdüklü yemeği için nasıl sipariş verilir?",
+        "paragraphs": [
+          "Örnek açıklama: Düdüklüde sebzeli dana eti hazırlayacağım. Birbirine yakın boyutta kuşbaşı ve tarifime uygun tencerelik parça istiyorum. Seçenekleri, miktarı ve toplam fiyatı görüşebilir miyiz? Hazırlayacağınız yemek farklıysa bu notu ona göre değiştirin.",
+          "Mersin Toroslar’daki Akdeniz Kasabı’ndan uygun dana ürününü ve doğrama talebinin karşılanma durumunu öğrenebilirsiniz. Mağazanın 7/24 açık olması bütün özel hazırlıkların hemen hazır olduğu anlamına gelmez; almak istediğiniz saati de bildirin."
+        ],
+        "links": [
+          {
+            "href": "/urunler/dana-eti",
+            "label": "Dana kuşbaşı ve diğer dana eti ürünleri"
+          },
+          {
+            "href": "/blog/mersin-dana-kusbasi-kuzu-kusbasi-secimi",
+            "label": "Dana ve kuzu kuşbaşını yemeğe göre seçme"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "kuru-fasulye-nohut-icin-et-secimi",
+      "mersin-istege-gore-et-dograma-kiyma-cekimi",
+      "pismis-et-yemekleri-saklama-isitma"
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "pismis-et-yemekleri-saklama-isitma",
+    "title": "Pişmiş et yemekleri nasıl saklanır ve yeniden ısıtılır?",
+    "description": "Artan et, tavuk ve kıymalı yemekleri hızlı soğutma, porsiyonlama, tarih notu ve yeniden ısıtma adımları. Resmi kaynaklarla mutfak planı oluşturun.",
+    "category": "Saklama ve güvenlik",
+    "image": "/images/custom/category-hazir.jpg",
+    "imageAlt": "Pişmiş yemek planlamasını temsil eden, gerçek yemek fotoğrafı olmayan temsili et ürünleri sunumu",
+    "productCategory": "hazir",
+    "intro": "Etli bir yemek arttığında sonraki öğünün planı servis bittiği anda başlar. Yalnızca kapağını kapatıp tezgâhta bekletmek güvenli bir saklama yöntemi değildir. Soğutma, miktara göre kap seçimi ve yeniden ısıtma ayrı adımlar olarak düşünülmelidir.",
+    "sections": [
+      {
+        "id": "hizli-sogutma",
+        "title": "Büyük tencereyi tamamen soğuyana kadar dışarıda bırakmayın",
+        "paragraphs": [
+          "USDA, artan yemeğin pişirme veya sıcak tutma sonrasında en geç iki saat içinde buzdolabına alınmasını; ortam 32 °C’den sıcaksa bu sürenin bir saat olmasını önerir. Bu sınırları aşmış bozulabilir yiyecekleri tekrar ısıtarak güvenli hale getirmeye çalışmayın.",
+          "Büyük miktarı sığ ve küçük kaplara ayırmak daha hızlı soğutmayı sağlar. Yemeğin oda sıcaklığında tamamen soğumasını beklemek gerekmez. Kullanacağınız kapların gıdaya ve sıcak yemeğe uygunluğunu kontrol edin; buzdolabındaki çiğ ürünlerle pişmiş yemeği ayrı tutun."
+        ]
+      },
+      {
+        "id": "tarih-ve-kap",
+        "title": "Her kaba içerik ve pişirme tarihini yazın",
+        "paragraphs": [
+          "Pişmiş et yemekleri için USDA’nın 4 °C veya altındaki buzdolabı için genel önerisi 3–4 gündür; bu, yemeğin başlangıçta güvenle pişirilip doğru şekilde soğutulduğu varsayımına dayanır. Ürün veya tarif için daha kısa bir talimat varsa ona uyun. Saklama geçmişinden emin olmadığınız yemeği yalnızca kokusuna bakarak değerlendirmeyin.",
+          "Etiket üzerinde yemek adı, pişirme tarihi ve kaç porsiyon ayırdığınızı belirtmek sonraki öğünü planlamayı kolaylaştırır. Örneğin etli nohut ve sade kavurma benzer kaplarda duruyorsa içerik notu yanlış paketi çıkarmanızı önler. Yeni pişmiş yemekle önceki günden kalanı tek tarihle birleştirmeyin."
+        ]
+      },
+      {
+        "id": "yeniden-isitma",
+        "title": "Yalnızca tüketeceğiniz miktarı planlayın ve içini ölçün",
+        "paragraphs": [
+          "Artan yemek yeniden ısıtılırken en az 74 °C iç sıcaklığa ulaşmalıdır. Mikrodalgada farklı bölgelerin eşit ısınmadığını dikkate alın; karıştırma ve bekletme için cihaz talimatını izleyip birkaç noktadan ölçüm yapın. Bir bölgenin sıcak olması bütün kabın aynı durumda olduğunu göstermez.",
+          "Birkaç öğün için hazırlıkta küçük kaplar kullanmak, her seferinde büyük bir tencereyle uğraşmayı azaltır. O gün yiyeceğiniz miktarı, yan yemeklerle birlikte belirleyin. Servis için ayırdığınız temiz kaşığı çiğ et hazırlığında kullandığınız gereçlerden ayrı tutun."
+        ]
+      },
+      {
+        "id": "sonraki-alisveris",
+        "title": "Artan yemek notlarını sonraki alışverişte kullanın",
+        "paragraphs": [
+          "Her yemek sonunda ne kadar kaldığını not etmek, bir sonraki et alışverişini ihtiyacınıza yaklaştırır. Çok miktarda yemek artıyorsa otomatik olarak aynı gramajı tekrar almak yerine kişi sayısı ve yan yemekleri yeniden düşünün. Dondurucuya kaldırmayı planlıyorsanız uygun kap ve etiket hazırlığını önceden yapın.",
+          "Bu rehber ev mutfağı için genel bilgidir; ticari üretim veya toplu yemek için özel süreç talimatı değildir. Soğuk zinciri bozulmuş ürün hakkında belirsizlik varsa güvenli olduğu sonucuna varmayın. Çiğ kıyma ve donmuş ürünlerdeki kurallar için ilgili ayrı rehberleri inceleyin."
+        ],
+        "links": [
+          {
+            "href": "/blog/kiyma-buzdolabi-dondurucu-saklama",
+            "label": "Çiğ kıyma için ayrı saklama ve paketleme rehberi"
+          },
+          {
+            "href": "/blog/donmus-et-guvenli-cozundurme",
+            "label": "Donmuş etin güvenli çözündürülmesi"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "kuru-fasulye-nohut-icin-et-secimi",
+      "icli-kofte-ic-harci-kiyma",
+      "kiyma-buzdolabi-dondurucu-saklama"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Artan yemeklerin güvenli saklanması ve ısıtılması",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "donmus-et-guvenli-cozundurme",
+    "title": "Donmuş et nasıl çözündürülür? Üç güvenli yöntem",
+    "description": "Donmuş dana eti, kıyma ve tavuk için buzdolabı, soğuk su ve mikrodalgada çözündürme yöntemleri. Zaman planı ve tekrar dondurma ayrımlarını öğrenin.",
+    "category": "Çözündürme rehberi",
+    "image": "/images/custom/dana-kusbasi.jpg",
+    "imageAlt": "Çözündürme planında kullanılabilecek porsiyonu temsil eden temsili dana kuşbaşı sunumu",
+    "productCategory": "dana",
+    "intro": "Akşam yemeğinde kullanacağınız et hâlâ donmuşsa onu tezgâha veya sıcak suya bırakmak güvenli bir kestirme değildir. Çözündürme yöntemi, ayırabildiğiniz zamana ve ardından hemen pişirip pişiremeyeceğinize göre seçilmelidir. Paketin ortasının donmuş kalması dış kısmının güvenli sıcaklıkta olduğunu göstermez.",
+    "sections": [
+      {
+        "id": "buzdolabi",
+        "title": "Önceden planlayabiliyorsanız buzdolabını kullanın",
+        "paragraphs": [
+          "USDA’nın önerdiği yöntemlerden biri, ürünü soğukluğu kontrol edilen buzdolabında çözündürmektir. Buzdolabını 4 °C veya altında tutun; sızdırmayacak bir kap kullanın. Çözünme süresi paket kalınlığı ve miktarla değişir; akşamdan çıkarmanın her ürün için yeterli olacağını varsaymayın.",
+          "Yemek takviminize bir çözündürme adımı ekleyin. Hangi paketi kullanacağınız ve ne zaman pişireceğiniz belli olursa bütün stok yerine yalnızca gerekli miktarı ayırabilirsiniz. Paket etiketinde ürün adı ve ağırlık bulunması bu seçimi kolaylaştırır."
+        ]
+      },
+      {
+        "id": "soguk-su-mikrodalga",
+        "title": "Daha hızlı yöntemlerde pişirmeyi ertelemeyin",
+        "paragraphs": [
+          "Soğuk su yönteminde et sızdırmaz ambalajda olmalı; soğuk su her 30 dakikada yenilenmelidir. Çözünen ürün hemen pişirilir. Mikrodalganın çözündürme programı kullanıldığında da pişirmeye hemen geçilir; cihazın ambalaj ve çalışma talimatını izleyin.",
+          "Bu yöntemleri seçmeden önce tarifi, temiz ekipmanı ve pişirme alanını hazır edin. Zamanınız yalnızca ürünü çözdürmeye yetiyor, pişirmeye yetmiyorsa hızlı yönteme başlamayın. Sıcak su, tezgâh veya araç içinde çözündürme güvenli seçenekler değildir."
+        ],
+        "table": {
+          "caption": "Yöntemi hazırlık planına göre seçin",
+          "columns": [
+            "Yöntem",
+            "Planlama farkı"
+          ],
+          "rows": [
+            [
+              "Buzdolabı",
+              "Önceden zaman ayırmayı gerektirir"
+            ],
+            [
+              "Soğuk su",
+              "Sızdırmaz paket, su takibi ve hemen pişirme"
+            ],
+            [
+              "Mikrodalga",
+              "Cihaz talimatı ve hemen pişirme"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "tekrar-dondurma",
+        "title": "Tekrar dondurma kararı yönteme bağlıdır",
+        "paragraphs": [
+          "USDA, buzdolabında güvenli koşullarda çözünmüş etin pişirilmeden yeniden dondurulabileceğini; kalitede değişim olabileceğini belirtir. Soğuk su veya mikrodalgayla çözündürülen ürün ise yeniden dondurulmadan önce pişirilmelidir. Güvenli saklama süresi ve ürün etiketi bu değerlendirmeden bağımsız değildir.",
+          "Bir paketin hangi yöntemle çözüldüğünü bilmiyorsanız sadece görünümünden karar vermeyin. Evinizde birden fazla kişi yemek hazırlıyorsa paket üzerine hazırlık notu koyun. Çözündürülmüş ürünü yeniden dondurmak, geçmişteki uygunsuz saklamayı düzeltmez."
+        ]
+      },
+      {
+        "id": "paketleme-plani",
+        "title": "Bir sonraki alışverişte çözündürmeyi kolaylaştırın",
+        "paragraphs": [
+          "Haftalık alışverişte kullanacağınız öğünleri önceden belirleyip eti buna göre ayrı paketler halinde isteyebilirsiniz. Büyük bir paketin içinden donmuş miktar ayırmaya çalışmak yerine, ihtiyaç duyduğunuz porsiyonu baştan tanımlayın. Miktarlar kişisel yemek planına göre değişir.",
+          "Mersin’de Akdeniz Kasabı’ndan alışveriş yaparken paket sayısını ve evde kullanma planınızı paylaşın. Ürünün soğutulmuş veya donmuş sunulma durumunu ayrıca öğrenin; her katalog ürününün aynı muhafaza biçiminde verildiğini varsaymayın."
+        ],
+        "links": [
+          {
+            "href": "/blog/mersin-istege-gore-et-dograma-kiyma-cekimi",
+            "label": "Öğünlere göre kesim ve ayrı paketleme talebi"
+          },
+          {
+            "href": "/blog/kiyma-buzdolabi-dondurucu-saklama",
+            "label": "Kıymayı saklama ve etiketleme rehberi"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "kiyma-buzdolabi-dondurucu-saklama",
+      "airfryer-tavuk-pirzola-pisirme",
+      "pismis-et-yemekleri-saklama-isitma"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Donmuş ürünler için güvenli çözündürme yöntemleri",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/big-thaw-safe-defrosting-methods"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "kiyma-buzdolabi-dondurucu-saklama",
+    "title": "Kıyma buzdolabında ve dondurucuda nasıl saklanır?",
+    "description": "Çiğ kıyma için buzdolabı süresi, dondurucu sıcaklığı, öğünlük paket ve tarih etiketi. Güvenlik süresiyle dondurucudaki kalite süresini ayırın.",
+    "category": "Kıyma saklama",
+    "image": "/images/custom/dana-kiyma.jpg",
+    "imageAlt": "Öğünlere ayrılacak dana kıyma için temsili ürün sunumu",
+    "productCategory": "dana",
+    "intro": "Kıyma alışverişinde yalnızca miktarı değil, ne zaman pişireceğinizi de planlayın. Buzdolabında kısa süreli bekletme ile dondurucuda saklama aynı koşullara sahip değildir. Etiket, uygun sıcaklık ve ayrı öğünlük paketler, evde hangi ürünün önce kullanılacağını takip etmenizi kolaylaştırır.",
+    "sections": [
+      {
+        "id": "buzdolabi-suresi",
+        "title": "Çiğ kıyma için kısa bir kullanım planı yapın",
+        "paragraphs": [
+          "USDA’nın genel önerisi, doğru soğuk koşullarda tutulan çiğ kıymanın 1–2 gün içinde pişirilmesi veya dondurulmasıdır. Buzdolabını 4 °C veya altında tutun. Ürün etiketi daha kısa süre veriyorsa onu izleyin; bu genel süre soğuk zinciri bozulmuş ürün için güvence değildir.",
+          "Alışveriş gününü yemek planınıza yazın. İki gün içinde kullanmayacağınız miktarı son ana kadar buzdolabında bekletip sonra karar vermek yerine baştan planlayın. Aynı alışverişte köftelik ve yemeklik kıyma alıyorsanız paketleri kullanım amacıyla etiketleyin."
+        ]
+      },
+      {
+        "id": "dondurucu-ve-kalite",
+        "title": "Dondurucu süresiyle güvenlik ve kaliteyi karıştırmayın",
+        "paragraphs": [
+          "Dondurucuda yaklaşık -18 °C veya daha düşük sıcaklık hedeflenir. USDA çiğ kıyma için 3–4 aylık süreyi kalite açısından rehber olarak verir; bu ifade yanlış saklanmış ürünü bu süre boyunca güvenli kılmaz. Donma, ürünün önceki saklama geçmişini sıfırlamaz.",
+          "Paketlerin üzerine ürün adını, miktarı ve dondurma tarihini yazın. Örneğin köftelik dana kıyma, 400 g, tarih biçiminde bir not kullanabilirsiniz. Dondurucudaki en eski uygun paketi önce kullanmak için basit bir liste tutun; farklı öğünleri aynı belirsiz paket adı altında toplamayın."
+        ]
+      },
+      {
+        "id": "ogunluk-paket",
+        "title": "Miktarı yemeğe göre ayırın",
+        "paragraphs": [
+          "Köfte, sebze yemeği ve lahmacun içi için gereken miktarlar aynı olmayabilir. Her tarifin et miktarını ayrı hesaplayın. Tek büyük paket almışsanız, uygun hijyen koşullarında gereksiz bekletmeden öğünlere ayırmak sonraki hazırlığı kolaylaştırır.",
+          "Gıdaya ve dondurucuya uygun, sağlam ve sızdırmaz ambalaj seçin. Paket şekillerini benzer tutmak dolap düzenini yönetmenize yardımcı olur. Çiğ et paketlerini hazır yiyeceklerle temas ettirmeyin; sızıntı ihtimalini dikkate alın."
+        ],
+        "tips": [
+          "Ürün adı ve kullanım amacı",
+          "Her paketin net miktarı",
+          "Alışveriş ve dondurma tarihi",
+          "Planlanan yemek ve kullanım sırası"
+        ]
+      },
+      {
+        "id": "cozundurma-ve-alisveris",
+        "title": "Kullanacağınız paketin çözündürmesini önceden planlayın",
+        "paragraphs": [
+          "Çözündürme için buzdolabı, soğuk su veya mikrodalga yöntemlerinin farklı takip ve pişirme gereksinimleri vardır. Ayrıntılı adımlar için ilgili rehberi açın; tezgâhta bekletmeyi planın bir parçası yapmayın. Pişmiş köfte veya kıymalı yemek için çiğ kıymanın sürelerini kullanmayın.",
+          "Akdeniz Kasabı’na sipariş verirken toplam miktarın yanında paket sayısını yazabilirsiniz. Örneğin bir büyük paket yerine yemeklerinize uygun ayrı miktarlar isteyin. Kıymanın çekim ve yağ tercihi ile ambalaj planını aynı görüşmede netleştirmek, evdeki iş yükünü azaltır."
+        ],
+        "links": [
+          {
+            "href": "/blog/donmus-et-guvenli-cozundurme",
+            "label": "Donmuş kıyma ve et için güvenli çözündürme adımları"
+          },
+          {
+            "href": "/blog/pismis-et-yemekleri-saklama-isitma",
+            "label": "Pişmiş kıymalı yemekler için saklama rehberi"
+          },
+          {
+            "href": "/blog/mersin-dana-kiyma-secimi",
+            "label": "Dana kıymada yemek, yağ ve çekim tercihi"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "donmus-et-guvenli-cozundurme",
+      "mersin-dana-kiyma-secimi",
+      "lahmacun-ici-icin-kiyma-secimi"
+    ],
+    "sources": [
+      {
+        "label": "USDA: Temel gıda güvenliği ve soğuk saklama tablosu",
+        "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/steps-keep-food-safe"
+      }
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  },
+  {
+    "slug": "sucuklu-kahvalti-planlama",
+    "title": "Sucuklu kahvaltı planı: tava, tost ve misafir sofrası",
+    "description": "Sucuklu yumurta, tost veya kalabalık kahvaltı için miktar, dilim, içerik ve hazırlık sırasını planlayın. Mersin’de sucuk alışverişine pratik rehber.",
+    "category": "Kahvaltı hazırlığı",
+    "image": "/images/custom/ev-yapimi-sucuk.jpg",
+    "imageAlt": "Kahvaltı hazırlığı için temsili sucuk ürün sunumu",
+    "productCategory": "sarkuteri",
+    "intro": "Sucuklu kahvaltıda alışveriş miktarı, sucuğun ana sıcak yemek mi yoksa tostun içindeki bir bileşen mi olacağına göre değişir. Aynı masaya çok sayıda sıcak seçenek koymak da servis zamanını zorlaştırabilir. Önce menüyü, sonra dilim ve miktarı planlayın.",
+    "sections": [
+      {
+        "id": "menu-ve-miktar",
+        "title": "Sucuğun sofradaki rolünü belirleyin",
+        "paragraphs": [
+          "Sucuklu yumurta tek sıcak yemek olacaksa miktar görüşmesiyle birkaç tostun içine eklenecek sucuk için yapılan hesap aynı değildir. Kaç kişinin yiyeceğini, başka sıcak yemek bulunup bulunmadığını ve sofranın paylaşmalı mı tek tabaklı mı olacağını düşünün.",
+          "Birden fazla sucuklu yemek hazırlamak istiyorsanız her birinin miktarını ayrı yazın. Yalnızca misafir sayısını söyleyip sabit bir kişi başı gramaj beklemeyin. Önceki kahvaltıda ne kadar arttığına ilişkin notlar, sonraki alışverişinizde daha kullanışlı bir başlangıç olabilir."
+        ]
+      },
+      {
+        "id": "dilim-ve-etiket",
+        "title": "Dilim tercihini kullanımınıza göre görüşün",
+        "paragraphs": [
+          "Tava, tost veya ekmek üstü sunum için kesim tercihi değişebilir. Birbirine yakın kalınlıkta dilimler hazırlamak pişirmeyi izlemeyi kolaylaştırır; çok ince ve çok kalın parçaları gelişigüzel aynı tavaya koymayın. Önceden dilimleme talebi varsa bunun uygunluğunu mağazaya sorun.",
+          "Sucuğun türü, etiketi ve üretici talimatı önemlidir. Her sucuğu pişirmeden tüketilebilir kabul etmeyin; ürüne özgü hazırlama ve muhafaza bilgisini izleyin. Ev yapımı ifadesi tek başına içerik, katkı, sertifika veya üretim yöntemi kanıtı değildir."
+        ],
+        "table": {
+          "caption": "Kahvaltı menüsüne göre hazırlık soruları",
+          "columns": [
+            "Kullanım",
+            "Önceden planlanacak"
+          ],
+          "rows": [
+            [
+              "Sucuklu yumurta",
+              "Tava kapasitesi ve birlikte servis zamanı"
+            ],
+            [
+              "Tost",
+              "Ekmek sayısı, dilim ve diğer iç malzemeler"
+            ],
+            [
+              "Paylaşımlı sıcak tabak",
+              "Servis sırası ve yeniden hazırlama ihtiyacı"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "servis-sirasi",
+        "title": "Sıcak yemeği en sona bırakacak bir iş sırası kurun",
+        "paragraphs": [
+          "Önce soğuk kahvaltılıkları ve sofrayı düzenlemek, sucuklu yemeği hazır olduktan sonra bekletmeyi azaltır. Tost yapıyorsanız makineye kaç adet sığdığını, tava kullanıyorsanız aynı anda kaç porsiyon hazırlanabileceğini hesaba katın.",
+          "Sucuk kendi tuz ve baharatını içerir; ekleyeceğiniz peynir, sos ve diğer malzemelerin tadını da düşünün. İçeriğe ilişkin özel bir gereksinim varsa yalnızca menü adından uygunluk çıkarmayın. Hazırlık ve servis ekipmanını temiz tutun, ürünün kendi pişirme talimatını izleyin."
+        ]
+      },
+      {
+        "id": "mersin-sucuk",
+        "title": "Mersin’de sucuk alışverişi için ne sormalı?",
+        "paragraphs": [
+          "Akdeniz Kasabı’nın sucuk kategorisinde listelenen ürünü inceleyip içerik, uygun miktar, güncel fiyat ve varsa dilimleme seçeneğini öğrenebilirsiniz. Katalogdaki ürün adı, bütün özel hazırlıkların veya farklı sucuk çeşitlerinin stokta bulunduğu anlamına gelmez.",
+          "Mesajınızda kahvaltı menünüzü ve almayı düşündüğünüz miktarı belirtin. Paket büyüklüğü ile ihtiyacınız farklıysa seçenekleri sorun. Artan pişmiş yemeği sonraki öğüne ayıracaksanız saklama ve yeniden ısıtmayı ayrıca planlayın."
+        ],
+        "links": [
+          {
+            "href": "/urunler/sucuk",
+            "label": "Sucuk ürünü, içerik ve sipariş bilgileri"
+          },
+          {
+            "href": "/blog/mersin-kasap-sucugu-secimi",
+            "label": "Kasap sucuğunda içerik ve etiket seçimi"
+          },
+          {
+            "href": "/blog/pismis-et-yemekleri-saklama-isitma",
+            "label": "Artan pişmiş yemekleri saklama ve ısıtma"
+          }
+        ]
+      }
+    ],
+    "relatedSlugs": [
+      "mersin-kasap-sucugu-secimi",
+      "mersin-kasap-fiyatlari-ucretleri",
+      "pismis-et-yemekleri-saklama-isitma"
+    ],
+    "publishedAt": "2026-10-19T11:00:00+03:00"
+  }
+];
+
 export const blogTopics = [
   { title: "7/24 alışveriş ve ulaşım", description: "Gece, pazar günü ve mağazaya ilk gelişiniz için.", slugs: ["mersin-7-24-acik-kasap", "toroslar-kasap-alisverisi-rehberi", "mersin-en-yakin-kasap-yol-tarifi"] },
   { title: "Et seçimi ve özel hazırlık", description: "Taze et alışverişinde doğru sorular, doğru kesim.", slugs: ["mersin-et-market-taze-et-alisverisi", "mersin-istege-gore-et-dograma-kiyma-cekimi", "mersin-dana-kusbasi-kuzu-kusbasi-secimi"] },
   { title: "Tavuk, köfte ve mangal", description: "Günlük yemek ve kalabalık sofralar için plan yapın.", slugs: ["mersin-tavuk-kasabi-urunleri", "mersin-kasap-kofte-siparisi", "mersin-mangal-paketi-hazirlama"] },
-  { title: "Fiyat ve sipariş", description: "Listenizi hazırlayın, fiyat ve teslim alma bilgisini teyit edin.", slugs: ["mersin-kasap-fiyatlari-ucretleri", "mersin-whatsapp-et-siparisi", "akdeniz-kasabi-mersin-adres-iletisim"] }
+  { title: "Fiyat ve sipariş", description: "Listenizi hazırlayın, fiyat ve teslim alma bilgisini teyit edin.", slugs: ["mersin-kasap-fiyatlari-ucretleri", "mersin-whatsapp-et-siparisi", "akdeniz-kasabi-mersin-adres-iletisim"] },
+  { title: "Evde yemek hazırlığı", description: "Hamburgerden tencere yemeğine, alışverişi tarifinize göre yapın.", slugs: ["mersin-hamburger-koftesi-icin-kiyma", "lahmacun-ici-icin-kiyma-secimi", "kuru-fasulye-nohut-icin-et-secimi"] },
+  { title: "Saklama ve çözündürme", description: "Paketleme, çözündürme ve artan yemekler için kaynaklı bilgiler.", slugs: ["kiyma-buzdolabi-dondurucu-saklama", "donmus-et-guvenli-cozundurme", "pismis-et-yemekleri-saklama-isitma"] }
 ];
 
-export const featuredGuideSlugs = ["mersin-7-24-acik-kasap", "mersin-kasap-secimi-rehberi", "mersin-kasap-fiyatlari-ucretleri"];
+export const featuredGuideSlugs = ["mersin-7-24-acik-kasap", "mersin-hamburger-koftesi-icin-kiyma", "mersin-kasap-fiyatlari-ucretleri"];
 
-export const guidePosts: BlogPost[] = [...localGuidePosts, ...productGuidePosts, ...shoppingGuidePosts];
+export const guidePosts: BlogPost[] = [...kitchenGuidePosts, ...localGuidePosts, ...productGuidePosts, ...shoppingGuidePosts];
 export const blogPosts: BlogPost[] = [...guidePosts, ...districtPosts];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

@@ -57,9 +57,13 @@ Vercel Next.js kullandığı için yayına hazırlıkta `npm run lint`, `npm tes
 
 ## Blog konu grupları
 
-Blogda 13 ilçe yazısı ve 16 alışveriş rehberi bulunur. Benzer sorgular için ayrı kopya sayfalar açmak yerine ilgili rehber genişletilir. Mersin/Toroslar kasap aramaları kasap seçimi, adres ve 7/24 rehberleriyle; ürün aramaları ürün kategorileri ve seçim rehberleriyle; fiyat ve sipariş aramaları mevcut fiyat/WhatsApp yazılarıyla karşılanır.
+Blogda 13 ilçe yazısı, 16 alışveriş/ürün rehberi ve 15 mutfak rehberi olmak üzere toplam 44 yazı bulunur. Benzer sorgular için ayrı kopya sayfalar açmak yerine ilgili rehber genişletilir. Mersin/Toroslar kasap aramaları kasap seçimi, adres ve 7/24 rehberleriyle; ürün aramaları ürün kategorileri ve seçim rehberleriyle; fiyat ve sipariş aramaları mevcut fiyat/WhatsApp yazılarıyla karşılanır.
 
-19 Ekim 2026 güncellemesi: gece ve pazar alışverişi, et markette taze et seçimi, dana–kuzu kuşbaşı karşılaştırması, isteğe göre doğrama/kıyma çekimi için dört yeni rehber. Sekiz mevcut yazıya ürün ve yerel alışveriş ayrıntıları eklendi. `blogTopics` ziyaretçi ihtiyacına göre dört konu grubu sunar; `featuredGuideSlugs` ana sayfadaki üç yazıyı belirler.
+19 Ekim 2026 ilk güncellemesi: gece ve pazar alışverişi, et markette taze et seçimi, dana–kuzu kuşbaşı karşılaştırması, isteğe göre doğrama/kıyma çekimi için dört yeni rehber. Sekiz mevcut yazıya ürün ve yerel alışveriş ayrıntıları eklendi.
+
+İkinci güncellemede `kitchenGuidePosts` ile 15 farklı mutfak konusu eklendi: hamburger, lahmacun içi, içli köfte harcı, patlıcan kebabı, etli bakliyat, jülyen et, fırında kuzu pirzola, köftenin dağılması, tavuk marinasyonu, airfryer, düdüklü et, pişmiş yemeklerin saklanması, çözündürme, kıyma saklama ve sucuklu kahvaltı. Saklama ve pişirme güvenliği bilgilerinde ilgili USDA kaynakları görünür olarak gösterilir. Bu yazılar standartlaştırılmış tarif veya cihaz kullanım kılavuzu değildir; `BlogPosting` olarak sunulur, `Recipe` verisi uydurulmaz.
+
+`blogTopics` ziyaretçi ihtiyacına göre altı konu grubu sunar; `featuredGuideSlugs` ana sayfadaki üç yazıyı belirler. Mutfak rehberleri blog sayfasında ayrı bir bölümde, her biri tek kartla listelenir. Ürün kategorileri ve ilgili yazılar yeni içeriklere taranabilir bağlantılar verir. Sitemap toplam 56 gerçek sayfayı içerir.
 
 Yeni yazı eklerken benzersiz başlık, açıklama ve slug kullanın; ilgili mevcut yazılardan ve ürün kategorilerinden bağlantı verin. `publishedAt` ilk yayın tarihidir; `updatedAt` yalnızca anlamlı içerik değiştiğinde güncellenir. Canonical, makale verisi ve sitemap blog verilerinden otomatik oluşturulur. Sabit fiyat, doğrulanmamış üretim/sertifika, başka ilçede şube veya teslimat vaadi eklemeyin. Görsellerin temsili niteliğini koruyun.
 

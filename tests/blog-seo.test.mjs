@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import test from "node:test";
-import { blogPosts, blogTopics, districtPosts, featuredGuideSlugs, guidePosts, localGuidePosts, productGuidePosts } from "../data/blog.ts";
+import { blogPosts, blogTopics, districtPosts, featuredGuideSlugs, guidePosts, kitchenGuidePosts, localGuidePosts, productGuidePosts } from "../data/blog.ts";
 import { categories, getCategoryHref } from "../data/products.ts";
+import { categoryContent } from "../data/product-categories.ts";
 
 const origin = "https://www.akdenizkasabi.com.tr";
 const baseUrl = process.env.TEST_BASE_URL;
@@ -18,11 +19,13 @@ async function page(path) {
   return { response, html: await response.text() };
 }
 
-test("13 ilçe yazısı ve 16 alışveriş rehberi benzersizdir; içerik bağlantıları geçerlidir", async () => {
+test("13 ilçe yazısı ve 31 ürün, alışveriş ve mutfak rehberi benzersizdir", async () => {
   assert.equal(districtPosts.length, 13);
-  assert.equal(guidePosts.length, 16);
+  assert.equal(guidePosts.length, 31);
   assert.equal(productGuidePosts.length, 4);
   assert.equal(localGuidePosts.length, 4);
+  assert.equal(kitchenGuidePosts.length, 15);
+  assert.equal(blogPosts.length, 44);
   assert.equal(blogPosts.length, districtPosts.length + guidePosts.length);
   assert.deepEqual(new Set(districtPosts.map((post) => post.district)), new Set(districts));
   assert.ok(guidePosts.every((post) => !post.district));
@@ -57,7 +60,7 @@ test("13 ilçe yazısı ve 16 alışveriş rehberi benzersizdir; içerik bağlan
 });
 
 test("konu menüsü ve yeni rehberler geçerli, karşılıklı içerik bağlantılarına sahiptir", () => {
-  assert.equal(blogTopics.length, 4);
+  assert.equal(blogTopics.length, 6);
   const topicSlugs = blogTopics.flatMap((topic) => topic.slugs);
   assert.equal(new Set(topicSlugs).size, topicSlugs.length);
   for (const slug of [...topicSlugs, ...featuredGuideSlugs]) {
@@ -72,6 +75,30 @@ test("konu menüsü ve yeni rehberler geçerli, karşılıklı içerik bağlant�
     assert.ok(post.sections.length >= 4);
     assert.ok(post.imageAlt.includes("temsili"));
     assert.ok(post.sections.every((section) => section.paragraphs.length >= 2));
+  }
+});
+
+test("15 mutfak yazısı özgün paragraflar, kaynaklar ve gelen bağlantılar içerir", () => {
+  const paragraphs = kitchenGuidePosts.flatMap((post) => [post.intro, ...post.sections.flatMap((section) => section.paragraphs)]);
+  assert.equal(new Set(paragraphs).size, paragraphs.length, "Yeni yazılarda aynı paragraf tekrar edilmemeli");
+  const categoryLinks = Object.values(categoryContent).flatMap((content) => content.guideSlugs);
+  for (const post of kitchenGuidePosts) {
+    assert.equal(post.sections.length, 4);
+    assert.ok(post.sections.every((section) => section.paragraphs.length >= 2));
+    assert.ok(post.imageAlt.includes("temsili"));
+    assert.ok(!post.district);
+    assert.ok(!post.updatedAt, "Yeni yazının yayın tarihi güncelleme tarihiyle değiştirilmemeli");
+    const incoming = categoryLinks.includes(post.slug) || blogPosts.some((other) => other.slug !== post.slug && (other.relatedSlugs.includes(post.slug) || other.sections.some((section) => section.links?.some((link) => link.href === `/blog/${post.slug}`))));
+    assert.ok(incoming, `gelen içerik bağlantısı: ${post.slug}`);
+    for (const source of post.sources ?? []) {
+      const url = new URL(source.url);
+      assert.equal(url.protocol, "https:");
+      assert.equal(url.hostname, "www.fsis.usda.gov");
+      assert.ok(source.label.startsWith("USDA:"));
+    }
+  }
+  for (const slug of ["pismis-et-yemekleri-saklama-isitma", "donmus-et-guvenli-cozundurme", "kiyma-buzdolabi-dondurucu-saklama", "airfryer-tavuk-pirzola-pisirme", "tavuk-sis-marinasyon-rehberi"]) {
+    assert.ok(kitchenGuidePosts.find((post) => post.slug === slug)?.sources?.length, `güvenlik kaynağı: ${slug}`);
   }
 });
 
@@ -93,6 +120,10 @@ test("blog listesi ve ana sayfa yazılara taranabilir bağlantılar verir", { sk
     assert.ok(topicNavigation.includes(topic.title));
     for (const slug of topic.slugs) assert.ok(topicNavigation.includes(`href="/blog/${slug}"`));
   }
+  const kitchenSection = html.match(/<section[^>]*id="mutfak-rehberleri"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+  assert.ok(kitchenSection);
+  for (const post of kitchenGuidePosts) assert.ok(kitchenSection.includes(`href="/blog/${post.slug}"`));
+  assert.equal([...kitchenSection.matchAll(/<a\b/g)].length, 15);
   const home = await page("/");
   assert.equal(home.response.status, 200);
   assert.ok(home.html.includes('href="/blog"'));

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { blogTopics, localGuidePosts } from "../data/blog.ts";
+import { blogTopics, kitchenGuidePosts, localGuidePosts } from "../data/blog.ts";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -69,7 +69,7 @@ test("konu menüsü ve yeni rehberler JavaScript beklemeden sunulur", async () =
   assert.ok(indexHtml.includes('aria-labelledby="blog-topics-heading"'));
   for (const topic of blogTopics) assert.ok(indexHtml.includes(topic.title));
 
-  for (const post of localGuidePosts) {
+  for (const post of [...localGuidePosts, ...kitchenGuidePosts]) {
     const response = await render(`/blog/${post.slug}`);
     assert.equal(response.status, 200, post.slug);
     const html = await response.text();
@@ -77,6 +77,7 @@ test("konu menüsü ve yeni rehberler JavaScript beklemeden sunulur", async () =
     assert.ok(html.includes(`href="https://www.akdenizkasabi.com.tr/blog/${post.slug}"`));
     assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
     assert.match(html, /BlogPosting/);
+    for (const source of post.sources ?? []) assert.ok(html.includes(`href="${source.url}"`));
     assert.doesNotMatch(html, /style="[^"]*opacity:\s*0(?:;|")/);
   }
 });
