@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import { blogTopics, localGuidePosts } from "../data/blog.ts";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -59,4 +60,23 @@ test("sipariş ve iletişim akışları görünür", async () => {
 
   const contactResponse = await render("/iletisim");
   assert.match(await contactResponse.text(), /WhatsApp’ta Gönder/);
+});
+
+test("konu menüsü ve yeni rehberler JavaScript beklemeden sunulur", async () => {
+  const indexResponse = await render("/blog");
+  assert.equal(indexResponse.status, 200);
+  const indexHtml = await indexResponse.text();
+  assert.ok(indexHtml.includes('aria-labelledby="blog-topics-heading"'));
+  for (const topic of blogTopics) assert.ok(indexHtml.includes(topic.title));
+
+  for (const post of localGuidePosts) {
+    const response = await render(`/blog/${post.slug}`);
+    assert.equal(response.status, 200, post.slug);
+    const html = await response.text();
+    assert.ok(html.includes(post.intro), post.slug);
+    assert.ok(html.includes(`href="https://www.akdenizkasabi.com.tr/blog/${post.slug}"`));
+    assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+    assert.match(html, /BlogPosting/);
+    assert.doesNotMatch(html, /style="[^"]*opacity:\s*0(?:;|")/);
+  }
 });

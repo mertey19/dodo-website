@@ -27,7 +27,7 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { question: "Köftelik kıyma için ne söylemeliyim?", answer: "Hazırlayacağınız yemeği, istediğiniz miktarı, yağ ve çekim tercihinizi belirtin. Emin değilseniz tercihleri kasapla birlikte netleştirebilirsiniz." },
       { question: "Dana antrikot ve bonfile aynı ürün mü?", answer: "Hayır, farklı kesimlerdir. Antrikot–bonfile rehberinde seçim sırasında sorabileceğiniz soruları bulabilir, ürünün mevcut kesimini ve fiyatını mağazadan öğrenebilirsiniz." },
     ],
-    guideSlugs: ["mersin-dana-kiyma-secimi", "mersin-antrikot-bonfile-farki"],
+    guideSlugs: ["mersin-dana-kiyma-secimi", "mersin-antrikot-bonfile-farki", "mersin-istege-gore-et-dograma-kiyma-cekimi"],
   },
   kuzu: {
     title: "Mersin Kuzu Eti ve Pirzola | Akdeniz Kasabı",
@@ -44,7 +44,7 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { question: "Kuzu pirzolayı adetle mi kilogramla mı sorabilirim?", answer: "İstediğiniz parça sayısını ve kişi sayısını iletebilirsiniz. Son ağırlık, kilogram fiyatı ve toplam tutarı işletmeyle ayrıca teyit edin." },
       { question: "Kuzu kuşbaşı şiş için hazırlanabilir mi?", answer: "Şişte kullanacağınızı ve istediğiniz doğrama boyutunu belirtin; uygun ürün ve hazırlama seçeneğini sipariş görüşmesinde öğrenin." },
     ],
-    guideSlugs: ["mersin-kuzu-eti-pirzola-secimi", "mersin-mangal-paketi-hazirlama"],
+    guideSlugs: ["mersin-kuzu-eti-pirzola-secimi", "mersin-mangal-paketi-hazirlama", "mersin-dana-kusbasi-kuzu-kusbasi-secimi"],
   },
   tavuk: {
     title: "Mersin Tavuk Kasabı ve Tavuk Ürünleri | Akdeniz Kasabı",
@@ -61,7 +61,7 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { question: "Tavuk ürünlerinde güncel fiyatı nasıl öğrenirim?", answer: "Pirzola veya şiş tercihinizi ve miktarı WhatsApp’tan yazın; stok, kilogram fiyatı ve toplam tutarı sorun. Sayfadaki görseller temsili sunumlardır." },
       { question: "Marine tavuk şişin içeriğini değiştirebilir miyim?", answer: "İstediğiniz değişikliği ve varsa alerjen hassasiyetinizi işletmeye iletin. Mevcut ürünün içeriği ve farklı hazırlığın mümkün olup olmadığı sipariş öncesinde teyit edilmelidir." },
     ],
-    guideSlugs: ["mersin-tavuk-kasabi-urunleri", "mersin-whatsapp-et-siparisi"],
+    guideSlugs: ["mersin-tavuk-kasabi-urunleri", "mersin-whatsapp-et-siparisi", "mersin-et-market-taze-et-alisverisi"],
   },
   hazir: {
     title: "Mersin Kasap Köfte | İçerik ve Sipariş | Akdeniz Kasabı",
@@ -112,6 +112,6 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { question: "Mangal paketi sabit fiyatlı mı?", answer: "Bu sayfada sabit fiyat veya sabit gramaj ilan edilmiyor. Seçtiğiniz ürünler, miktar ve güncel fiyatlar üzerinden toplam tutar paylaşılır." },
       { question: "Pakette tavuk ve kırmızı eti birlikte seçebilir miyim?", answer: "Tercih ettiğiniz ürünleri ve miktarları aynı talepte iletebilirsiniz. Stok, ayrı paketleme ve hazırlama seçeneklerini işletmeyle netleştirin." },
     ],
-    guideSlugs: ["mersin-mangal-paketi-hazirlama", "mersin-antrikot-bonfile-farki"],
+    guideSlugs: ["mersin-mangal-paketi-hazirlama", "mersin-antrikot-bonfile-farki", "mersin-7-24-acik-kasap"],
   },
 };

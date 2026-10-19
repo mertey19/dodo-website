@@ -22,6 +22,7 @@ npm run build
 - Telefon, WhatsApp, adres, çalışma saatleri ve harita bilgileri: `data/business.ts`
 - Ürün kategorileri ve ürünler: `data/products.ts`
 - Kalıcı kategori sayfalarının özgün içerikleri: `data/product-categories.ts`
+- Blog içerikleri, konu menüsü ve ana sayfada öne çıkan rehberler: `data/blog.ts`
 - Kampanyalar: `data/campaigns.ts`
 - Yayın izni alınmış doğrulanmış yorumlar: `data/testimonials.ts`
 - Gerçek mağaza ve ürün fotoğrafları: `data/gallery.ts`
@@ -53,6 +54,14 @@ npm run test:seo
 ```
 
 Vercel Next.js kullandığı için yayına hazırlıkta `npm run lint`, `npm test` ve `npx next build` birlikte kontrol edilmelidir. Animasyonlar sunucudan gelen içeriği gizlemez; 7/24 çalışma bilgisi JavaScript beklemeden görünür.
+
+## Blog konu grupları
+
+Blogda 13 ilçe yazısı ve 16 alışveriş rehberi bulunur. Benzer sorgular için ayrı kopya sayfalar açmak yerine ilgili rehber genişletilir. Mersin/Toroslar kasap aramaları kasap seçimi, adres ve 7/24 rehberleriyle; ürün aramaları ürün kategorileri ve seçim rehberleriyle; fiyat ve sipariş aramaları mevcut fiyat/WhatsApp yazılarıyla karşılanır.
+
+19 Ekim 2026 güncellemesi: gece ve pazar alışverişi, et markette taze et seçimi, dana–kuzu kuşbaşı karşılaştırması, isteğe göre doğrama/kıyma çekimi için dört yeni rehber. Sekiz mevcut yazıya ürün ve yerel alışveriş ayrıntıları eklendi. `blogTopics` ziyaretçi ihtiyacına göre dört konu grubu sunar; `featuredGuideSlugs` ana sayfadaki üç yazıyı belirler.
+
+Yeni yazı eklerken benzersiz başlık, açıklama ve slug kullanın; ilgili mevcut yazılardan ve ürün kategorilerinden bağlantı verin. `publishedAt` ilk yayın tarihidir; `updatedAt` yalnızca anlamlı içerik değiştiğinde güncellenir. Canonical, makale verisi ve sitemap blog verilerinden otomatik oluşturulur. Sabit fiyat, doğrulanmamış üretim/sertifika, başka ilçede şube veya teslimat vaadi eklemeyin. Görsellerin temsili niteliğini koruyun.
 
 ## Tıklama artışını değerlendirme
 

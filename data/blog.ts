@@ -42,8 +42,10 @@ export const districtPosts: BlogPost[] = [
     image: "/images/custom/category-dana.jpg",
     imageAlt: "Dana eti çeşitlerinden temsili ürün sunumu",
     publishedAt,
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Toroslar’da kasap alışverişine çıkarken ilk karar etin adı değil, yapacağınız yemek olmalı. Aynı miktardaki kıyma, kuşbaşı ve biftek farklı hazırlık ister. Mithat Toroğlu Mahallesi, Kuvayi Milliye Caddesi’ndeki Akdeniz Kasabı’nda isteğinizi anlatırken kullanabileceğiniz bu kısa rehber, alışveriş listesini netleştirmenize yardımcı olur.",
     sections: [
+      { id: "mahalle-ve-urunler", title: "Mithat Toroğlu’nda et market alışverişini planlayın", paragraphs: ["Toroslar’da et market veya kasap arayanlar için mağazamız Mithat Toroğlu Mahallesi, Kuvayi Milliye Caddesi’ndedir. Dana kıyma alırken köftelik ya da yemeklik kullanımınızı, kuzu pirzolada dilim tercihinizi, kasap köftede içerik ve paket miktarını belirtin. Bu ayrıntılar aynı alışverişte bile ürün ürün değişir.", "Mangallık et alacaksanız hangi ürünleri birlikte istediğinizi ve her birinin miktarını yazın. Toroslar’dan WhatsApp sipariş görüşmesi başlatırken mağazadan alacağınız saati de paylaşın; ürün, toplam tutar ve hazırlık teyidini bekleyin. Gece veya pazar günü alışverişte özel kesimlerin hazır olacağını önceden varsaymayın."], links: [{ href: "/blog/mersin-et-market-taze-et-alisverisi", label: "Et markette tazelik ve ürün bilgisi kontrol listesi" }, { href: "/urunler/dana-eti", label: "Dana kıyma ve kuşbaşı seçenekleri" }, { href: "/urunler/kuzu-eti", label: "Kuzu pirzola ve kuşbaşı ürünleri" }, { href: "/blog/mersin-7-24-acik-kasap", label: "Toroslar’da 7/24 alışveriş ve hazırlık teyidi" }] },
       { id: "yemege-gore", title: "Tencere, tava ve ızgara için aynı kesimi istemeyin", paragraphs: ["Sote hazırlayacaksanız kısa sürede pişirmeyi düşündüğünüzü, güveç yapacaksanız uzun pişirme planınızı söyleyin. Kasabınızdan pişirme yöntemine uygun parçayı ve doğrama boyutunu önermesini isteyin. Küçük doğranmış her et aynı sürede yumuşamaz; parçanın geldiği bölüm de sonucu etkiler.", "Köfte için kıymanın yağ oranını ve çekimini, biftek için porsiyon kalınlığını görüşün. Kemikli et ile kemiksiz etin tartı miktarı aynı olsa da sofraya çıkan yenebilir miktar değişir. Bu yüzden kişi sayısı kadar, yanında servis edeceğiniz yemekleri de belirtin."] },
       { id: "hazirlama", title: "Sipariş mesajına hangi bilgileri yazmalı?", paragraphs: ["Ürün adı tek başına hazırlama talebini anlatmayabilir. Kaç kişi için alışveriş yaptığınızı, yemeği ne zaman pişireceğinizi ve eti nasıl kullanacağınızı kısa bir mesajda birleştirin. Fiyat ve stok bilgisi görüşme sırasında netleşir; web sitesindeki ürün listesi anlık stok garantisi değildir."], tips: ["Yemek adı ve kişi sayısı", "İstenen miktar ve kemikli/kemiksiz tercih", "Kuşbaşı boyutu, kıyma veya dilim tercihi", "Mağazadan almayı düşündüğünüz saat"] },
       { id: "magaza", title: "Toroslar’daki mağazaya gelmeden önce", paragraphs: ["Akdeniz Kasabı haftanın her günü 24 saat açıktır; tatil günü yoktur. Özellikle belirli bir kesim veya toplu hazırlık istiyorsanız yola çıkmadan 0553 776 61 62 üzerinden ulaşın. Açık olmak, her özel ürünün o anda hazır bulunduğu anlamına gelmez.", "Adresimiz Mithat Toroğlu, Kuvayi Milliye Cd., 33080 Toroslar/Mersin’dir. İletişim sayfasındaki yol tarifi mevcut konumunuzdan bu mağazaya rota açar. Ürünü alırken hazırlama isteğinizi ve paket sayısını birlikte kontrol etmek, eve döndüğünüzde işinizi kolaylaştırır."] },
@@ -281,9 +283,10 @@ const shoppingGuidePosts: BlogPost[] = [
     image: "/images/custom/category-dana.jpg",
     imageAlt: "Kasap alışverişinde karşılaştırılabilecek dana eti çeşitlerinin temsili sunumu",
     publishedAt: "2026-10-15T21:50:00+03:00",
-    updatedAt: "2026-10-17T20:30:00+03:00",
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Mersin’de kasap ararken arama sonuçlarındaki isimleri karşılaştırmak başlangıçtır; doğru alışveriş için tezgâhta hangi bilgileri soracağınızı da bilmeniz gerekir. Yapacağınız yemek, istediğiniz hazırlık ve toplam bütçe belli olduğunda seçenekler daha anlaşılır hale gelir. Aşağıdaki yedi soruyu aynı ürün için sormak, farklı teklifleri değerlendirmeyi kolaylaştırır.",
     sections: [
+      { id: "ihtiyaca-gore-baslangic", title: "Alışveriş amacınıza göre nereden başlamalı?", paragraphs: ["Mersin kasap aramasında aynı listeye bakan iki kişinin ihtiyacı farklı olabilir: biri gece açık mağaza ararken diğeri haftalık et alışverişi veya özel kesim planlıyor olabilir. Önce açık saat ve ulaşımı, ardından ürünün kullanımını ve bütçeyi netleştirin. Yalnızca işletme adına bakarak bütün ihtiyaçların karşılandığını varsaymayın.", "Geç saatte gelecekseniz ürünün hazır olma durumunu; haftalık alışverişte paket sayısı ve muhafaza bilgisini; özel kesimde doğrama ve çekim tercihinizi konuşun. Aşağıdaki rehberler bu üç başlangıç noktasına göre hazırlanmıştır. Ardından bu yazıdaki yedi soruyla teklif ve hazırlık ayrıntılarını kontrol edebilirsiniz."], links: [{ href: "/blog/mersin-7-24-acik-kasap", label: "Gece ve pazar günü 7/24 kasap alışverişi" }, { href: "/blog/mersin-et-market-taze-et-alisverisi", label: "Taze et ve et market alışverişinde sorulacaklar" }, { href: "/blog/mersin-istege-gore-et-dograma-kiyma-cekimi", label: "Et doğrama ve kıyma çekimi için sipariş notu" }] },
       { id: "urun-ve-kesim", title: "1–3. Et hangi parçadan, nasıl hazırlanacak ve tartı neyi içeriyor?", paragraphs: ["Kuşbaşı ve kıyma ifadeleri tek başına hayvanın hangi bölümünün kullanılacağını anlatmaz. Önce dana veya kuzu tercihinizi, ardından yemek adını söyleyin. Sote için kısa sürede pişirmeye uygun bir hazırlık, güveç için farklı bir parça gerekebilir. İstediğiniz kesimin o anda bulunup bulunmadığını öğrenin.", "İkinci soru doğrama ve porsiyonlamadır: etin küçük kuşbaşı, eşit dilim veya ayrı öğünlük paketler halinde hazırlanmasını mı istiyorsunuz? Üçüncü soru ise tartıdır. Kemikli, kemiksiz ve temizlenmiş seçeneklerin miktarı aynı şekilde karşılaştırılmaz. Alacağınız ağırlığın hangi hazırlığı kapsadığını sorun."] },
       { id: "icerik-fiyat", title: "4–5. Hazır ürünün içeriği ve toplam fiyatı nedir?", paragraphs: ["Kasap köfte, sucuk veya marineli tavuk alırken ürünün içeriğini öğrenin. Et türü, baharat ve varsa diğer bileşenler tercihlerinizi etkiler. Belirli bir malzemeyi tüketemiyorsanız sadece görünüşe veya ürün adına güvenmek yerine bunu açıkça belirtin.", "Kilogram fiyatının yanında istediğiniz miktarın toplam tutarını da sorun. Kesim, hazırlama veya paketleme için ayrıca bir ücret söz konusuysa önceden öğrenin. Farklı kasaplardan alınan teklifleri aynı gün, aynı ürün ve aynı hazırlama koşulları üzerinden karşılaştırın."] },
       { id: "teslim-ve-muhafaza", title: "6–7. Ne zaman hazır olur ve eve nasıl götürmeliyim?", paragraphs: ["Mağazanın açık olması ile belirli bir ürünün hazırlanmış olması farklıdır. Özellikle özel kesim veya çok kalemli alışverişte teslim alma zamanını teyit edin. Ambalaj, etiket ve ürüne uygun muhafaza bilgilerini alırken yolculuk yapacağınızı da söyleyin.", "Kasaplar arasında seçim yaparken ulaşımınıza uygun gerçek adresi, iletişim kurabilmenizi ve sorularınıza verilen açık cevapları birlikte değerlendirin. Her müşteri için tek bir en iyi seçenek yoktur; günlük yemek, özel kesim ve toplu sofra ihtiyaçları değişir."] },
@@ -301,8 +304,10 @@ const shoppingGuidePosts: BlogPost[] = [
     image: "/images/custom/dana-kusbasi.jpg",
     imageAlt: "Fiyat teklifi istenirken kesimi belirtilen dana kuşbaşının temsili görseli",
     publishedAt: "2026-10-15T21:50:00+03:00",
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Mersin kasap fiyatları veya kasap ücretleri aramasında tek bir kilogram rakamı görmek, alışverişin tamamını anlatmaz. Etin türü, bölümü, kemik durumu ve hazırlama tercihi karşılaştırmayı değiştirir. Akdeniz Kasabı’nda güncel fiyat bilgisi ürün ve miktarınıza göre iletişim sırasında paylaşılır; bu rehberde fiyat teklifi isterken hangi ayrıntıları belirtmeniz gerektiğini bulabilirsiniz.",
     sections: [
+      { id: "guncel-fiyat-sorulari", title: "Dana kıyma, kuzu eti ve mangallık et fiyatı nasıl sorulur?", paragraphs: ["Mersin dana kıyma fiyatlarını öğrenirken yağ ve çekim tercihinizi, toplam miktarı ve paket sayısını birlikte iletin. Kuzu eti için yalnızca türü değil pirzola mı kuşbaşı mı istediğinizi söyleyin; kemikli ve kemiksiz seçeneklerin tartısını ayrı değerlendirin. Güncel fiyatı, satın almayı planladığınız gün ve hazırlık koşulları için isteyin.", "Mangallık et fiyatında tek bir paket rakamından önce dana, kuzu, tavuk ve köfte miktarlarını ayrı ayrı görün. Aynı ağırlıktaki iki karışık paket farklı ürün oranları içerebilir. Bu sayfa sabit veya anlık fiyat listesi değildir; mağazamızdan alacağınız teklifin geçerliliğini ve varsa ek hazırlama ücretlerini teyit edin."], links: [{ href: "/urunler/dana-eti", label: "Dana kıyma ve diğer dana ürünleri için seçenekler" }, { href: "/urunler/kuzu-eti", label: "Kuzu eti fiyatı sorarken karşılaştırılacak ürünler" }, { href: "/urunler/mangallik-et", label: "Mangallık et ve karışık ızgara seçenekleri" }] },
       { id: "ayni-urun", title: "Önce aynı ürünü karşılaştırdığınızdan emin olun", paragraphs: ["Dana kıyma, dana kuşbaşı ve antrikot birbirinin yerine fiyatlandırılacak tek bir et grubu değildir. Kıymada et türü ve yağ tercihi, kuşbaşında seçilen parça ve doğrama, pirzolada kemik durumu önemlidir. Sadece ürün adına bakarak iki fiyatın aynı hazırlığa ait olduğunu varsaymayın.", "Teklifleri farklı günlerde aldıysanız güncelliklerini yeniden teyit edin. İnternette görülen bir kampanya veya eski fiyat görseli, bugün aynı koşulların geçerli olduğunu göstermez. Miktar ve hazırlama isteğiniz değiştiğinde toplam tutarı da yeniden sorun."], table: { caption: "Ürün bazında fiyat teklifi için gerekli ayrıntılar", columns: ["Ürün", "Teklifte belirtilmesi gereken"], rows: [["Dana kıyma", "Et türü, yağ tercihi, miktar ve paket sayısı"], ["Dana kuşbaşı", "Kullanılacak yemek, parça ve doğrama boyutu"], ["Kuzu pirzola", "Kemik durumu, dilim tercihi ve miktar"], ["Tavuk şiş / pirzola", "Kullanılan parça, deri-kemik durumu ve marinasyon"], ["Kasap köfte", "İçerik, gramaj veya miktar ve hazırlama tercihi"]] } },
       { id: "toplam-ucret", title: "Kilogram fiyatını toplam alışveriş tutarına çevirin", paragraphs: ["Temel hesap ürünün birim fiyatı ile alınan ağırlığın çarpımıdır. Fakat birden fazla ürün içeren pakette her kalemin ağırlığı bilinmeden toplamı değerlendirmek zordur. Karışık mangal paketi alıyorsanız içindeki ürünleri ve miktarlarını ayrı ayrı isteyin.", "Temizleme, özel doğrama, paketleme veya varsa teslimatla ilgili ücretleri ayrıca sorun. Bu kalemlerin ücretsiz ya da ücretli olduğunu baştan varsaymayın. Aynı toplam bütçenin hangi ürünleri, ne kadar miktarı ve hangi hazırlığı kapsadığını netleştirmek daha sağlıklı bir karşılaştırma sağlar."] },
       { id: "fiyat-mesaji", title: "Güncel fiyat için gönderilebilecek örnek mesaj", paragraphs: ["Talebinizi şu şekilde yazabilirsiniz: Merhaba, iki ayrı pakette toplam 1 kg dana kıyma ve sote için 500 g dana kuşbaşı düşünüyorum. Kıymanın yağ seçenekleri, ürünlerin kilogram fiyatı, toplam tutar ve hazırlanma zamanı hakkında bilgi verebilir misiniz?", "Buradaki miktarlar yalnızca mesajı örneklendirir; kişi başı tüketim önerisi değildir. Kendi yemek planınıza göre değiştirin. İşletmeden gelen yanıtta birim fiyat, toplam miktar ve toplam tutarın birlikte bulunmasına dikkat edin."] },
@@ -319,8 +324,10 @@ const shoppingGuidePosts: BlogPost[] = [
     image: "/images/custom/category-tavuk.jpg",
     imageAlt: "Tavuk ürünleri için temsili kasap sunumu",
     publishedAt: "2026-10-15T21:50:00+03:00",
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Tavuk kasabı ararken ihtiyacınız bazen akşam yemeği için tavuk şiş, bazen de fırına uygun tavuk pirzola olabilir. Mersin’de alışverişinizi kolaylaştırmak için ürünün hangi parçadan hazırlandığını, kemik ve deri durumunu, sade mi marineli mi olduğunu birlikte değerlendirin. Akdeniz Kasabı’nın ürünler sayfasında tavuk şiş ve tavuk pirzola seçenekleri bulunur; güncel stok görüşmede teyit edilir.",
     sections: [
+      { id: "pirzola-mi-marine-sis-mi", title: "Tavuk pirzola mı marine tavuk şiş mi?", paragraphs: ["Mersin’de tavuk eti alışverişinde bu iki seçenek arasında karar verirken hazırlığı hangi aşamada devralmak istediğinizi düşünün. Kendi sosunuzu ayarlamak istiyorsanız sade ürünün uygunluğunu sorun. Marine tavuk şiş tercihinde kullanılan parçayı, sos içeriğini ve ürünün şişe dizilmiş olarak verilip verilmediğini netleştirin.", "Tavuk pirzolada kemik ve deri tercihi, marine tavuk şişte sos ve parça boyutu öne çıkar. Birinin diğerinden her durumda daha ekonomik veya kolay olduğunu varsaymayın. Toplam miktar, net et ağırlığı, hazırlık ve pişirme ekipmanınız birlikte değerlendirilmelidir. Seçeneklerin güncel uygunluğunu işletmeden teyit edebilirsiniz."], links: [{ href: "/urunler/tavuk-urunleri", label: "Tavuk pirzola ve marine tavuk şiş seçenekleri" }, { href: "/blog/mersin-mangal-paketi-hazirlama", label: "Tavuğu karışık mangal listesine ekleme rehberi" }] },
       { id: "tavuk-sis", title: "Tavuk şiş isterken yalnızca miktarı söylemeyin", paragraphs: ["Şişlik ürünün hangi parçadan hazırlandığını sorun; göğüs ve but tercihiniz varsa belirtin. Etin şişe takılı mı, yalnızca doğranmış mı olacağını netleştirin. Kendi şişlerinizi kullanacaksanız parça boyutunun ekipmanınıza uygun olması hazırlığı kolaylaştırır.", "Tavada veya fırında pişirecekseniz bunu mesajınıza ekleyin. Ürünün şişlik olarak adlandırılması, yalnızca mangalda kullanılabileceği anlamına gelmez. Asıl önemli olan hazırlama biçiminin planladığınız yemeğe uymasıdır."] },
       { id: "tavuk-pirzola", title: "Tavuk pirzolada kemik, deri ve porsiyonu sorun", paragraphs: ["Tavuk pirzola adıyla sunulan hazırlıklar değişebileceği için hangi bölümün kullanıldığını ve kemik durumunu öğrenin. Derili veya derisiz tercihinizi, parçaların tek öğünde mi farklı günlerde mi kullanılacağını söyleyin. Paket sayısını da miktarın yanında belirtin.", "Fiyatları karşılaştırırken bu ayrıntıların aynı olmasına dikkat edin. Kemikli bir hazırlık ile tamamen temizlenmiş bir ürünü yalnızca kilogram fiyatına göre kıyaslamak, sofraya gelecek miktarı yanlış değerlendirmenize neden olabilir."] },
       { id: "sos-ve-icerik", title: "Sade ve marineli ürün arasında nasıl karar vermeli?", paragraphs: ["Kendi sosunuzu hazırlayacaksanız sade ürün istemek tercihlerinizi yönetmenizi kolaylaştırır. Hazır marinasyon istiyorsanız baharatı ve kullanılan bileşenleri sorun. Süt ürünü veya başka bir malzemeyle ilgili hassasiyetiniz varsa işletmeye belirtin; ürün adına bakarak içerik çıkarımı yapmayın.", "Çiğ tavuk ürünlerini diğer hazır yiyeceklerden ayrı ve sızdırmaz ambalajla taşımak gerekir. Ürünü alırken saklama ve pişirme bilgisini öğrenin. Yolculuk veya uzun süre dışarıda kalma planınız varsa taşıma ihtiyacını alışverişten önce değerlendirin."] },
@@ -338,8 +345,10 @@ const shoppingGuidePosts: BlogPost[] = [
     image: "/images/hero-butcher.jpg",
     imageAlt: "Akdeniz Kasabı’nın ürün gruplarını temsil eden et sunumu",
     publishedAt: "2026-10-15T21:50:00+03:00",
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Akdeniz Kasabı Mersin’i arıyorsanız mağazamız Toroslar ilçesinde, Mithat Toroğlu Mahallesi, Kuvayi Milliye Caddesi’ndedir. Telefon ve WhatsApp numaramız 0553 776 61 62’dir. Haftanın her günü 24 saat açığız; tatil günü yoktur. İlk kez gelecekler ve sipariş öncesinde bilgi almak isteyenler için temel bilgileri burada bir araya getirdik.",
     sections: [
+      { id: "mithat-toroglu-kuvayi-milliye", title: "Mithat Toroğlu ve Kuvayi Milliye Caddesi için doğru mağaza", paragraphs: ["Mithat Toroğlu kasap veya Kuvayi Milliye Caddesi kasap aramasıyla geldiyseniz adres satırında Toroslar/Mersin bilgisini kontrol edin. Akdeniz Kasabı Mersin ve Akdeniz Kasabı Toroslar ifadeleri aynı mağazamızı anlatır. Benzer işletme adlarını ayırmak için 0553 776 61 62 telefon numarasını da karşılaştırın.", "Haritadaki hedef doğru olsa bile başlangıç konumu önceki bir yolculuktan kalmış olabilir. Yol Tarifi ekranında mevcut konumunuzu veya adresinizi seçin ve ulaşım türünü kontrol edin. Geceleri, pazar günleri ve tatillerde mağazamız açıktır; almak istediğiniz ürünün hazırlanma durumu için önceden arayabilirsiniz."], links: [{ href: "/iletisim", label: "Mithat Toroğlu mağazasının haritası ve yol tarifi" }, { href: "/blog/mersin-7-24-acik-kasap", label: "7/24 çalışma düzeni ve gece alışverişi rehberi" }] },
       { id: "adres", title: "Akdeniz Kasabı nerede?", paragraphs: ["Tam adresimiz Mithat Toroğlu, Kuvayi Milliye Cd., 33080 Toroslar/Mersin’dir. Akdeniz, işletmemizin adıdır; mağaza adresindeki ilçe Toroslar’dır. Haritada işletme ararken isimle birlikte adres ve telefon bilgisini karşılaştırmanız doğru noktayı bulmanıza yardımcı olur.", "İletişim sayfamızdaki Yol Tarifi bağlantısı mağazanın konumunu hedef alır. Harita uygulamasında başlangıç noktasını mevcut konumunuz olarak seçebilirsiniz. Konum izni vermek istemezseniz bulunduğunuz adresi elle girerek de rota oluşturabilirsiniz."] },
       { id: "saatler", title: "Gece, hafta sonu ve tatil günlerinde açık mı?", paragraphs: ["Mağazamız 7 gün 24 saat açıktır; hafta sonları ve tatil günleri için kapanış günü bulunmaz. Gece alışverişinde de 0553 776 61 62 üzerinden ulaşabilirsiniz. Belirli bir et parçası, özel doğrama veya toplu hazırlık istiyorsanız gelmeden önce bilgi alın.", "Çalışma saatleri mağazanın açık olduğu zamanı gösterir. İstediğiniz her ürünün o anda hazır bulunması veya özel hazırlığın hemen tamamlanması anlamına gelmez. Stok ve hazırlık süresini önceden konuşmak özellikle gece ve kalabalık sofra alışverişinde zaman kazandırır."] },
       { id: "urunler", title: "Hangi ürünler hakkında bilgi alabilirsiniz?", paragraphs: ["Sitemizde dana eti, kuzu eti, tavuk ürünleri, köfte ve hazır ürünler, sucuk ve şarküteri ile ızgaralık ürün grupları yer alır. Dana kıyma, kuşbaşı, antrikot, bonfile, kuzu pirzola, tavuk şiş ve kasap köfte gibi seçenekleri ürünler sayfasında inceleyebilirsiniz.", "Görseller temsili ürün sunumlarıdır; alacağınız ürünün kesimi ve hazırlama biçimi görüşme sırasında belirlenir. Güncel fiyat ve stok için ürün adını ve miktarı paylaşın. Fotoğraftaki paket miktarını otomatik olarak sipariş miktarı kabul etmeyin."] },
@@ -374,8 +383,10 @@ const shoppingGuidePosts: BlogPost[] = [
     image: "/images/custom/kasap-kofte.jpg",
     imageAlt: "Kasap köfte için temsili ürün sunumu",
     publishedAt: "2026-10-15T21:50:00+03:00",
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Kasap köfte, günlük akşam yemeğinden kalabalık mangal sofrasına kadar farklı planlara uyarlanabilir. Mersin’de köfte siparişi verirken yalnızca kaç kilogram istediğinizi söylemek yerine içeriğini, porsiyon biçimini ve pişirme yöntemini de konuşun. Böylece eve götürdüğünüz ürünün beklentinize uygun olup olmadığını önceden netleştirebilirsiniz.",
     sections: [
+      { id: "gunluk-kofte-ve-paket", title: "Günlük köfte ve köfte paketi ararken neyi teyit etmeli?", paragraphs: ["Mersin’de günlük köfte arıyorsanız satın alacağınız ürünün ne zaman hazırlandığını, içerik bilgisini ve muhafaza talimatını sorun. Günlük sözcüğünü tek başına hazırlama tarihi veya belirli bir ürün standardının kanıtı olarak kabul etmeyin. Ürün adı ve temsili fotoğraf yerine alacağınız köftenin bilgilerini netleştirin.", "Köfte paketi isterken yalnızca adet değil toplam net ağırlık, şekil ve paket sayısını da belirtin. Toroslar’daki Akdeniz Kasabı’ndan tek öğünlük veya ayrı paketler halinde hazırlık isteyebilirsiniz; uygunluk ve ücret görüşmede belirlenir. Hazır bir paketin içeriği değiştirilirse yeni miktar ve toplam fiyatı yeniden teyit edin."], links: [{ href: "/urunler/kasap-kofte", label: "Kasap köfte ürünü ve hazırlama seçenekleri" }, { href: "/blog/mersin-whatsapp-et-siparisi", label: "Köfte paketi için WhatsApp sipariş notu hazırlama" }] },
       { id: "icerik", title: "Köftenin et ve baharat içeriğini sorun", paragraphs: ["Kasap köfte adı her işletmede aynı karışımın kullanıldığı anlamına gelmez. Dana veya kuzu içeriğini, baharat tercihlerini ve varsa ek bileşenleri öğrenin. Tuz ya da belirli bir malzemeye ilişkin beklentiniz varsa hazırlanmadan önce belirtin.", "Glutensiz, alerjensiz veya belirli bir beslenme tercihine uygun olduğunu yalnızca ürün adına bakarak varsaymayın. İçerik bilgisinin yanında aynı çalışma alanındaki hazırlama koşulları da sizin için önemli olabilir. Bu tür ihtiyaçlarınızı doğrudan işletmeyle görüşün."] },
       { id: "porsiyon", title: "Adet ile ağırlığı birbirine karıştırmayın", paragraphs: ["Aynı sayıda köfte farklı boyutlarda hazırlanabilir. Teklif isterken toplam ağırlığı, yaklaşık parça büyüklüğünü ve kaç kişi için düşündüğünüzü birlikte söyleyin. Çocukların, yetişkinlerin ve sofradaki diğer ana yemeklerin varlığı ihtiyaç duyulan miktarı değiştirir.", "Tavaya uygun daha küçük porsiyonlar veya ızgara için farklı bir şekil istiyorsanız bu tercihi yazın. Standart hazırlığın dışındaki isteklerin mümkün olup olmadığını teyit edin; ürün fotoğrafını kesin boyut veya porsiyon garantisi olarak değerlendirmeyin."] },
       { id: "hazirlik", title: "Tava, fırın ve mangal için hazırlığı ayırın", paragraphs: ["Pişirme ekipmanının boyutunu ve tek seferde ne kadar ürün hazırlayabileceğinizi düşünün. Kalabalık sofrada küçük partiler halinde servis yapmak gerekebilir. Yan yemekleri ve servis tabaklarını önceden hazırlamak mutfaktaki iş sırasını düzenler.", "İki ayrı öğün için alışveriş yapıyorsanız miktarları ayrı paketletin. Çiğ ürünlerle temas eden malzemeleri servis için kullanacaklarınızdan ayırın. Saklama ve pişirme konusunda ürünle birlikte verilen bilgiyi izleyin."] },
@@ -392,8 +403,10 @@ const shoppingGuidePosts: BlogPost[] = [
     image: "/images/custom/campaign-mangal.jpg",
     imageAlt: "Dana, kuzu ve tavuk seçeneklerini temsil eden karışık mangal sunumu",
     publishedAt: "2026-10-15T21:50:00+03:00",
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Mersin’de mangal paketi ararken paketin adından çok hangi ürünleri ve ne kadar miktarı içerdiğine bakın. Bir paketin aile boyu veya karışık olarak adlandırılması, sizin sofranıza yeteceğini tek başına göstermez. Kişi sayısı, yemek tercihleri ve ızgara kapasitesi üzerinden plan yapmak alışverişi daha anlaşılır hale getirir.",
     sections: [
+      { id: "toroslar-izgaralik-secimi", title: "Toroslar’da mangallık et: dana ızgaralık ve karışık paket", paragraphs: ["Yalnızca dana ızgaralık almak istiyorsanız antrikot, bonfile veya önerilen diğer kesimin adını netleştirin. Dilim kalınlığı ve porsiyon sayısını ızgaranızın kapasitesine göre görüşün. Karışık mangal paketinde ise dana etine eklenen kuzu, tavuk ve köftenin miktarları ayrı ayrı belli olsun; karışık ifadesini sabit bir içerik garantisi saymayın.", "Toroslar’daki mağazamızdan alacağınız paket için mangal günü ve teslim alma saatinizi yazın. Bir ürünün yerine başka ürün eklenmesini istiyorsanız yeni içeriğin ve fiyatın onayını alın. Fotoğraflardaki sunum siparişin kesin miktarı veya paket içeriği değildir; hazırlanacak listeyi işletmeyle birlikte netleştirin."], links: [{ href: "/urunler/mangallik-et", label: "Izgaralık et ve karışık mangal ürünleri" }, { href: "/blog/mersin-antrikot-bonfile-farki", label: "Dana antrikot ve bonfile arasındaki seçim" }, { href: "/blog/mersin-7-24-acik-kasap", label: "Gece veya pazar günü mağazadan teslim alma" }] },
       { id: "icerik", title: "Paket içeriğini ürün ürün yazdırın", paragraphs: ["Dana antrikot, kuzu pirzola, tavuk şiş, köfte veya sucuk seçeneklerinden hangilerinin bulunduğunu öğrenin. Toplam ağırlığın yanında her ürünün miktarını da sorun. Kemikli ürün ağırlığı ile kemiksiz et ağırlığının sofrada aynı miktarı vermediğini dikkate alın.", "Hazır paket içeriğini değiştirmenin mümkün olup olmadığını görüşün. Bir ürünü çıkarıp başka bir ürün eklemek toplam fiyatı veya hazırlanma süresini değiştirebilir. Yeni içeriği ve toplam tutarı siparişi netleştirmeden önce teyit edin."] },
       { id: "menu", title: "Misafir tercihleriyle ızgara kapasitesini eşleştirin", paragraphs: ["Herkesin her üründen tam porsiyon yiyeceğini varsaymak gereğinden fazla alışverişe neden olabilir. Kırmızı et, tavuk ve köfte tercihlerini öğrenin; sofradaki pilav, salata ve diğer yemekleri de miktar görüşmesine dahil edin.", "Birden çok ürün aynı hazırlık ve pişirme planına sahip değildir. Mangal küçükse menüyü sadeleştirmek servis sırasını kolaylaştırabilir. Kesim kalınlığını ve parçaların hangi sırayla hazırlanacağını kasabınızla konuşun."], table: { caption: "Mangal paketi seçerken karşılaştırılacak hazırlıklar", columns: ["Seçenek", "Sorulacak hazırlık bilgisi"], rows: [["Dana ızgaralık", "Parça adı ve dilim kalınlığı"], ["Kuzu pirzola", "Kemik, kalemleme ve porsiyon"], ["Tavuk şiş", "Parça, marinasyon ve şişe dizim"], ["Kasap köfte", "İçerik, şekil ve parça büyüklüğü"], ["Sucuk", "İçerik ve pişirmeye uygun kesim"]] } },
       { id: "butce", title: "Toplam fiyatın hangi miktarı kapsadığını kontrol edin", paragraphs: ["Paket fiyatını değerlendirirken içerik ve miktarın sabit olup olmadığını sorun. Farklı oranlarda dana ve tavuk içeren iki paket aynı toplam ağırlıkta olsa bile doğrudan eşdeğer değildir. Fiyat karşılaştırmasını aynı ürünler ve benzer hazırlık üzerinden yapın.", "Özel paketleme, ayrılmış porsiyonlar veya farklı bir teslim isteği varsa bunları baştan belirtin. Toplam tutarda hangi hizmetlerin yer aldığını öğrenin. Güncel kampanya koşulları ve stok, işletmeyle görüşme sırasında doğrulanır."] },
@@ -410,8 +423,10 @@ const shoppingGuidePosts: BlogPost[] = [
     image: "/images/custom/kuzu-pirzola.jpg",
     imageAlt: "Kuzu pirzola için temsili ürün sunumu",
     publishedAt: "2026-10-15T21:50:00+03:00",
+    updatedAt: "2026-10-19T00:00:00+03:00",
     intro: "Kuzu eti alışverişinde pirzola ile kuşbaşı arasında seçim yaparken önce yemeğinizi belirleyin. Izgara, tava ve güveç farklı hazırlıklar ister. Mersin’de kasaptan teklif alırken hangi kesimi, ne kadar miktarı ve nasıl bir doğramayı istediğinizi anlatmak, ürünleri daha doğru karşılaştırmanıza yardımcı olur.",
     sections: [
+      { id: "toroslar-kuzu-alisverisi", title: "Toroslar’da kuzu pirzola siparişini somutlaştırın", paragraphs: ["Toroslar’da kuzu pirzola arıyorsanız yalnızca kilogram miktarıyla başlamayın. Kaç porsiyon düşündüğünüzü, hangi ekipmanda pişireceğinizi ve dilim tercihlerinizi yazın. Paketlerin hangi miktarlara ayrılacağını da belirtin; aynı toplam ağırlık farklı kemik ve kesim hazırlıklarında aynı porsiyon sayısını vermeyebilir.", "Kuşbaşıyla karşılaştırırken önce yemeği seçin: pirzola için düşündüğünüz sunum, güveç veya şiş için uygun olmayabilir. Dana ve kuzu kuşbaşı arasında kararsızsanız seçilen parça, doğrama ve fiyat ayrıntılarını birlikte görüşün. Güncel stok ve özel kesim uygunluğu mağazayla teyit edilmelidir."], links: [{ href: "/urunler/kuzu-eti", label: "Toroslar mağazasındaki kuzu eti seçenekleri" }, { href: "/blog/mersin-dana-kusbasi-kuzu-kusbasi-secimi", label: "Dana ve kuzu kuşbaşını yemeğe göre karşılaştırın" }] },
       { id: "pirzola", title: "Pirzolada dilim ve kemik hazırlığı önemlidir", paragraphs: ["Pirzola siparişinde dilim kalınlığı ve hazırlama tercihinizi belirtin. Aynı pakette birbirine yakın kalınlıkta parçalar bulunması, pişirme takibini kolaylaştırır. Kalemleme veya farklı bir hazırlık istiyorsanız standart kesimin dışında hangi seçeneklerin mümkün olduğunu sorun.", "Pirzolanın tartı miktarı kemik içerir. Kişi sayısını yalnızca toplam kilogramla eşleştirmek yerine sofradaki diğer yemekleri de düşünün. Misafirlere başka et ürünleri sunacaksanız bunları miktar görüşmesine ekleyin."] },
       { id: "kusbasi", title: "Kuşbaşını yemeğin yöntemine göre hazırlatın", paragraphs: ["Kuzu kuşbaşı alırken şiş, sote veya tencere yemeği yapacağınızı söyleyin. Ürünün hangi bölümden hazırlanacağını ve doğrama boyutunu görüşün. Şişe uygun eşit parçalar ile uzun pişen güveç için tercih edilen hazırlık aynı olmayabilir.", "Yağ tercihlerinizi ve temizleme beklentinizi anlatın. Kuşbaşı ifadesi kesimin boyutunu anlatır; paketin içindeki etin bölümünü tek başına açıklamaz. Bu ayrıntıyı öğrenmek fiyat ve pişirme yöntemi arasında bağlantı kurmanızı sağlar."] },
       { id: "fiyat", title: "Kuzu eti fiyatlarını hazırlama koşuluyla karşılaştırın", paragraphs: ["Pirzola ve kuşbaşının kilogram fiyatını birbirinin alternatifi gibi okumak yerine, planladığınız öğünün toplamına bakın. Kemik, temizleme ve porsiyon farklılıklarını sorun. Aynı isimle sunulan iki ürünün hazırlanış biçimi değişebilir.", "Kesin kişi başı miktar vermek yerine kaç kişinin yiyeceğini, yan yemekleri ve başka ana yemek bulunup bulunmadığını paylaşın. İki öğün planlıyorsanız paketleri buna göre ayırın. Güncel fiyatı, istediğiniz hazırlık ve miktar üzerinden teyit edin."] },
@@ -775,9 +790,225 @@ export const productGuidePosts: BlogPost[] = [
   }
 ];
 
-export const featuredGuideSlugs = ["mersin-dana-kiyma-secimi", "mersin-kasap-fiyatlari-ucretleri", "mersin-antrikot-bonfile-farki"];
+export const localGuidePosts: BlogPost[] = [
+  {
+    slug: "mersin-7-24-acik-kasap",
+    title: "Mersin’de 7/24 açık kasap: gece ve pazar alışverişi",
+    description: "Mersin’de gece, pazar günü veya tatilde kasap alışverişi: Toroslar’daki Akdeniz Kasabı’nın 24 saat açık mağazası, ürün teyidi ve yol tarifi.",
+    category: "7/24 alışveriş",
+    image: "/images/custom/category-dana.jpg",
+    imageAlt: "Gece alışverişinde de tercih edilebilecek dana eti çeşitlerinin temsili sunumu",
+    publishedAt: "2026-10-19T00:00:00+03:00",
+    intro: "Mersin’de 7/24 açık kasap arıyorsanız Akdeniz Kasabı’nın Toroslar’daki mağazası haftanın her günü, gece ve gündüz açıktır. Pazar günleri ve tatillerde de çalışma düzenimiz değişmez. Geç saatte yemek hazırlamak, ertesi günün alışverişini tamamlamak veya vardiya sonrası uğramak için yola çıkmadan ürün ve hazırlama isteğinizi netleştirebilirsiniz.",
+    sections: [
+      {
+        id: "calisma-saatleri", title: "Gece, pazar ve tatil günlerinde çalışma saatleri",
+        paragraphs: [
+          "Mağazamızın çalışma düzeni 24 saattir; haftalık kapanış veya tatil günü yoktur. Mersin gece açık kasap ve Toroslar 7/24 kasap aramalarında adresimizi bu bilgiyle değerlendirebilirsiniz. İşletmenin açık olması, belirli bir kesimin her an hazır veya stokta olduğu anlamına gelmez.",
+          "Özellikle çok miktarda et, eşit kalınlıkta biftek veya karışık mangal hazırlığı istiyorsanız önce 0553 776 61 62 numarasını arayın. Talebin karşılanıp karşılanamayacağını ve hazır olacağı saati görüşün. WhatsApp’a mesaj bırakmak tek başına siparişin kabul edildiği ya da hemen yanıtlanacağı anlamına gelmez."
+        ],
+        table: { caption: "Mağazaya gelişinizi planlarken", columns: ["Zaman", "Çalışma düzeni", "Önceden teyit edilecek"], rows: [["Hafta içi ve cumartesi", "24 saat açık", "Ürün ve özel hazırlık"], ["Pazar günü", "24 saat açık", "Miktar ve teslim alma saati"], ["Tatil günleri", "24 saat açık", "Toplu veya özel kesim talebi"]] }
+      },
+      {
+        id: "gece-alisveris-listesi", title: "Geç saatte alışverişi kolaylaştıran kısa liste",
+        paragraphs: [
+          "Yemeğiniz hazır bir tarifse önce et türünü, gereken miktarı ve hazırlama biçimini not alın. Örneğin tava yemeği için doğranmış dana eti ile ertesi gün mangalda kullanacağınız kalın dilim aynı hazırlığı istemez. Yemeğe ne kadar zaman ayırabileceğinizi söylemeniz, mevcut seçenekler arasında karar vermeyi kolaylaştırır.",
+          "İstediğiniz ürün bulunmazsa onayınız olmadan başka bir ürünle değiştirilmesini istemediğinizi belirtin. Alternatif önerildiğinde kesim, miktar ve yeni toplam fiyatı yeniden sorun. İki farklı yemek için alışveriş yapıyorsanız paketlerin ayrı olmasını ve hangisinin hangi yemek için hazırlandığının belirtilmesini isteyin."
+        ],
+        tips: ["Ürün, miktar ve pişireceğiniz yemek", "Doğrama, kıyma çekimi veya marinasyon tercihi", "Güncel toplam tutar ve varsa hazırlama ücreti", "Mağazadan almak istediğiniz saat"],
+        links: [{ href: "/blog/mersin-istege-gore-et-dograma-kiyma-cekimi", label: "Özel doğrama ve kıyma çekimi için hazırlık notları" }]
+      },
+      {
+        id: "toroslar-magazasi", title: "Toroslar’daki mağazaya nasıl gelinir?",
+        paragraphs: [
+          "Akdeniz Kasabı’nın adresi Mithat Toroğlu, Kuvayi Milliye Cd., 33080 Toroslar/Mersin’dir. Marka adındaki Akdeniz, mağazanın Akdeniz ilçesinde olduğu anlamına gelmez. Harita sonucunda ilçe, mahalle ve 0553 776 61 62 telefon bilgisini birlikte kontrol edin.",
+          "İletişim sayfamızdaki Yol Tarifi bağlantısı bu mağazayı hedef olarak açar. Harita uygulamasında başlangıç noktasını mevcut konumunuz olarak doğrulayın; konum izni vermiyorsanız adresinizi elle girin. Yol süresi ulaşım biçiminize ve trafiğe göre değişir. Gece açık olmak, bütün Mersin’e teslimat veya belirli bir varış süresi taahhüdü değildir."
+        ],
+        links: [{ href: "/iletisim", label: "Mağazanın konumunu açın ve yol tarifi alın" }]
+      },
+      {
+        id: "siparisi-netlestirme", title: "Gitmeden önce gönderilebilecek örnek mesaj",
+        paragraphs: [
+          "Merhaba, bu gece mağazadan almak üzere sote için dana kuşbaşı düşünüyorum. İstediğim miktar 500 g; ürünün uygunluğunu, doğrama seçeneğini, toplam fiyatı ve ne zaman hazır olabileceğini paylaşır mısınız? Bu örnekteki miktarı kendi yemek planınıza göre değiştirin.",
+          "Mağazada ürünü teslim alırken miktarı, paket sayısını ve konuşulan hazırlığı kontrol edin. Sonrasında başka işlere uğrayacaksanız ürünün muhafaza ve taşıma ihtiyacını önceden görüşün. Gece alışverişinin kolaylığı, ürüne uygun taşıma ve saklama planının yerine geçmez."
+        ],
+        links: [{ href: "/blog/mersin-whatsapp-et-siparisi", label: "WhatsApp’ta ürün listesi hazırlama ve sipariş teyidi" }, { href: "/urunler", label: "Et, tavuk ve köfte ürünlerini inceleyin" }]
+      }
+    ],
+    productCategory: "dana",
+    relatedSlugs: ["akdeniz-kasabi-mersin-adres-iletisim", "mersin-en-yakin-kasap-yol-tarifi", "mersin-whatsapp-et-siparisi"]
+  },
+  {
+    slug: "mersin-et-market-taze-et-alisverisi",
+    title: "Mersin et market rehberi: taze et alırken ne sorulmalı?",
+    description: "Mersin ve Toroslar’da et market alışverişi için ürün bilgisi, tazelik, ambalaj ve hazırlama soruları. Dana, kuzu ve tavuk seçimini yemeğinize göre yapın.",
+    category: "Et seçimi",
+    image: "/images/custom/category-kuzu.jpg",
+    imageAlt: "Et market alışverişi rehberi için temsili kuzu eti sunumu",
+    publishedAt: "2026-10-19T00:00:00+03:00",
+    intro: "Mersin’de et market veya taze et ararken yalnızca ürün fotoğrafına ve kilogram fiyatına bakmak yeterli değildir. Etin türü, hangi yemekte kullanılacağı, hazırlama bilgisi ve ambalaj koşulları birlikte değerlendirilmelidir. Toroslar’daki Akdeniz Kasabı’na gelmeden önce aşağıdaki sorularla alışverişinizi planlayabilirsiniz.",
+    sections: [
+      {
+        id: "yemekten-baslayin", title: "Dana, kuzu ve tavuk arasında yemeğinize göre seçim yapın",
+        paragraphs: [
+          "İlk adım ürün adı değil yemek planıdır. Köfte, sote, fırın yemeği ve mangal için farklı hazırlıklar gerekir. Kaç öğün pişireceğinizi, hangi ekipmanı kullanacağınızı ve yanına başka ana yemek koyup koymayacağınızı belirtin. Böylece ihtiyacınızdan fazla almak veya yanlış kesim seçmek yerine seçenekleri birlikte değerlendirebilirsiniz.",
+          "Dana kıyma için yağ ve çekim tercihini, kuzu pirzola için dilim ve kemik durumunu, tavuk için kullanılan parça ve marinasyonu sorun. Hazır köfte veya sucukta ürün adı, içerik listesinin yerini tutmaz. Bir malzemeyi tüketemiyorsanız bunu alışverişten önce açıkça belirtin; uygunluğunu yalnızca görselden çıkarmayın."
+        ],
+        links: [{ href: "/urunler/dana-eti", label: "Dana eti ürünleri ve hazırlama seçenekleri" }, { href: "/urunler/kuzu-eti", label: "Kuzu pirzola ve kuşbaşı seçenekleri" }, { href: "/urunler/tavuk-urunleri", label: "Tavuk şiş ve pirzola ürünleri" }]
+      },
+      {
+        id: "tazelik-bilgisi", title: "Taze eti yalnızca renginden anlayabilir misiniz?",
+        paragraphs: [
+          "Etin rengi tek başına tazelik veya güvenlik kararı vermek için yeterli değildir. USDA’nın et ve kanatlı rengi rehberi, oksijen ve ambalaj gibi etkenlerin görünümü değiştirebildiğini açıklar. Fotoğraftaki parlak renkten hareketle ürünün hazırlama tarihi veya güvenliği hakkında kesin sonuç çıkarmayın.",
+          "Satın alacağınız ürünün hazırlama veya ambalaj bilgilerini, varsa etiketini ve ürüne uygun muhafaza talimatını sorun. Ürünün soğutulmuş mu, donmuş mu sunulduğunu ve kullanım planınıza uygunluğunu öğrenin. İnternetteki temsili bir görsel, tezgâhtaki ürünün durumunu göstermez; belirsiz kalan bilgiyi satıcıyla netleştirin."
+        ]
+      },
+      {
+        id: "tezgah-kontrol-listesi", title: "Et markette sorulabilecek beş somut soru",
+        paragraphs: [
+          "Aynı soruları farklı ürünler için sormak karşılaştırmayı kolaylaştırır. Örneğin iki kuşbaşı teklifinde hayvan türü aynı olsa bile seçilen bölüm, temizleme ve doğrama farklı olabilir. Paket üzerindeki toplam ağırlık ile ihtiyacınız olan kemiksiz et miktarını birbirine karıştırmayın.",
+          "Ürünün kaynağı ve izlenebilirlik bilgisi hakkında açıklama isteyebilirsiniz. Web sitesindeki kalite ifadelerini belge veya ürün bilgisi yerine kabul etmeyin. Satın alacağınız ürünle ilgili açık yanıtlar, yalnızca en düşük fiyatı seçmekten daha fazla bilgi verir."
+        ],
+        tips: ["Bu ürün hangi tür ve hangi parçadan hazırlanıyor?", "Hazırlama, ambalaj ve etiket bilgilerini görebilir miyim?", "Kemik, yağ ve temizleme tartıya nasıl yansıyor?", "İstediğim miktar için toplam fiyat ve hazırlık süresi nedir?", "Eve taşıma ve saklama için hangi ürün talimatını izlemeliyim?"]
+      },
+      {
+        id: "paket-ve-alisveris-plani", title: "Haftalık alışverişi öğünlere göre paketleyin",
+        paragraphs: [
+          "Birden fazla öğün için alışveriş yapıyorsanız her pakette ne kadar ürün istediğinizi önceden yazın. Kıyma, kuşbaşı ve marineli tavuk gibi farklı hazırlıkları ayrı kalemler halinde belirtin. Paketlerin içeriğini ve miktarını teslim alırken kontrol etmek evdeki hazırlığı kolaylaştırır.",
+          "Alışveriş sonrası güzergâhınızı, yol süresini ve ürünlerin gerektirdiği muhafazayı planlayın. Uzak bir ilçeden geliyorsanız taşıma ihtiyacınızı ayrıca görüşün. Bu yazıdaki genel kontrol listesi ürünün etiketi ve kendisine özgü saklama talimatının yerine geçmez."
+        ],
+        links: [{ href: "/blog/mersin-kasap-fiyatlari-ucretleri", label: "Aynı ürün ve hazırlık üzerinden fiyat karşılaştırma" }]
+      },
+      {
+        id: "toroslar-et-alisverisi", title: "Toroslar’da Akdeniz Kasabı’ndan bilgi alın",
+        paragraphs: [
+          "Mağazamız Mithat Toroğlu, Kuvayi Milliye Cd., 33080 Toroslar/Mersin adresinde her gün 24 saat açıktır. Toroslar et market alışverişiniz için ürün listesini sitede inceleyip 0553 776 61 62 üzerinden güncel stok, fiyat ve hazırlık bilgisi isteyebilirsiniz.",
+          "Bir ürünün katalogda bulunması o anda hazır olduğu anlamına gelmez. Listenizi gönderirken teslim almak istediğiniz zamanı da yazın. İletişim sayfasındaki konum, mağazamızın gerçek adresine gider; diğer ilçeler için hazırladığımız bloglar o ilçelerde şubemiz bulunduğunu göstermez."
+        ],
+        links: [{ href: "/blog/toroslar-kasap-alisverisi-rehberi", label: "Toroslar’da yemeğe göre kasap alışverişi rehberi" }, { href: "/iletisim", label: "Akdeniz Kasabı adres, telefon ve yol tarifi" }]
+      }
+    ],
+    productCategory: "dana",
+    relatedSlugs: ["mersin-kasap-secimi-rehberi", "mersin-dana-kusbasi-kuzu-kusbasi-secimi", "mersin-kasap-fiyatlari-ucretleri"],
+    sources: [{ label: "USDA: Et ve kanatlı ürünlerinde renk değişimleri", url: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/color-meat-and-poultry" }]
+  },
+  {
+    slug: "mersin-dana-kusbasi-kuzu-kusbasi-secimi",
+    title: "Mersin’de dana kuşbaşı mı kuzu kuşbaşı mı? Yemek rehberi",
+    description: "Dana ve kuzu kuşbaşını sote, güveç ve şiş için nasıl seçmeli? Mersin’de kasap alışverişi için parça, doğrama, yağ ve fiyat karşılaştırma rehberi.",
+    category: "Kuşbaşı seçimi",
+    image: "/images/custom/dana-kusbasi.jpg",
+    imageAlt: "Yemeklik kuşbaşı doğrama tercihleri için temsili dana eti sunumu",
+    publishedAt: "2026-10-19T00:00:00+03:00",
+    intro: "Dana kuşbaşı ile kuzu kuşbaşı arasında karar verirken sadece hayvan türünü değiştirmiş olmazsınız; seçilen parça, yağ tercihi ve doğrama da yemeği etkiler. Mersin’de kuşbaşı alışverişinizi sote, güveç veya şiş planına göre yapmak için önce hangi yemeği hazırlayacağınızı anlatın. Kuşbaşı adı, tek başına etin hangi bölümden geldiğini söylemez.",
+    sections: [
+      {
+        id: "tur-ve-parca", title: "Türü seçtikten sonra parçayı da sorun",
+        paragraphs: [
+          "Dana veya kuzu tercihi damak zevkinize, tarifinize ve bütçenize bağlıdır. Aynı türden iki kuşbaşı ürününün hazırlanış biçimi ve kullanılacağı yemek farklı olabilir. Bu nedenle birini her tarif için daha iyi ya da her koşulda daha çabuk pişen seçenek olarak düşünmeyin.",
+          "Kasabınıza etin hangi bölümden hazırlanacağını sorun. Kısa sürede tava yemeği mi yapacağınızı, yoksa tencerede daha uzun pişireceğinizi açıklayın. Kullanılacak parça ile pişirme yöntemi uyumlu değilse sadece daha küçük doğrama istemek sorunu çözmeyebilir. Alternatif önerildiğinde yeni kesimi ve fiyatı birlikte değerlendirin."
+        ]
+      },
+      {
+        id: "yemege-gore-dograma", title: "Sote, güveç ve şiş için aynı hazırlığı istemeyin",
+        paragraphs: [
+          "Doğrama boyutunu küçük veya büyük gibi tek bir kelimeyle bırakmak yerine kullanımını tarif edin. Tava boyutu, pişirme için ayırdığınız zaman ve şiş ekipmanı hazırlığı etkiler. Aynı pakette yakın boyutlu parçalar istemek pişirmeyi takip etmeyi kolaylaştırır.",
+          "Tarifiniz belirli bir ölçü veriyorsa bu ölçüyü paylaşabilirsiniz. Ölçü yoksa kasabınızla örnek bir parça üzerinden anlaşın. Marine edilmiş bir ürün isteyip istemediğinizi de söyleyin; sade kuşbaşı ile marineli şişlik ürünün içerik ve fiyat koşullarını aynı varsaymayın."
+        ],
+        table: { caption: "Kuşbaşı siparişini yemeğe göre tarif etme", columns: ["Yemek", "Belirtilecek bilgi", "Sorulacak soru"], rows: [["Sote", "Tava kullanımı ve pişirmeye ayırdığınız zaman", "Bu yönteme uygun parça ve doğrama hangisi?"], ["Güveç", "Uzun pişirme planı ve tarifteki diğer malzemeler", "Hangi parça ve yağ tercihi uygun olur?"], ["Şiş", "Şiş boyutu, sade veya marineli tercih", "Eşit parçalar ve şişe dizim mümkün mü?"]] },
+        links: [{ href: "/blog/mersin-istege-gore-et-dograma-kiyma-cekimi", label: "İsteğe göre doğrama talebini nasıl yazmalı?" }]
+      },
+      {
+        id: "yag-ve-tarti", title: "Yağ, temizleme ve tartı tercihini netleştirin",
+        paragraphs: [
+          "Görünür yağın ne kadarının bırakılmasını istediğinizi belirtin ve mümkün olan hazırlığı öğrenin. Yağ tercihini ifade etmek, ürünün kendiliğinden belirli bir orana sahip olduğunu garanti etmez. Özel bir ölçü veya oran istiyorsanız bunun uygulanıp uygulanamayacağını açıkça sorun.",
+          "Fiyat karşılaştırmasında dana kuşbaşı ve kuzu kuşbaşını ayrı değerlendirin. Her biri için seçilen bölümü, temizlenmiş miktarı ve kilogram fiyatını öğrenin. Kemikli bir yemeklik etin fiyatını kemiksiz kuşbaşıyla doğrudan eşitlemeyin; teklifin hangi ağırlığı kapsadığını kontrol edin."
+        ],
+        links: [{ href: "/blog/mersin-kasap-fiyatlari-ucretleri", label: "Kuşbaşı ve diğer et ürünleri için güncel fiyat isteme" }]
+      },
+      {
+        id: "ornek-siparis", title: "İki farklı yemek için örnek sipariş notu",
+        paragraphs: [
+          "Merhaba, sote için 500 g dana kuşbaşı ve güveç için ayrı pakette 500 g kuzu kuşbaşı düşünüyorum. Kullanılacak parçaları, doğrama seçeneklerini, temizlenmiş miktarı ve ayrı ayrı fiyatlarını paylaşır mısınız? Bu miktarlar sipariş dilini göstermek içindir; kişi başına tüketim önerisi değildir.",
+          "Birden fazla öğün düşünüyorsanız her paketin miktarını ayrı yazın. Ürünleri alırken dana ve kuzu paketlerinin ayrıldığını, istediğiniz doğrama ve toplam miktarın doğru olduğunu kontrol edin. Beklediğinizden farklı bir hazırlık varsa mağazadan ayrılmadan görüşün."
+        ]
+      },
+      {
+        id: "urunleri-inceleyin", title: "Mersin’de kuşbaşı ürünlerini ve hazırlık durumunu öğrenin",
+        paragraphs: [
+          "Akdeniz Kasabı’nın dana eti ve kuzu eti kategorilerinde kuşbaşı ürünlerini inceleyebilirsiniz. Fotoğraflar temsili sunumlardır; alacağınız ürünün parça büyüklüğü ve miktarı görüşmede belirlenir. Stok ve özel hazırlık için 0553 776 61 62 üzerinden ulaşın.",
+          "Mağazamız Toroslar, Mithat Toroğlu Mahallesi, Kuvayi Milliye Caddesi’nde 7/24 açıktır. Gelmek istediğiniz saati paylaşarak ürünün hazır olma durumunu teyit edin. Sipariş listesini WhatsApp’a aktarmak görüşmeyi başlatır; işletme teyidi olmadan kesinleşmiş sipariş sayılmaz."
+        ],
+        links: [{ href: "/urunler/dana-eti", label: "Dana kuşbaşı ve diğer dana eti ürünleri" }, { href: "/urunler/kuzu-eti", label: "Kuzu kuşbaşı ve pirzola ürünleri" }]
+      }
+    ],
+    productCategory: "dana",
+    relatedSlugs: ["mersin-kuzu-eti-pirzola-secimi", "mersin-istege-gore-et-dograma-kiyma-cekimi", "mersin-kasap-fiyatlari-ucretleri"]
+  },
+  {
+    slug: "mersin-istege-gore-et-dograma-kiyma-cekimi",
+    title: "Mersin’de et doğrama ve kıyma çekimi: sipariş rehberi",
+    description: "Mersin’de isteğe göre et doğrama ve kasapta kıyma çekimi için yemek, kesim, yağ ve paket tercihinizi netleştirin. Toroslar’dan örnek sipariş notları.",
+    category: "Özel hazırlık",
+    image: "/images/custom/dana-kiyma.jpg",
+    imageAlt: "Kıyma hazırlama ve paket tercihleri rehberi için temsili dana kıyma sunumu",
+    publishedAt: "2026-10-19T00:00:00+03:00",
+    intro: "Mersin’de isteğe göre et doğrama veya kasapta kıyma çekimi ararken yemeğinizi ve istediğiniz sonucu tarif etmek, yalnızca ürün adını söylemekten daha açıklayıcıdır. Akdeniz Kasabı’nın dana kıyma ve kuşbaşı ürünleri için yağ, çekim, doğrama ve paketleme tercihlerinizi paylaşabilirsiniz. Özel taleplerin uygunluğu ve hazırlanma zamanı görüşmede teyit edilir.",
+    sections: [
+      {
+        id: "yemek-ve-kesim", title: "Önce yemek, ardından kesim ve miktar",
+        paragraphs: [
+          "Sote, kavurma, güveç, şiş ve köfte aynı hazırlama talebi değildir. Etin türünü ve yemeğin adını belirttikten sonra kullanacağınız tava, tencere veya ızgarayı söyleyin. Özellikle kısa sürede pişirme planınız varsa sadece küçük doğranmış et istemek yerine seçilen parçanın da uygunluğunu sorun.",
+          "Kuşbaşı için yaklaşık parça boyutunu, biftek için dilim kalınlığını, şişlik et için eşit parçalar isteğinizi yazın. Yağ ve temizleme beklentinizi baştan konuşun. Kasabınızın önerisiyle kesim değişirse miktarı ve toplam fiyatı da yeniden teyit edin."
+        ],
+        table: { caption: "Hazırlama isteğini somutlaştıran örnekler", columns: ["Ürün", "Belirtilecek hazırlık"], rows: [["Dana kuşbaşı", "Sote için uygun parça, doğrama boyutu ve ayrı paket"], ["Kuzu kuşbaşı", "Güveç veya şiş kullanımı, yağ tercihi ve miktar"], ["Dana kıyma", "Köftelik veya yemeklik kullanım, yağ ve çekim tercihi"], ["Antrikot / bonfile", "Pişirme ekipmanı, dilim kalınlığı ve porsiyon sayısı"]] }
+      },
+      {
+        id: "kiyma-cekimi", title: "Kıyma çekiminde hangi ayrıntıları konuşmalı?",
+        paragraphs: [
+          "Köftelik ve yemeklik dana kıymada et türü, yağ tercihi ve çekim dokusu birlikte değerlendirilir. Önce kullanacağınız tarifi anlatın; ardından hangi parçadan hazırlanacağını ve istediğiniz çekimin mümkün olup olmadığını sorun. Bir çekim biçimini bütün tarifler için tek doğru seçenek olarak düşünmeyin.",
+          "Aynı alışverişte hem köfte hem sebze yemeği için kıyma alacaksanız talepleri ayrı kalemler halinde yazın. Her kalemin miktarı ve paket sayısı belli olsun. Tercih ettiğiniz yağ oranı veya doku uygulanamıyorsa alternatifin sizin onayınızla belirlenmesini isteyin; toplam tutarı bu hazırlığa göre öğrenin."
+        ],
+        links: [{ href: "/blog/mersin-dana-kiyma-secimi", label: "Köftelik ve yemeklik dana kıyma seçimi ayrıntıları" }]
+      },
+      {
+        id: "paketleme", title: "Paket sayısını toplam kilogramdan ayrı belirtin",
+        paragraphs: [
+          "Toplam 1 kg ürün istemek, bunun tek paket veya iki ayrı paket olması konusunda bilgi vermez. İki öğünde kullanacaksanız her paketin miktarını açıkça yazın. Hazır köfte, sade kıyma ve marineli ürünleri aynı hazırlık gibi tanımlamayın; ürünlerin içerikleri ve kullanım planları farklıdır.",
+          "Ürünü teslim alırken paket sayısını, miktarı ve konuşulan kesimi kontrol edin. Etiket veya ürünle birlikte verilen hazırlama ve muhafaza bilgilerini isteyin. Yolculuğunuz uzunsa taşıma ihtiyacınızı baştan paylaşın; ayrı paketleme tek başına uygun taşıma koşulu sağlandığı anlamına gelmez."
+        ]
+      },
+      {
+        id: "ozel-talep-teyidi", title: "Dışarıdan et, ek ücret ve hazırlık süresi için önce sorun",
+        paragraphs: [
+          "Katalogdaki et ürününü tercih ettiğiniz biçimde hazırlatma isteği ile dışarıdan getirilen eti doğratma veya çektirme talebi aynı hizmet değildir. Bu rehber, dışarıdan et kabul edildiği anlamına gelmez. Böyle bir ihtiyacınız varsa yola çıkmadan kabul koşullarını doğrudan işletmeye sorun.",
+          "Özel kesimin uygunluğunu, varsa ek hazırlama ücretini ve ne zaman tamamlanacağını önceden netleştirin. Mağazanın 7/24 açık olması her özel hazırlığın anında yapılabileceği anlamına gelmez. Çok sayıda porsiyon veya farklı kesimler içeren listelerde onaylanan hazırlığı mesajda özetlemek yanlış anlaşılmayı azaltır."
+        ]
+      },
+      {
+        id: "whatsapp-notu", title: "Toroslar’dan örnek WhatsApp hazırlık mesajı",
+        paragraphs: [
+          "Merhaba, köfte yapmak için toplam 1 kg dana kıyma istiyorum; iki adet 500 g paket olabilir mi? Yağ ve çekim seçeneklerini görüşmek istiyorum. Ayrıca sote için 500 g dana kuşbaşı düşünüyorum. Ürünlerin uygunluğunu, hazırlama dahil toplam tutarı ve mağazadan alabileceğim saati paylaşır mısınız? Örnek miktarları kendi ihtiyacınıza göre değiştirin.",
+          "Toroslar’daki Akdeniz Kasabı’na 0553 776 61 62 telefon ve WhatsApp numarasından ulaşabilirsiniz. Adresimiz Mithat Toroğlu, Kuvayi Milliye Cd., 33080 Toroslar/Mersin’dir. Sitede oluşturduğunuz listeyi WhatsApp’ta kendiniz gönderin; fiyat, hazırlama ve teslim alma için işletmenin teyidini bekleyin."
+        ],
+        links: [{ href: "/blog/mersin-whatsapp-et-siparisi", label: "Ürün listesinden WhatsApp sipariş görüşmesine geçiş" }, { href: "/urunler/dana-eti", label: "Kıyma, kuşbaşı ve dana eti seçeneklerini inceleyin" }]
+      }
+    ],
+    productCategory: "dana",
+    relatedSlugs: ["mersin-dana-kiyma-secimi", "mersin-dana-kusbasi-kuzu-kusbasi-secimi", "mersin-whatsapp-et-siparisi"]
+  }
+];
 
-export const guidePosts: BlogPost[] = [...productGuidePosts, ...shoppingGuidePosts];
+export const blogTopics = [
+  { title: "7/24 alışveriş ve ulaşım", description: "Gece, pazar günü ve mağazaya ilk gelişiniz için.", slugs: ["mersin-7-24-acik-kasap", "toroslar-kasap-alisverisi-rehberi", "mersin-en-yakin-kasap-yol-tarifi"] },
+  { title: "Et seçimi ve özel hazırlık", description: "Taze et alışverişinde doğru sorular, doğru kesim.", slugs: ["mersin-et-market-taze-et-alisverisi", "mersin-istege-gore-et-dograma-kiyma-cekimi", "mersin-dana-kusbasi-kuzu-kusbasi-secimi"] },
+  { title: "Tavuk, köfte ve mangal", description: "Günlük yemek ve kalabalık sofralar için plan yapın.", slugs: ["mersin-tavuk-kasabi-urunleri", "mersin-kasap-kofte-siparisi", "mersin-mangal-paketi-hazirlama"] },
+  { title: "Fiyat ve sipariş", description: "Listenizi hazırlayın, fiyat ve teslim alma bilgisini teyit edin.", slugs: ["mersin-kasap-fiyatlari-ucretleri", "mersin-whatsapp-et-siparisi", "akdeniz-kasabi-mersin-adres-iletisim"] }
+];
+
+export const featuredGuideSlugs = ["mersin-7-24-acik-kasap", "mersin-kasap-secimi-rehberi", "mersin-kasap-fiyatlari-ucretleri"];
+
+export const guidePosts: BlogPost[] = [...localGuidePosts, ...productGuidePosts, ...shoppingGuidePosts];
 export const blogPosts: BlogPost[] = [...guidePosts, ...districtPosts];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

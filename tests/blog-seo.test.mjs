@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import test from "node:test";
-import { blogPosts, districtPosts, featuredGuideSlugs, guidePosts, productGuidePosts } from "../data/blog.ts";
-import { categories } from "../data/products.ts";
+import { blogPosts, blogTopics, districtPosts, featuredGuideSlugs, guidePosts, localGuidePosts, productGuidePosts } from "../data/blog.ts";
+import { categories, getCategoryHref } from "../data/products.ts";
 
 const origin = "https://www.akdenizkasabi.com.tr";
 const baseUrl = process.env.TEST_BASE_URL;
@@ -18,10 +18,11 @@ async function page(path) {
   return { response, html: await response.text() };
 }
 
-test("13 ilçe yazısı ve 12 alışveriş rehberi benzersizdir; içerik bağlantıları geçerlidir", async () => {
+test("13 ilçe yazısı ve 16 alışveriş rehberi benzersizdir; içerik bağlantıları geçerlidir", async () => {
   assert.equal(districtPosts.length, 13);
-  assert.equal(guidePosts.length, 12);
+  assert.equal(guidePosts.length, 16);
   assert.equal(productGuidePosts.length, 4);
+  assert.equal(localGuidePosts.length, 4);
   assert.equal(blogPosts.length, districtPosts.length + guidePosts.length);
   assert.deepEqual(new Set(districtPosts.map((post) => post.district)), new Set(districts));
   assert.ok(guidePosts.every((post) => !post.district));
@@ -38,7 +39,7 @@ test("13 ilçe yazısı ve 12 alışveriş rehberi benzersizdir; içerik bağlan
         assert.ok(link.label.length > 8);
         const target = new URL(link.href, origin);
         assert.equal(target.origin, origin);
-        assert.ok(["/", "/urunler", "/iletisim", "/blog", ...blogPosts.map((item) => `/blog/${item.slug}`)].includes(target.pathname), link.href);
+        assert.ok(["/", "/urunler", "/iletisim", "/blog", ...categories.map((category) => getCategoryHref(category.id)), ...blogPosts.map((item) => `/blog/${item.slug}`)].includes(target.pathname), link.href);
         if (target.searchParams.has("kategori")) assert.ok(categories.some((category) => category.id === target.searchParams.get("kategori")));
       }
       if (section.table) {
@@ -55,6 +56,25 @@ test("13 ilçe yazısı ve 12 alışveriş rehberi benzersizdir; içerik bağlan
   }
 });
 
+test("konu menüsü ve yeni rehberler geçerli, karşılıklı içerik bağlantılarına sahiptir", () => {
+  assert.equal(blogTopics.length, 4);
+  const topicSlugs = blogTopics.flatMap((topic) => topic.slugs);
+  assert.equal(new Set(topicSlugs).size, topicSlugs.length);
+  for (const slug of [...topicSlugs, ...featuredGuideSlugs]) {
+    assert.ok(blogPosts.some((post) => post.slug === slug), slug);
+  }
+  const oldPosts = blogPosts.filter((post) => !localGuidePosts.includes(post));
+  for (const post of localGuidePosts) {
+    const path = `/blog/${post.slug}`;
+    assert.ok(topicSlugs.includes(post.slug), `konu menüsü: ${post.slug}`);
+    assert.ok(oldPosts.some((old) => old.sections.some((section) => section.links?.some((link) => link.href === path))), `mevcut içerikten bağlantı: ${post.slug}`);
+    assert.ok(post.sections.some((section) => section.links?.some((link) => oldPosts.some((old) => link.href === `/blog/${old.slug}`))), `mevcut içeriğe bağlantı: ${post.slug}`);
+    assert.ok(post.sections.length >= 4);
+    assert.ok(post.imageAlt.includes("temsili"));
+    assert.ok(post.sections.every((section) => section.paragraphs.length >= 2));
+  }
+});
+
 test("blog listesi ve ana sayfa yazılara taranabilir bağlantılar verir", { skip: !baseUrl }, async () => {
   const { response, html } = await page("/blog");
   assert.equal(response.status, 200);
@@ -67,6 +87,12 @@ test("blog listesi ve ana sayfa yazılara taranabilir bağlantılar verir", { sk
   assert.ok(districtNavigation);
   assert.equal([...districtNavigation.matchAll(/<a\b/g)].length, 13);
   for (const post of districtPosts) assert.ok(districtNavigation.includes(`href="#${post.slug}"`));
+  const topicNavigation = html.match(/<nav[^>]*aria-labelledby="blog-topics-heading"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+  assert.ok(topicNavigation);
+  for (const topic of blogTopics) {
+    assert.ok(topicNavigation.includes(topic.title));
+    for (const slug of topic.slugs) assert.ok(topicNavigation.includes(`href="/blog/${slug}"`));
+  }
   const home = await page("/");
   assert.equal(home.response.status, 200);
   assert.ok(home.html.includes('href="/blog"'));
