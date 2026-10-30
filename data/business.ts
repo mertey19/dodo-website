@@ -43,6 +43,7 @@ export const businessInfo = {
 export const navigation = [
   { label: "Ana Sayfa", href: "/" },
   { label: "Ürünlerimiz", href: "/urunler" },
+  { label: "Mersin Adaklık", href: "/mersin-adaklik" },
   { label: "Kampanyalar", href: "/#kampanyalar" },
   { label: "Blog", href: "/blog" },
   { label: "Hakkımızda", href: "/hakkimizda" },

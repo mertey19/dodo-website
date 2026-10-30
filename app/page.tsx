@@ -1,5 +1,6 @@
 import { ContactDetails } from "@/components/sections/ContactDetails";
 import { BlogPreview } from "@/components/blog/BlogPreview";
+import { AdaklikSection } from "@/components/sections/AdaklikSection";
 import {
   CampaignsSection,
   CategoriesSection,
@@ -28,6 +29,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <TrustSection />
+      <AdaklikSection />
       <CategoriesSection />
       <FeaturedProductsSection />
       <CampaignsSection />

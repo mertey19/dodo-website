@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { blogTopics, kitchenGuidePosts, localGuidePosts } from "../data/blog.ts";
+import { adaklikService } from "../data/adaklik.ts";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -47,11 +48,62 @@ test("gömülü haritayı tam işletme pinine bağlar", async () => {
 });
 
 test("temel sayfalar sunucu tarafında yanıt verir", async () => {
-  for (const pathname of ["/urunler", "/urunler/tavuk-urunleri", "/urunler/mangallik-et", "/hakkimizda", "/iletisim", "/gizlilik"]) {
+  for (const pathname of ["/urunler", "/urunler/tavuk-urunleri", "/urunler/mangallik-et", "/mersin-adaklik", "/hakkimizda", "/iletisim", "/gizlilik"]) {
     const response = await render(pathname);
     assert.equal(response.status, 200, pathname);
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   }
+});
+
+test("adaklık hizmeti doğru iletişim, canonical ve görünür içerikle sunulur", async () => {
+  const response = await render(adaklikService.path);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  const canonical = `https://www.akdenizkasabi.com.tr${adaklikService.path}`;
+  assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+  assert.ok(html.includes(`<title>${adaklikService.title}</title>`));
+  assert.ok(html.includes(`rel="canonical" href="${canonical}"`));
+  assert.ok(html.includes(`property="og:url" content="${canonical}"`));
+  assert.ok(html.includes('href="tel:+905537766162"'));
+  assert.ok(html.includes('data-analytics="adaklik_hero_phone_click"'));
+  assert.ok(html.includes("destination=36.8269527%2C34.6054432"));
+  assert.match(html, /Kesim ve teslimat zamanı ayrıca planlanır/);
+  assert.equal(new Set(adaklikService.districts).size, 13);
+  for (const district of adaklikService.districts) assert.ok(html.includes(district), district);
+  for (const item of adaklikService.questions) {
+    assert.ok(html.includes(item.question));
+    assert.ok(html.includes(item.answer));
+  }
+  const whatsappLinks = [...html.matchAll(/href="(https:\/\/wa\.me\/[^\"]+)"/g)]
+    .map((match) => new URL(match[1].replaceAll("&amp;", "&")));
+  assert.ok(whatsappLinks.some((url) => url.pathname === "/905537766162" && url.searchParams.get("text") === adaklikService.whatsappMessage));
+  const graph = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+    .flatMap((match) => { const value = JSON.parse(match[1]); return value["@graph"] ?? [value]; });
+  const service = graph.find((item) => item["@type"] === "Service");
+  assert.equal(service.url, canonical);
+  assert.equal(service.provider["@id"], "https://www.akdenizkasabi.com.tr/#business");
+  assert.equal(service.areaServed.name, "Mersin");
+  assert.equal(service.offers, undefined, "Doğrulanmamış sabit fiyat eklenmemeli");
+  const faq = graph.find((item) => item["@type"] === "FAQPage");
+  assert.deepEqual(faq.mainEntity.map((item) => ({ question: item.name, answer: item.acceptedAnswer.text })), adaklikService.questions);
+  const breadcrumb = graph.find((item) => item["@type"] === "BreadcrumbList");
+  assert.equal(breadcrumb.itemListElement.at(-1).item, canonical);
+  assert.doesNotMatch(html, /style="[^"]*opacity:\s*0(?:;|")/);
+});
+
+test("adaklık bölümü ana sayfa, menü ve sitemap üzerinden keşfedilir", async () => {
+  const homeHtml = await (await render("/")).text();
+  assert.ok(homeHtml.includes('id="mersin-adaklik"'));
+  assert.ok(homeHtml.includes('aria-labelledby="home-adaklik-heading"'));
+  assert.ok(homeHtml.includes('href="/mersin-adaklik"'));
+  assert.ok(homeHtml.includes('data-analytics="home_adaklik_phone_click"'));
+  const sitemapResponse = await render("/sitemap.xml");
+  assert.equal(sitemapResponse.status, 200);
+  const xml = await sitemapResponse.text();
+  assert.ok(xml.includes("<loc>https://www.akdenizkasabi.com.tr/mersin-adaklik</loc>"));
+  const locations = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
+  assert.equal(locations.length, new Set(locations).size);
+  assert.ok(locations.every((url) => url.startsWith("https://www.akdenizkasabi.com.tr/")));
 });
 
 test("sipariş ve iletişim akışları görünür", async () => {

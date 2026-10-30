@@ -47,7 +47,7 @@ export function Header() {
     >
       <div className="container-shell flex items-center justify-between gap-6">
         <Logo compact />
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Ana menü">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Ana menü">
           {navigation.map((item) => (
             <Link key={item.href} href={item.href} className="nav-link">
               {item.label}

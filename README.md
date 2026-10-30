@@ -24,6 +24,7 @@ npm run build
 - Kalıcı kategori sayfalarının özgün içerikleri: `data/product-categories.ts`
 - Blog içerikleri, konu menüsü ve ana sayfada öne çıkan rehberler: `data/blog.ts`
 - Kampanyalar: `data/campaigns.ts`
+- Adaklık hizmeti, Mersin ilçeleri ve sık sorulan sorular: `data/adaklik.ts`
 - Yayın izni alınmış doğrulanmış yorumlar: `data/testimonials.ts`
 - Gerçek mağaza ve ürün fotoğrafları: `data/gallery.ts`
 
@@ -63,7 +64,13 @@ Blogda 13 ilçe yazısı, 16 alışveriş/ürün rehberi ve 15 mutfak rehberi ol
 
 İkinci güncellemede `kitchenGuidePosts` ile 15 farklı mutfak konusu eklendi: hamburger, lahmacun içi, içli köfte harcı, patlıcan kebabı, etli bakliyat, jülyen et, fırında kuzu pirzola, köftenin dağılması, tavuk marinasyonu, airfryer, düdüklü et, pişmiş yemeklerin saklanması, çözündürme, kıyma saklama ve sucuklu kahvaltı. Saklama ve pişirme güvenliği bilgilerinde ilgili USDA kaynakları görünür olarak gösterilir. Bu yazılar standartlaştırılmış tarif veya cihaz kullanım kılavuzu değildir; `BlogPosting` olarak sunulur, `Recipe` verisi uydurulmaz.
 
-`blogTopics` ziyaretçi ihtiyacına göre altı konu grubu sunar; `featuredGuideSlugs` ana sayfadaki üç yazıyı belirler. Mutfak rehberleri blog sayfasında ayrı bir bölümde, her biri tek kartla listelenir. Ürün kategorileri ve ilgili yazılar yeni içeriklere taranabilir bağlantılar verir. Sitemap toplam 56 gerçek sayfayı içerir.
+`blogTopics` ziyaretçi ihtiyacına göre altı konu grubu sunar; `featuredGuideSlugs` ana sayfadaki üç yazıyı belirler. Mutfak rehberleri blog sayfasında ayrı bir bölümde, her biri tek kartla listelenir. Ürün kategorileri ve ilgili yazılar yeni içeriklere taranabilir bağlantılar verir. Adaklık hizmet sayfasıyla birlikte sitemap toplam 57 gerçek sayfayı içerir.
+
+## Mersin adaklık hizmeti
+
+`/mersin-adaklik`, işletmenin teyit ettiği adaklık koyun/keçi satışı, kesim ve Mersin geneli teslimat hizmetini anlatır. Ana sayfada ayrı bölüm, masaüstü/mobil menüde ve alt menüde bağlantı vardır. Telefon, adaklık mesajlı WhatsApp ve doğrudan mağazaya yol tarifi bağlantıları sunulur. 7/24 iletişim, anında kesim veya teslimat sözü olarak kullanılmaz; fiyat, hizmet kapsamı, uygunluk ve teslimat zamanı görüşmede teyit edilir. İlçeler şube olarak gösterilmez.
+
+Sayfa kendi canonical ve sosyal paylaşım metadata’sını, `Service`, görünür içerikle eşleşen `FAQPage` ve `BreadcrumbList` yapılandırılmış verisini kullanır. Sabit fiyat, yorum veya sertifika uydurulmaz. Buton olay etiketleri mevcut, varsayılan olarak kapalı analiz altyapısına bağlıdır; telefon tıklaması gerçekleşmiş görüşme veya satış anlamına gelmez. Bu güncelleme Google Ads kampanyası oluşturmaz veya harcama başlatmaz.
 
 Yeni yazı eklerken benzersiz başlık, açıklama ve slug kullanın; ilgili mevcut yazılardan ve ürün kategorilerinden bağlantı verin. `publishedAt` ilk yayın tarihidir; `updatedAt` yalnızca anlamlı içerik değiştiğinde güncellenir. Canonical, makale verisi ve sitemap blog verilerinden otomatik oluşturulur. Sabit fiyat, doğrulanmamış üretim/sertifika, başka ilçede şube veya teslimat vaadi eklemeyin. Görsellerin temsili niteliğini koruyun.
 

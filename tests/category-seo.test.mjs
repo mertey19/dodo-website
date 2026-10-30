@@ -98,7 +98,7 @@ test("ana sayfa, katalog ve bloglar kategorilere doğrudan bağlanır", { skip: 
 test("sitemap içindeki tüm adresler production domainindedir ve HTTP 200 döner", { skip: !baseUrl }, async () => {
   const { html } = await page("/sitemap.xml");
   const urls = [...html.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(urls.length, categories.length + blogPosts.length + 6);
+  assert.equal(urls.length, categories.length + blogPosts.length + 7);
   assert.equal(new Set(urls).size, urls.length);
   for (const path of paths) assert.ok(urls.includes(`${origin}${path}`));
   for (const href of urls) {
