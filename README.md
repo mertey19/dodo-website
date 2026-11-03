@@ -27,6 +27,15 @@ npm run build
 - Adaklık hizmeti, Mersin ilçeleri ve sık sorulan sorular: `data/adaklik.ts`
 - Yayın izni alınmış doğrulanmış yorumlar: `data/testimonials.ts`
 - Gerçek mağaza ve ürün fotoğrafları: `data/gallery.ts`
+- Ana sayfa/adaklık gerçek çekimleri ve video izleme sayfaları: `data/media.ts`
+
+## Gerçek fotoğraf ve videolar (3 Kasım 2026)
+
+İşletmenin sağladığı 8 fotoğraf ve 7 video ana sayfadaki `#galeri` ve adaklık sayfasındaki `#adaklik-galeri` bölümlerinde gösterilir. Fotoğrafların WebP ve 640 piksel sürümleri `public/images/gercek-cekimler` altındadır; kaynak dosyalara dokunulmaz. Video dosyaları `public/videos/gercek-cekimler` altında, mevcut görüntü/ses korunup MP4 başlangıç indeksi öne alınarak saklanır. Galeride videolar otomatik başlamaz ve `preload="none"` kullanır. Bu bölüm Instagram akışı değildir; yalnızca işletmenin profil bağlantısı vardır ve üçüncü taraf Instagram oynatıcısı yüklenmez.
+
+Her videonun `/videolar/[slug]` altında kalıcı bir izleme sayfası, kendi kapak görseli, açıklaması, canonical adresi ve `VideoObject` verisi vardır. `uploadDate` siteye eklenme tarihidir, çekim tarihi değildir. Fotoğraflar ve video kayıtları mevcut `/sitemap.xml` çıktısına eklenir; `robots.txt` aynı sitemap'i gösterir. Fotoğraf açıklamaları gerçek görüntüleri tarif eder; güncel stok, fiyat, sağlık, sertifika veya hayvan uygunluğu iddiası içermez.
+
+`npm test` sunucu çıktısını ve medya dosyalarının varlığını kontrol eder; `npx next build` Vercel derlemesini doğrular. Yayın sonrası `/sitemap.xml` ve video sayfaları Search Console üzerinden izlenmelidir. Yapılandırılmış veri veya sitemap, Google'da gösterim ve sıralama garantisi sağlamaz.
 
 Kampanyalar `active`, `startsAt` ve `endsAt` alanlarıyla otomatik olarak yayına girer veya yayından kalkar. Tarihler ISO 8601 ve saat dilimiyle yazılmalıdır; örnek: `2026-08-31T23:59:59+03:00`.
 
@@ -64,7 +73,7 @@ Blogda 13 ilçe yazısı, 16 alışveriş/ürün rehberi ve 15 mutfak rehberi ol
 
 İkinci güncellemede `kitchenGuidePosts` ile 15 farklı mutfak konusu eklendi: hamburger, lahmacun içi, içli köfte harcı, patlıcan kebabı, etli bakliyat, jülyen et, fırında kuzu pirzola, köftenin dağılması, tavuk marinasyonu, airfryer, düdüklü et, pişmiş yemeklerin saklanması, çözündürme, kıyma saklama ve sucuklu kahvaltı. Saklama ve pişirme güvenliği bilgilerinde ilgili USDA kaynakları görünür olarak gösterilir. Bu yazılar standartlaştırılmış tarif veya cihaz kullanım kılavuzu değildir; `BlogPosting` olarak sunulur, `Recipe` verisi uydurulmaz.
 
-`blogTopics` ziyaretçi ihtiyacına göre altı konu grubu sunar; `featuredGuideSlugs` ana sayfadaki üç yazıyı belirler. Mutfak rehberleri blog sayfasında ayrı bir bölümde, her biri tek kartla listelenir. Ürün kategorileri ve ilgili yazılar yeni içeriklere taranabilir bağlantılar verir. Adaklık hizmet sayfasıyla birlikte sitemap toplam 57 gerçek sayfayı içerir.
+`blogTopics` ziyaretçi ihtiyacına göre altı konu grubu sunar; `featuredGuideSlugs` ana sayfadaki üç yazıyı belirler. Mutfak rehberleri blog sayfasında ayrı bir bölümde, her biri tek kartla listelenir. Ürün kategorileri ve ilgili yazılar yeni içeriklere taranabilir bağlantılar verir. Adaklık hizmet sayfası ve yedi video izleme sayfasıyla birlikte sitemap toplam 64 gerçek sayfayı içerir.
 
 ## Mersin adaklık hizmeti
 

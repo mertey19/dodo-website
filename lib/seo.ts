@@ -1,11 +1,12 @@
 import { businessInfo } from "@/data/business";
 import { faqItems } from "@/data/faq";
+import { businessPhotos } from "@/data/media";
 import { hasConfiguredValue } from "@/lib/contact";
 import type { Metadata } from "next";
 
 export const productionSiteUrl = "https://www.akdenizkasabi.com.tr";
 
-export function getPageMetadata(path: string, title: string, description: string): Metadata {
+export function getPageMetadata(path: string, title: string, description: string, image = { url: "/og.jpg", width: 1536, height: 1024, alt: "Akdeniz Kasabı, Toroslar Mersin" }): Metadata {
   return {
     title: { absolute: title },
     description,
@@ -13,9 +14,9 @@ export function getPageMetadata(path: string, title: string, description: string
     openGraph: {
       type: "website", title, description, url: path,
       locale: "tr_TR", siteName: businessInfo.name,
-      images: [{ url: "/og.jpg", width: 1536, height: 1024, alt: "Akdeniz Kasabı, Toroslar Mersin" }],
+      images: [image],
     },
-    twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
+    twitter: { card: "summary_large_image", title, description, images: [image.url] },
   };
 }
 
@@ -62,7 +63,7 @@ export function getLocalBusinessSchema(baseUrl: URL): Record<string, unknown> {
     name: businessInfo.name,
     description: siteDescription,
     url: baseUrl.toString(),
-    image: new URL("/images/hero-butcher.jpg", baseUrl).toString(),
+    image: [businessPhotos[3].src, businessPhotos[0].src].map((path) => new URL(path, baseUrl).toString()),
     logo: {
       "@type": "ImageObject",
       "@id": new URL("/#logo", baseUrl).toString(),

@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import { MediaShowcase } from "@/components/media/MediaShowcase";
+import { adaklikCover } from "@/data/media";
+import { getMediaGallerySchema } from "@/lib/media-seo";
 import { ArrowRight, Check, ChevronDown, Clock3, MapPin, MessageCircle, Phone, Truck } from "lucide-react";
 import { adaklikService } from "@/data/adaklik";
 import { businessInfo } from "@/data/business";
 import { buildWhatsappUrl } from "@/lib/contact";
 import { getPageMetadata, productionSiteUrl } from "@/lib/seo";
 
-export const metadata: Metadata = getPageMetadata(adaklikService.path, adaklikService.title, adaklikService.description);
+export const metadata: Metadata = getPageMetadata(adaklikService.path, adaklikService.title, adaklikService.description, {
+  url: adaklikCover.src, width: adaklikCover.width, height: adaklikCover.height, alt: adaklikCover.alt,
+});
 
 const phoneHref = `tel:${businessInfo.phone.replace(/\s/g, "")}`;
 const whatsappHref = buildWhatsappUrl(adaklikService.whatsappMessage);
@@ -22,6 +28,7 @@ export default function AdaklikPage() {
         url: canonicalUrl,
         name: "Mersin adaklık koyun ve keçi satışı, kesim ve teslimat",
         description: adaklikService.description,
+        image: `${productionSiteUrl}${adaklikCover.src}`,
         serviceType: "Adaklık koyun ve keçi satışı, kesim ve teslimat",
         provider: { "@id": `${productionSiteUrl}/#business` },
         areaServed: { "@type": "AdministrativeArea", name: "Mersin" },
@@ -63,7 +70,9 @@ export default function AdaklikPage() {
               </div>
               <p className="mt-5 flex items-start gap-2 text-sm leading-6 text-cream/70"><Clock3 size={18} aria-hidden="true" className="mt-0.5 shrink-0" /> 7/24 telefonla iletişim. Kesim ve teslimat zamanı ayrıca planlanır.</p>
             </div>
-            <aside aria-label="Adaklık iletişim ve konum bilgisi" className="rounded-[2rem] border border-gold/30 bg-ink/30 p-7 sm:p-9">
+            <aside aria-label="Adaklık iletişim ve konum bilgisi" className="overflow-hidden rounded-[2rem] border border-gold/30 bg-ink/30">
+              <a href="#adaklik-galeri" aria-label="Adaklık fotoğraf ve video galerisine git"><Image src={adaklikCover.src} alt={adaklikCover.alt} width={1200} height={1600} priority sizes="(max-width: 1023px) 100vw, 40vw" className="aspect-[4/3] w-full object-cover object-[center_43%]" /></a>
+              <div className="p-7 sm:p-9">
               <p className="eyebrow text-gold">Tek görüşmede netleşsin</p>
               <h2 className="mt-4 font-display text-3xl font-semibold">Sizin için nasıl hazırlayalım?</h2>
               <ul className="mt-6 space-y-4 text-sm leading-6 text-cream/85">
@@ -73,6 +82,7 @@ export default function AdaklikPage() {
                 <p className="font-semibold">Akdeniz Kasabı · Toroslar</p>
                 <p className="mt-2 text-sm leading-6 text-cream/70">{businessInfo.address}</p>
                 <a href={businessInfo.directionsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center gap-2 rounded text-sm font-bold text-gold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" data-analytics="adaklik_directions_click"><MapPin size={18} aria-hidden="true" /> Yol Tarifi</a>
+              </div>
               </div>
             </aside>
           </div>
@@ -89,6 +99,8 @@ export default function AdaklikPage() {
           <p className="mt-7 text-sm leading-7 text-muted">Bu sayfa bilgilendirme amaçlıdır. Aramanız veya mesajınız otomatik ödeme ya da kesinleşmiş sipariş oluşturmaz; fiyat ve hizmet ayrıntıları karşılıklı teyit edilir.</p>
         </div>
       </section>
+
+      <MediaShowcase adaklik />
 
       <section aria-labelledby="adaklik-process-heading" className="section-space bg-paper">
         <div className="container-shell grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
@@ -117,6 +129,7 @@ export default function AdaklikPage() {
         </div>
       </section>
       <script id="adaklik-service-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getMediaGallerySchema(adaklikService.path)).replace(/</g, "\\u003c") }} />
     </>
   );
 }

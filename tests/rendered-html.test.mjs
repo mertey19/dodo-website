@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { blogTopics, kitchenGuidePosts, localGuidePosts } from "../data/blog.ts";
 import { adaklikService } from "../data/adaklik.ts";
+import { businessPhotos, businessVideos, getVideoPath } from "../data/media.ts";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -112,6 +113,65 @@ test("sipariş ve iletişim akışları görünür", async () => {
 
   const contactResponse = await render("/iletisim");
   assert.match(await contactResponse.text(), /WhatsApp’ta Gönder/);
+});
+
+test("ana sayfa ve adaklık galerileri fotoğraf, video ve Instagram bağlantılarını SSR ile sunar", async () => {
+  for (const pathname of ["/", "/mersin-adaklik"]) {
+    const html = await (await render(pathname)).text();
+    assert.ok(html.includes('href="https://www.instagram.com/akdenizkasabi33/"'));
+    for (const photo of businessPhotos) {
+      assert.ok(html.includes(`href="${photo.src}"`), photo.src);
+      assert.ok(html.includes(`alt="${photo.alt}"`), photo.alt);
+    }
+    const videos = [...html.matchAll(/<video\b[^>]*>/g)].map((match) => match[0]);
+    assert.equal(videos.length, 7);
+    assert.ok(videos.every((tag) => tag.includes('preload="none"') && !/autoplay/i.test(tag)));
+    for (const video of businessVideos) {
+      assert.ok(html.includes(`src="${video.src}"`));
+      assert.ok(html.includes(`href="${getVideoPath(video.slug)}"`));
+    }
+    assert.match(html, /ImageGallery/);
+    assert.doesNotMatch(html, /instagram.com\/embed|instagram.com\/reel/);
+  }
+});
+
+test("her video kendi canonical, gerçek süresi ve VideoObject verisiyle sunulur", async () => {
+  for (const video of businessVideos) {
+    const path = getVideoPath(video.slug);
+    const response = await render(path);
+    assert.equal(response.status, 200, path);
+    const html = await response.text();
+    assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+    assert.equal([...html.matchAll(/<video\b/g)].length, 1);
+    assert.ok(html.includes(`rel="canonical" href="https://www.akdenizkasabi.com.tr${path}"`));
+    const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    const schema = schemas.find((item) => item["@type"] === "VideoObject");
+    assert.equal(schema.name, video.title);
+    assert.equal(schema.description, video.description);
+    assert.equal(schema.contentUrl, `https://www.akdenizkasabi.com.tr${video.src}`);
+    assert.equal(schema.thumbnailUrl, `https://www.akdenizkasabi.com.tr${video.poster}`);
+    assert.equal(schema.duration, `PT${video.durationSeconds}S`);
+    assert.equal(schema.uploadDate, video.uploadDate);
+    assert.ok(html.includes(`poster="${video.poster}"`));
+  }
+  const invalid = await render("/videolar/boyle-bir-video-yok");
+  assert.equal(invalid.status, 404);
+});
+
+test("sitemap tüm gerçek fotoğrafları ve yedi videoyu production adresleriyle içerir", async () => {
+  const response = await render("/sitemap.xml");
+  assert.equal(response.status, 200);
+  const xml = await response.text();
+  assert.match(xml, /xmlns:image=/);
+  assert.match(xml, /xmlns:video=/);
+  for (const photo of businessPhotos) assert.ok(xml.includes(`<image:loc>https://www.akdenizkasabi.com.tr${photo.src}</image:loc>`));
+  for (const video of businessVideos) {
+    assert.ok(xml.includes(`<loc>https://www.akdenizkasabi.com.tr${getVideoPath(video.slug)}</loc>`));
+    assert.ok(xml.includes(`<video:content_loc>https://www.akdenizkasabi.com.tr${video.src}</video:content_loc>`));
+    assert.ok(xml.includes(`<video:thumbnail_loc>https://www.akdenizkasabi.com.tr${video.poster}</video:thumbnail_loc>`));
+  }
+  assert.equal([...xml.matchAll(/<video:video>/g)].length, 7);
+  assert.doesNotMatch(xml, /localhost|127\.0\.0\.1|example\.com|vercel\.app/);
 });
 
 test("konu menüsü ve yeni rehberler JavaScript beklemeden sunulur", async () => {

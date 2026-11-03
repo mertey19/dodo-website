@@ -4,6 +4,7 @@ import test from "node:test";
 import { categories, getCategoryHref, products } from "../data/products.ts";
 import { categoryContent } from "../data/product-categories.ts";
 import { blogPosts } from "../data/blog.ts";
+import { businessVideos } from "../data/media.ts";
 
 const origin = "https://www.akdenizkasabi.com.tr";
 const baseUrl = process.env.TEST_BASE_URL;
@@ -98,7 +99,7 @@ test("ana sayfa, katalog ve bloglar kategorilere doğrudan bağlanır", { skip: 
 test("sitemap içindeki tüm adresler production domainindedir ve HTTP 200 döner", { skip: !baseUrl }, async () => {
   const { html } = await page("/sitemap.xml");
   const urls = [...html.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(urls.length, categories.length + blogPosts.length + 7);
+  assert.equal(urls.length, categories.length + blogPosts.length + businessVideos.length + 7);
   assert.equal(new Set(urls).size, urls.length);
   for (const path of paths) assert.ok(urls.includes(`${origin}${path}`));
   for (const href of urls) {

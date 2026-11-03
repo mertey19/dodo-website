@@ -2,17 +2,33 @@ import { productionSiteUrl } from "@/lib/seo";
 import { blogPosts } from "@/data/blog";
 import { categories, getCategoryHref } from "@/data/products";
 import type { MetadataRoute } from "next";
+import { businessPhotos, businessVideos, getVideoPath, mediaPublishedAt } from "@/data/media";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = new URL(productionSiteUrl);
   return [
-    { url: new URL("/", baseUrl).toString(), changeFrequency: "weekly", priority: 1 },
+    { url: new URL("/", baseUrl).toString(), lastModified: mediaPublishedAt, changeFrequency: "weekly", priority: 1, images: businessPhotos.map((photo) => new URL(photo.src, baseUrl).toString()) },
     { url: new URL("/urunler", baseUrl).toString(), changeFrequency: "weekly", priority: 0.9 },
-    { url: new URL("/mersin-adaklik", baseUrl).toString(), changeFrequency: "monthly", priority: 0.9 },
+    { url: new URL("/mersin-adaklik", baseUrl).toString(), lastModified: mediaPublishedAt, changeFrequency: "monthly", priority: 0.9, images: businessPhotos.map((photo) => new URL(photo.src, baseUrl).toString()) },
     { url: new URL("/hakkimizda", baseUrl).toString(), changeFrequency: "monthly", priority: 0.7 },
     { url: new URL("/iletisim", baseUrl).toString(), changeFrequency: "monthly", priority: 0.8 },
     { url: new URL("/gizlilik", baseUrl).toString(), changeFrequency: "yearly", priority: 0.3 },
     { url: new URL("/blog", baseUrl).toString(), changeFrequency: "weekly", priority: 0.8 },
+    ...businessVideos.map((video) => ({
+      url: new URL(getVideoPath(video.slug), baseUrl).toString(),
+      lastModified: video.uploadDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      images: [new URL(video.poster, baseUrl).toString()],
+      videos: [{
+        title: video.title,
+        description: video.description,
+        thumbnail_loc: new URL(video.poster, baseUrl).toString(),
+        content_loc: new URL(video.src, baseUrl).toString(),
+        duration: Math.round(video.durationSeconds),
+        publication_date: video.uploadDate,
+      }],
+    })),
     ...categories.map((category) => ({
       url: new URL(getCategoryHref(category.id), baseUrl).toString(),
       changeFrequency: "weekly" as const,

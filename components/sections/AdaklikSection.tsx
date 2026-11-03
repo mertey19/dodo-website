@@ -2,6 +2,8 @@ import { businessInfo } from "@/data/business";
 import { adaklikService } from "@/data/adaklik";
 import { ArrowRight, Clock3, Phone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { adaklikCover } from "@/data/media";
 
 export function AdaklikSection() {
   return (
@@ -18,11 +20,14 @@ export function AdaklikSection() {
                 Adaklık hizmetini inceleyin <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>
-            <div className="rounded-2xl border border-cream/20 bg-ink/25 p-6 sm:p-8">
+            <div className="overflow-hidden rounded-2xl border border-cream/20 bg-ink/25">
+              <Link href="/mersin-adaklik#adaklik-galeri" aria-label="Adaklık fotoğraf ve videolarını inceleyin"><Image src={adaklikCover.src} alt={adaklikCover.alt} width={1200} height={1600} sizes="(max-width: 1023px) 100vw, 40vw" className="aspect-[4/3] w-full object-cover object-[center_43%]" /></Link>
+              <div className="p-6 sm:p-8">
               <p className="flex items-center gap-2 text-sm font-semibold text-gold"><Clock3 size={18} aria-hidden="true" /> 7/24 telefonla bilgi</p>
               <a href={`tel:${businessInfo.phone.replace(/\s/g, "")}`} className="mt-5 block rounded font-display text-3xl font-semibold tracking-tight hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:text-4xl" data-analytics="home_adaklik_phone_click">0553 776 61 62</a>
               <a href={`tel:${businessInfo.phone.replace(/\s/g, "")}`} className="button-gold mt-6 w-full justify-center" data-analytics="home_adaklik_phone_click"><Phone size={18} aria-hidden="true" /> Adaklık İçin Arayın</a>
               <p className="mt-4 text-xs leading-6 text-cream/70">Kesim ve teslimat zamanı görüşmede planlanır. Güncel seçenekler ve fiyat için arayın.</p>
+              </div>
             </div>
           </div>
         </div>

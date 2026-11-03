@@ -15,7 +15,7 @@ export const businessInfo = {
   coordinates: { latitude: 36.8269527, longitude: 34.6054432 },
   directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=36.8269527%2C34.6054432&travelmode=driving&dir_action=navigate",
   mapEmbedUrl: "https://www.google.com/maps?cid=15433133215550243945&output=embed&z=18",
-  instagramUrl: "",
+  instagramUrl: "https://www.instagram.com/akdenizkasabi33/",
   timeZone: "Europe/Istanbul",
   alwaysOpen: true,
   workingHours: {

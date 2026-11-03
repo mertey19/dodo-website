@@ -1,6 +1,9 @@
 import { ContactDetails } from "@/components/sections/ContactDetails";
 import { BlogPreview } from "@/components/blog/BlogPreview";
 import { AdaklikSection } from "@/components/sections/AdaklikSection";
+import { MediaShowcase } from "@/components/media/MediaShowcase";
+import { getMediaGallerySchema } from "@/lib/media-seo";
+import { businessPhotos } from "@/data/media";
 import {
   CampaignsSection,
   CategoriesSection,
@@ -9,7 +12,6 @@ import {
   HeroSection,
   OrderProcessSection,
   ServiceInfoSection,
-  StoreGallerySection,
   TestimonialsSection,
   TrustSection,
   WhyUsSection,
@@ -21,6 +23,7 @@ export const metadata: Metadata = getPageMetadata(
   "/",
   "Mersin Kasap | 7/24 Açık Akdeniz Kasabı",
   "Mersin Toroslar’daki Akdeniz Kasabı 7/24 açık. Dana, kuzu, tavuk, kıyma ve kasap köfte ürünlerini inceleyin; güncel fiyatı WhatsApp’tan öğrenin.",
+  { url: businessPhotos[3].src, width: businessPhotos[3].width, height: businessPhotos[3].height, alt: businessPhotos[3].alt },
 );
 
 export default function HomePage() {
@@ -34,13 +37,14 @@ export default function HomePage() {
       <FeaturedProductsSection />
       <CampaignsSection />
       <WhyUsSection />
-      <StoreGallerySection />
+      <MediaShowcase />
       <OrderProcessSection />
       <ServiceInfoSection />
       <TestimonialsSection />
       <BlogPreview />
       <FAQSection />
       <ContactDetails />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getMediaGallerySchema("/")).replace(/</g, "\\u003c") }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}

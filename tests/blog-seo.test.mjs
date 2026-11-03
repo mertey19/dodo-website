@@ -4,6 +4,7 @@ import test from "node:test";
 import { blogPosts, blogTopics, districtPosts, featuredGuideSlugs, guidePosts, kitchenGuidePosts, localGuidePosts, productGuidePosts } from "../data/blog.ts";
 import { categories, getCategoryHref } from "../data/products.ts";
 import { categoryContent } from "../data/product-categories.ts";
+import { businessVideos } from "../data/media.ts";
 
 const origin = "https://www.akdenizkasabi.com.tr";
 const baseUrl = process.env.TEST_BASE_URL;
@@ -208,7 +209,7 @@ test("sitemap yeni yazıları yalnızca production domain ile içerir", { skip: 
   assert.equal(response.status, 200);
   const urls = [...html.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
   assert.equal(new Set(urls).size, urls.length);
-  assert.equal(urls.length, blogPosts.length + categories.length + 7);
+  assert.equal(urls.length, blogPosts.length + categories.length + businessVideos.length + 7);
   for (const url of urls) assert.equal(new URL(url).origin, origin);
   for (const path of ["/blog", ...blogPosts.map((post) => `/blog/${post.slug}`)]) {
     assert.ok(urls.includes(`${origin}${path}`), path);
