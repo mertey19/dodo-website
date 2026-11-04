@@ -1,8 +1,14 @@
 export const adaklikService = {
   path: "/mersin-adaklik",
   title: "Mersin Adaklık Koyun ve Keçi | Akdeniz Kasabı",
+  updatedAt: "2026-11-04",
   description:
-    "Mersin’de adaklık koyun ve keçi satışı, kesim ve teslimat için Akdeniz Kasabı’na ulaşın. Güncel fiyat ve planlama için 0553 776 61 62’den 7/24 bilgi alın.",
+    "Mersin adaklık koyun ve keçi için Akdeniz Kasabı. Et parçalama ve benzeri hazırlık işlemleri ücretsizdir. Fiyat, kesim ve teslimat için 7/24 bilgi alın.",
+  freePreparation: {
+    title: "Et parçalama ücretsiz!",
+    text: "Adaklık hizmetimizde et parçalama ve benzeri hazırlık işlemleri için ek ücret almıyoruz.",
+    scopeNote: "Ücretsiz hazırlığın kapsamını sipariş sırasında birlikte netleştirelim. Adaklık bedeli, kesim ve teslimat koşulları ayrıca görüşülür.",
+  },
   whatsappMessage:
     "Merhaba Akdeniz Kasabı, Mersin’de adaklık koyun veya keçi için bilgi almak istiyorum. Güncel seçenekleri, fiyatı, kesim ve teslimat ayrıntılarını paylaşabilir misiniz?",
   districts: [
@@ -16,7 +22,7 @@ export const adaklikService = {
     },
     {
       title: "Kesim planlaması",
-      text: "Kesim talebinizi, istediğiniz tarihi ve hazırlama beklentinizi görüşmede belirtin. Hizmet kapsamını ve uygun zamanı birlikte netleştirelim.",
+      text: "Kesim talebinizi ve istediğiniz tarihi paylaşın. Et parçalama ve benzeri hazırlık işlemleri ücretsizdir; hazırlama tercihinizi sipariş sırasında bize iletin. Kesim koşulları ve uygun zaman ayrıca netleştirilir.",
     },
     {
       title: "Mersin geneli teslimat",
@@ -29,6 +35,10 @@ export const adaklikService = {
     { title: "Planı birlikte kesinleştirelim", text: "Seçim, toplam bedel, kesim zamanı ve teslim ayrıntıları karşılıklı teyit edildikten sonra siparişinizi planlayalım." },
   ],
   questions: [
+    {
+      question: "Adaklık et parçalama işlemi ücretli mi?",
+      answer: "Hayır. Akdeniz Kasabı’nda adaklık hizmeti kapsamında et parçalama ve benzeri hazırlık işlemleri ücretsizdir; bu işlemler için ek ücret almıyoruz. Hazırlama tercihinizi ve ücretsiz hizmet kapsamını sipariş sırasında netleştirebilirsiniz. Adaklık bedeli, kesim ve teslimat koşulları ayrıca görüşülür.",
+    },
     {
       question: "Mersin adaklık fiyatlarını nasıl öğrenebilirim?",
       answer: "Adaklık fiyatı koyun veya keçi seçimine, mevcut hayvana ve talep edilen hizmete göre değişir. Güncel fiyatı 0553 776 61 62’den veya WhatsApp üzerinden öğrenebilirsiniz. Kesim ve teslimatın teklife dahil olup olmadığını görüşmede netleştirin.",

@@ -64,6 +64,11 @@ export default function AdaklikPage() {
               <p className="eyebrow text-gold">Koyun · Keçi · Kesim · Teslimat</p>
               <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.04] tracking-tight sm:text-6xl lg:text-7xl">Mersin adaklık:<br /><span className="text-gold">birlikte planlayalım.</span></h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-cream/80">Akdeniz Kasabı’nda adaklık koyun ve keçi satışı, kesim ve Mersin geneli teslimat için doğrudan bilgi alın. Tercihinizi ve tarihinizi paylaşın; güncel seçenekleri, fiyatı ve hizmet kapsamını birlikte netleştirelim.</p>
+              <div aria-labelledby="free-preparation-heading" className="mt-6 max-w-2xl rounded-2xl border border-gold/40 bg-ink/20 p-5 sm:p-6">
+                <h2 id="free-preparation-heading" className="flex items-center gap-2 text-lg font-bold text-gold"><Check size={20} aria-hidden="true" />{adaklikService.freePreparation.title}</h2>
+                <p className="mt-2 text-sm leading-7 text-cream/90">{adaklikService.freePreparation.text}</p>
+                <p className="mt-2 text-xs leading-6 text-cream/70">{adaklikService.freePreparation.scopeNote}</p>
+              </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a href={phoneHref} className="button-gold justify-center" data-analytics="adaklik_hero_phone_click"><Phone size={19} aria-hidden="true" /> 0553 776 61 62 · Arayın</a>
                 <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="button-light-outline justify-center" data-analytics="adaklik_hero_whatsapp_click"><MessageCircle size={19} aria-hidden="true" /> WhatsApp’tan Bilgi Alın</a>

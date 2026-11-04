@@ -107,6 +107,25 @@ test("adaklık bölümü ana sayfa, menü ve sitemap üzerinden keşfedilir", as
   assert.ok(locations.every((url) => url.startsWith("https://www.akdenizkasabi.com.tr/")));
 });
 
+test("ücretsiz et parçalama bilgisi görünür ve kesim/teslimattan ayrı tutulur", async () => {
+  for (const pathname of ["/", "/mersin-adaklik"]) {
+    const html = await (await render(pathname)).text();
+    assert.ok(html.includes(adaklikService.freePreparation.text));
+    assert.ok(html.includes(adaklikService.freePreparation.scopeNote));
+    assert.doesNotMatch(html, /kesim ve teslimat ücretsizdir|tüm işlemler ücretsizdir/i);
+  }
+  const html = await (await render("/mersin-adaklik")).text();
+  assert.ok(html.includes('id="free-preparation-heading"'));
+  assert.ok(html.includes(adaklikService.freePreparation.title));
+  assert.ok(html.includes("Adaklık et parçalama işlemi ücretli mi?"));
+  const xml = await (await render("/sitemap.xml")).text();
+  for (const path of ["/", "/mersin-adaklik"]) {
+    const entry = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].find((match) => match[1].includes(`<loc>https://www.akdenizkasabi.com.tr${path}</loc>`));
+    assert.ok(entry);
+    assert.match(entry[1], /<lastmod>2026-11-04/);
+  }
+});
+
 test("sipariş ve iletişim akışları görünür", async () => {
   const productsResponse = await render("/urunler");
   assert.match(await productsResponse.text(), /Sipariş Listem/);

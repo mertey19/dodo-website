@@ -16,6 +16,8 @@ export function AdaklikSection() {
               <p className="eyebrow text-gold">Akdeniz Kasabı · Mersin geneli</p>
               <h2 id="home-adaklik-heading" className="mt-4 max-w-xl font-display text-4xl font-semibold leading-tight sm:text-5xl">Mersin adaklık koyun ve keçi</h2>
               <p className="mt-5 max-w-2xl leading-7 text-cream/80">Adaklık seçimi, kesim ve teslimat için bize ulaşın. Güncel fiyatı ve ihtiyacınıza uygun planı tek görüşmede netleştirelim.</p>
+              <p className="mt-5 max-w-2xl font-semibold leading-7 text-gold">{adaklikService.freePreparation.text}</p>
+              <p className="mt-2 max-w-2xl text-xs leading-6 text-cream/70">{adaklikService.freePreparation.scopeNote}</p>
               <Link href={adaklikService.path} className="mt-6 inline-flex min-h-11 items-center gap-2 rounded text-sm font-bold text-gold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" data-analytics="home_adaklik_details_click">
                 Adaklık hizmetini inceleyin <ArrowRight size={18} aria-hidden="true" />
               </Link>
