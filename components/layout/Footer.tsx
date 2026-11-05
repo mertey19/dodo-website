@@ -31,6 +31,7 @@ export function Footer() {
           <h2 className="footer-title">Hızlı Menü</h2>
           <ul className="mt-5 space-y-3 text-sm text-cream/65">
             <li><a href="/#galeri" className="transition-colors hover:text-gold">Fotoğraf ve Videolar</a></li>
+            <li><a href="/#kampanyalar" className="transition-colors hover:text-gold">Kampanyalar</a></li>
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="transition-colors hover:text-gold">

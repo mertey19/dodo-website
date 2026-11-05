@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/common/PageHero";
+import { CatalogTeaser } from "@/components/catalog/CatalogTeaser";
 import { ProductExplorer } from "@/components/products/ProductExplorer";
 import { ProductBuyingGuides } from "@/components/blog/ProductBuyingGuides";
 import { CategoryNavigation } from "@/components/products/CategoryNavigation";
@@ -27,6 +28,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         </div>
       </section>
       <ProductExplorer initialCategory={params.kategori} />
+      <CatalogTeaser />
       <ProductBuyingGuides />
     </>
   );

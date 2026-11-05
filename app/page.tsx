@@ -4,6 +4,7 @@ import { AdaklikSection } from "@/components/sections/AdaklikSection";
 import { MediaShowcase } from "@/components/media/MediaShowcase";
 import { getMediaGallerySchema } from "@/lib/media-seo";
 import { businessPhotos } from "@/data/media";
+import { CatalogTeaser } from "@/components/catalog/CatalogTeaser";
 import {
   CampaignsSection,
   CategoriesSection,
@@ -33,6 +34,7 @@ export default function HomePage() {
       <HeroSection />
       <TrustSection />
       <AdaklikSection />
+      <CatalogTeaser />
       <CategoriesSection />
       <FeaturedProductsSection />
       <CampaignsSection />

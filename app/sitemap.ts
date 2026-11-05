@@ -4,12 +4,14 @@ import { categories, getCategoryHref } from "@/data/products";
 import type { MetadataRoute } from "next";
 import { businessPhotos, businessVideos, getVideoPath, mediaPublishedAt } from "@/data/media";
 import { adaklikService } from "@/data/adaklik";
+import { catalog } from "@/data/catalog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = new URL(productionSiteUrl);
   const adaklikUpdatedAt = new Date(Math.max(Date.parse(mediaPublishedAt), Date.parse(adaklikService.updatedAt)));
   return [
-    { url: new URL("/", baseUrl).toString(), lastModified: adaklikUpdatedAt, changeFrequency: "weekly", priority: 1, images: businessPhotos.map((photo) => new URL(photo.src, baseUrl).toString()) },
+    { url: new URL("/", baseUrl).toString(), lastModified: new Date(Math.max(adaklikUpdatedAt.getTime(), Date.parse(catalog.updatedAt))), changeFrequency: "weekly", priority: 1, images: businessPhotos.map((photo) => new URL(photo.src, baseUrl).toString()) },
+    { url: new URL(catalog.path, baseUrl).toString(), lastModified: catalog.updatedAt, changeFrequency: "monthly", priority: 0.9 },
     { url: new URL("/urunler", baseUrl).toString(), changeFrequency: "weekly", priority: 0.9 },
     { url: new URL("/mersin-adaklik", baseUrl).toString(), lastModified: adaklikUpdatedAt, changeFrequency: "monthly", priority: 0.9, images: businessPhotos.map((photo) => new URL(photo.src, baseUrl).toString()) },
     { url: new URL("/hakkimizda", baseUrl).toString(), changeFrequency: "monthly", priority: 0.7 },

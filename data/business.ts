@@ -44,7 +44,7 @@ export const navigation = [
   { label: "Ana Sayfa", href: "/" },
   { label: "Ürünlerimiz", href: "/urunler" },
   { label: "Mersin Adaklık", href: "/mersin-adaklik" },
-  { label: "Kampanyalar", href: "/#kampanyalar" },
+  { label: "Katalog", href: "/katalog" },
   { label: "Blog", href: "/blog" },
   { label: "Hakkımızda", href: "/hakkimizda" },
   { label: "İletişim", href: "/iletisim" },

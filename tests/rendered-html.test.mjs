@@ -4,6 +4,9 @@ import test from "node:test";
 import { blogTopics, kitchenGuidePosts, localGuidePosts } from "../data/blog.ts";
 import { adaklikService } from "../data/adaklik.ts";
 import { businessPhotos, businessVideos, getVideoPath } from "../data/media.ts";
+import { catalog } from "../data/catalog.ts";
+import { products } from "../data/products.ts";
+import { campaigns } from "../data/campaigns.ts";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -122,8 +125,44 @@ test("ücretsiz et parçalama bilgisi görünür ve kesim/teslimattan ayrı tutu
   for (const path of ["/", "/mersin-adaklik"]) {
     const entry = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].find((match) => match[1].includes(`<loc>https://www.akdenizkasabi.com.tr${path}</loc>`));
     assert.ok(entry);
-    assert.match(entry[1], /<lastmod>2026-11-04/);
+    const lastModified = entry[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+    assert.ok(Date.parse(lastModified) >= Date.parse(adaklikService.updatedAt));
   }
+});
+
+test("katalog tüm ürünleri, paketleri ve adaklığı fiyat uydurmadan sunar", async () => {
+  const response = await render(catalog.path);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.ok(html.includes('rel="canonical" href="https://www.akdenizkasabi.com.tr/katalog"'));
+  assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
+  const ids = catalog.groups.flatMap((group) => group.productIds);
+  assert.equal(ids.length, products.length);
+  assert.equal(new Set(ids).size, products.length);
+  for (const product of products) {
+    assert.ok(ids.includes(product.id));
+    assert.ok(html.includes(`<h3 class="font-display text-2xl font-semibold">${product.name}</h3>`));
+    assert.ok(html.includes(`id="${product.id}"`));
+  }
+  for (const campaign of campaigns.filter((item) => item.active)) assert.ok(html.includes(campaign.title));
+  assert.ok(html.includes(adaklikService.freePreparation.text));
+  assert.ok(html.includes(adaklikService.freePreparation.scopeNote));
+  assert.ok(html.includes(catalog.priceLabel));
+  assert.ok(html.includes(catalog.imageNote));
+  assert.ok(html.includes(`href="${catalog.pdfPath}" download`));
+  const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+  const collection = schemas.find((item) => item["@type"] === "CollectionPage");
+  assert.equal(collection.mainEntity.itemListElement.length, products.length + campaigns.filter((item) => item.active).length + 1);
+  assert.doesNotMatch(JSON.stringify(collection), /"price"|"offers"|InStock/);
+  assert.doesNotMatch(html, /\d\s*(?:TL|₺)/);
+  const pdf = await readFile(new URL(`../public${catalog.pdfPath}`, import.meta.url));
+  assert.equal(pdf.subarray(0, 5).toString(), "%PDF-");
+  assert.ok(pdf.length > 100_000);
+  const home = await (await render("/")).text();
+  assert.ok(home.includes('href="/katalog"'));
+  assert.ok(home.includes('id="catalog-teaser-title"'));
+  const sitemap = await (await render("/sitemap.xml")).text();
+  assert.ok(sitemap.includes("<loc>https://www.akdenizkasabi.com.tr/katalog</loc>"));
 });
 
 test("sipariş ve iletişim akışları görünür", async () => {
